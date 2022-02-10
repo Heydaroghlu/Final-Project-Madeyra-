@@ -1,0 +1,139 @@
+* {
+  font-family: 'Poppins', sans-serif;
+  src: url(../font/Poppins-SemiBold.ttf);
+  text-decoration: none;
+}
+
+.header-top {
+  background-color: #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 2.8rem;
+}
+
+.header-top .logo img {
+  width: 7.3rem;
+}
+
+.header-top .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header-top i {
+  font-size: 1.1rem;
+}
+
+.header-top .call {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-top .call span {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
+
+.header-top .header-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.header-top .header-icons a {
+  text-decoration: none;
+}
+
+.header-top .header-icons i {
+  font-size: 1.1rem;
+  margin-left: 1.5rem;
+}
+
+.header-top .header-icons i:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.header-top .header-icons img {
+  margin-top: -0.3rem;
+  width: 1.2rem;
+  margin-left: 1.5rem;
+}
+
+.header-top .header-icons .fa-caret-down {
+  font-size: 0.9rem;
+  color: black;
+}
+
+.header-bottom {
+  height: 3rem;
+  background-color: #df2027;
+}
+
+.header-bottom .cataloq {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3rem;
+  background-color: white;
+}
+
+.header-bottom .cataloq span {
+  margin-left: 0.5rem;
+}
+
+.header-bottom ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: -3.7rem;
+}
+
+.header-bottom ul li {
+  margin-left: 2rem;
+  list-style: none;
+}
+
+.header-bottom ul li a {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.header-bottom ul li a:hover {
+  color: black;
+}
+/*# sourceMappingURL=style.css.map */
