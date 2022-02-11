@@ -1,3 +1,21 @@
+@media (max-width: 991.98px) {
+  .hesab-icons h6 {
+    display: none;
+  }
+  .header-bottom .col-xl-4 {
+    display: none;
+  }
+  #user-icon {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  #headtop {
+    display: none;
+  }
+}
+
 * {
   font-family: 'Poppins', sans-serif;
   src: url(../font/Poppins-SemiBold.ttf);
@@ -67,7 +85,7 @@
 
 .header-top .header-icons i {
   font-size: 1.1rem;
-  margin-left: 1.5rem;
+  margin-left: 1.66rem;
 }
 
 .header-top .header-icons i:hover {
@@ -106,7 +124,7 @@
   margin-left: 0.5rem;
 }
 
-.header-bottom ul {
+.header-bottom .col-xl-4 ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -117,12 +135,12 @@
   margin-left: -3.7rem;
 }
 
-.header-bottom ul li {
+.header-bottom .col-xl-4 ul li {
   margin-left: 2rem;
   list-style: none;
 }
 
-.header-bottom ul li a {
+.header-bottom .col-xl-4 ul li a {
   font-family: 'Poppins', sans-serif;
   color: white;
   text-decoration: none;
@@ -133,7 +151,406 @@
   font-weight: 500;
 }
 
-.header-bottom ul li a:hover {
+.header-bottom .col-xl-4 ul li a:hover {
   color: black;
+}
+
+.header-bottom .hesab-icons {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-bottom .hesab-icons .dropdown {
+  z-index: 99;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.header-bottom .hesab-icons .dropdown .fa-user {
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+.header-bottom .hesab-icons .dropdown h6 {
+  cursor: pointer;
+  margin-top: 4%;
+  color: white;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.header-bottom .hesab-icons .dropdown h6 i {
+  margin-top: 0.1rem;
+  margin-left: 0.3rem;
+  position: absolute;
+}
+
+.header-bottom .hesab-icons .dropdown .dropdown-menu1 {
+  height: 100%;
+  width: 8.3rem;
+  position: absolute;
+  left: -100%;
+  top: 100%;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.header-bottom .hesab-icons .dropdown .dropdown-menu1 ul {
+  padding-left: 0%;
+}
+
+.header-bottom .hesab-icons .dropdown .dropdown-menu1 ul li {
+  cursor: pointer;
+  list-style: none;
+}
+
+.header-bottom .hesab-icons .dropdown .dropdown-menu1 ul li a {
+  margin-left: 10%;
+  font-size: 0.8rem;
+  color: black;
+  text-decoration: none;
+}
+
+.header-bottom .hesab-icons .dropdown .dropdown-menu1 ul li:hover {
+  background-color: #e6e6e6;
+}
+
+.header-bottom .hesab-icons .dropdown .dropdown-menu1 ul li:hover a {
+  color: red;
+}
+
+.header-bottom .hesab-icons .fa-heart {
+  color: white;
+  font-size: 1.3rem;
+  margin-left: 2rem;
+}
+
+.header-bottom .hesab-icons .shop-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.header-bottom .hesab-icons .fa-cart-shopping {
+  position: absolute;
+  color: white;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
+.header-bottom .hesab-icons span {
+  position: absolute;
+  height: 1.15rem;
+  width: 1.15rem;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 10%;
+  right: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header-bottom .menu-class {
+  display: none;
+}
+
+.header-bottom .search {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-bottom .search input {
+  width: 22rem;
+  height: 2.3rem;
+}
+
+.header-bottom .search input::-webkit-input-placeholder {
+  font-size: 0.8rem;
+}
+
+.header-bottom .search input:-ms-input-placeholder {
+  font-size: 0.8rem;
+}
+
+.header-bottom .search input::-ms-input-placeholder {
+  font-size: 0.8rem;
+}
+
+.header-bottom .search input::placeholder {
+  font-size: 0.8rem;
+}
+
+.header-bottom .search .fa-magnifying-glass {
+  cursor: pointer;
+  background-color: white;
+  width: 3rem;
+  height: 2.3rem;
+  margin-left: -0.3rem;
+  border-radius: 0.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header-bottom .search .fa-magnifying-glass:hover {
+  background-color: #eeeeee;
+}
+
+.cards {
+  width: 100%;
+  text-align: center;
+}
+
+.cards .card {
+  margin-top: 2rem;
+  height: 9rem;
+}
+
+.cards .card h5 {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-family: 'Poppins';
+  font-size: 1rem;
+}
+
+.cards .card .image {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cards .card .image .card-image {
+  border-radius: 50%;
+}
+
+.cards .card .card-image {
+  height: 3rem;
+  width: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #df2027;
+}
+
+.reclam {
+  height: 100%;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.reclam .reclam-image {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  margin: auto;
+  overflow: hidden;
+}
+
+.reclam .reclam-image img {
+  position: relative;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+  width: 100%;
+  height: 100%;
+}
+
+.reclam .reclam-image:hover img {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+.favorite {
+  height: 100%;
+  padding-top: 1.5rem;
+}
+
+.favorite h6 {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: -0.4rem;
+}
+
+.favorite .card {
+  cursor: pointer;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+.favorite .card img {
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+  position: relative;
+}
+
+.favorite .card .credit-tag {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.favorite .card .credit-tag .price {
+  height: 2.4rem;
+  width: 2.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 3px solid #ff0000;
+  text-align: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: #bbbbbb;
+  border-radius: 50%;
+  z-index: 99;
+}
+
+.favorite .card .credit-tag .tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: -1rem;
+  height: 1.8rem;
+  width: 6.2rem;
+  background-color: #ff0000;
+  color: white;
+}
+
+.favorite .card .credit-tag .tag span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.favorite .card i {
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+  height: 2rem;
+  width: 2rem;
+  background-color: white;
+  position: absolute;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  bottom: 35%;
+  right: 3%;
+  opacity: 0;
+}
+
+.favorite .card .favorite-price span {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.favorite .card .favorite-price .oldprice {
+  color: #df2027;
+  text-decoration: line-through;
+}
+
+.favorite .card:hover {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.favorite .card:hover img {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.favorite .card:hover i {
+  opacity: 1;
+}
+
+.end h6 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.end p {
+  font-size: 0.88rem;
+}
+
+.new {
+  height: 100%;
+  padding-top: 1.5rem;
+}
+
+.new h6 {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: -0.4rem;
 }
 /*# sourceMappingURL=style.css.map */

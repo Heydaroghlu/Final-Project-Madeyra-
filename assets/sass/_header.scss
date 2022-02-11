@@ -36,12 +36,13 @@
         justify-content: end;
         align-items: center;
         height: 100%;
+        
         a{
             text-decoration: none;
         }
         i{
             font-size: 1.1rem;
-            margin-left: 1.5rem;
+            margin-left: 1.66rem;
         }
         i:hover{
             transform: scale(1.2);
@@ -69,27 +70,148 @@
             margin-left: 0.5rem;
         }
     }
-    ul{
-        display: flex;
+    .col-xl-4{
+        ul{
+            display: flex;
+            height: 100%;
+            align-items: center;
+            margin-left: -3.7rem;
+            li{
+                margin-left: 2rem;
+                list-style: none;
+                a{
+                    font-family: 'Poppins', sans-serif;
+                    color: white;
+                    text-decoration: none;
+                    color: #fff;
+                    display: block;
+                    font-size: 14px;
+                    line-height: 18px;
+                    font-weight: 500;
+                }
+                a:hover{
+                    color: black;
+                }
+            }
+        }
+    }
+    .hesab-icons{
         height: 100%;
+        display: flex;
         align-items: center;
-        margin-left: -3.7rem;
-        li{
-            margin-left: 2rem;
-            list-style: none;
-            a{
-                font-family: 'Poppins', sans-serif;
+        .dropdown{
+            z-index: 99;
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            .fa-user{
                 color: white;
-                text-decoration: none;
-                color: #fff;
-                display: block;
-                font-size: 14px;
-                line-height: 18px;
-                font-weight: 500;
+                cursor: pointer;
+                display: none;
             }
-            a:hover{
-                color: black;
+            h6{
+                
+                cursor: pointer;
+                margin-top: 4%;
+                color: white;
+                font-size: 0.9rem;
+                position: relative;
+                i{
+                    margin-top: 0.1rem;
+                    margin-left: 0.3rem;
+                  position: absolute;
+                }
             }
+            .dropdown-menu1{
+                height: 100%;
+                width: 8.3rem;
+                position: absolute;
+                left: -100%;
+                top: 100%;
+                background-color: white;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;            ul{
+                    padding-left: 0%;
+                    li{
+                        cursor: pointer;
+                        list-style: none;
+                        a{
+                            margin-left: 10%;
+                            font-size: 0.8rem;
+                            color: black;
+                            text-decoration: none;
+                        }
+                    }
+                    li:hover{
+                        background-color: #e6e6e6;
+                        a{
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+        .fa-heart{
+            color: white;
+            font-size: 1.3rem;
+            margin-left: 2rem;
+        }
+        .shop-icon{
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+        .fa-cart-shopping{
+
+            position: absolute;
+            color: white;
+            margin-left: 1rem;
+            font-size: 1.5rem;
+        }
+        span{
+            position: absolute;
+            height: 1.15rem;
+            width: 1.15rem;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 10%;
+            right: 0%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    
+    .menu-class{
+        display: none;
+    }
+    .search{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        input{
+            width: 22rem;
+            height: 2.3rem;
+        }
+        input::placeholder{
+            font-size: 0.8rem;
+        }
+        .fa-magnifying-glass{
+            cursor: pointer;
+            background-color: white;
+            width: 3rem;
+            height: 2.3rem;
+            margin-left: -0.3rem;
+            border-radius: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fa-magnifying-glass:hover{
+            background-color: #eeeeee;
         }
     }
  

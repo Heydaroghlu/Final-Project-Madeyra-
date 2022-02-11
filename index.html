@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -12,7 +14,7 @@
 <body>
 
     <header>
-        <div class="header-top">
+        <div id="headtop" class="header-top">
          <div class="container">
              <div class="row">
                 <div class="col-xl-2">
@@ -42,12 +44,12 @@
         <div class="header-bottom">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-2 cataloq">
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 cataloq">
                         <div class="kataloq">
                             <i class="fa-solid fa-bars"></i><span>Kataloq</span>
                         </div>
                     </div>
-                    <div class="col-xl-4">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
                         <ul>
                             <li><a href="">Kampaniyalar</a></li>
                             <li><a href="">Mağazalar</a></li>
@@ -55,17 +57,369 @@
                         </ul>
                     </div>
                     
-                    <div class="col-xl-3">
-                       
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                       <div class="search">
+                            <input placeholder="Axtarış..." type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <div  class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                        <div class="hesab-icons">
+                            <div class="dropdown">
+                                <i id="user-icon" class="fa-solid fa-user hesab-btn"></i> <h6 class="hesab-btn"> Hesabım <i class="fa-solid fa-caret-down"></i></h6>
+                                <div id="dropdown-menu1" class="dropdown-menu1 menu-class">
+                                    <ul>
+                                        <li><a href="">Qeydiyyatdan Keç</a></li>
+                                        <li><a href="">Daxil ol</a></li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="shop-icon">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            <span>0</span>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </header>
+    <main>
+       <section>
+           <div class="cards">
+               <div class="container">
+                   <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="card" >
+                            <div class="card-body">
+                               <div class="image">
+                                <div class="card-image">
+                                    <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/shield.png.pagespeed.ce.eQdIut8Mom.png" alt="">
+                                </div>
+                               </div>
+                              <h5 class="card-title">Rəsmi zəmanət</h5>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="card" >
+                            <div class="card-body">
+                               <div class="image">
+                                <div class="card-image">
+                                    <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/truck.png.pagespeed.ce._SIMA9nqeI.png" alt="">
+                                </div>
+                               </div>
+                              <h5 class="card-title">Pulsuz çatdırılma</h5>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="card" >
+                            <div class="card-body">
+                               <div class="image">
+                                <div class="card-image">
+                                    <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/headset.png.pagespeed.ce.ugxO5NFth8.png" alt="">
+                                </div>
+                               </div>
+                              <h5 class="card-title">Ödənişsiz Məsləhətçi</h5>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="card" >
+                            <div class="card-body">
+                               <div class="image">
+                                <div class="card-image">
+                                    <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/coupon.png.pagespeed.ce.YByKkpYA7l.png" alt="">
+                                </div>
+                               </div>
+                              <h5 class="card-title">Ən sərfəli qiymətlər və xüsusi kampaniyalar</h5>
+                            </div>
+                          </div>
+                    </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+      <section>
+          <div class="reclam">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+                          <div class="reclam-image">
+                            <img src="https://madeyra.com/image/cache/catalog/Cover%20-%20Banner/24ayfaizsiz/sayt_1_resize-24%20ay-720x255.webp" alt="">
+                          </div>
+                      </div>
+                      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                          <div class="reclam-image">
+                            <img src="https://madeyra.com/image/cache/catalog/Banner%20foto/catalog%20cover-388x255.webp" alt="">
+                          </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section>
+          <div class="favorite">
+              <div class="container">
+                  <div class="row">
+                      <h6>
+                        Ən çox baxılanlar
+                      </h6>
+                  </div>
+                  <hr>
+                    <div class="owl-carousel owl-theme">
+                            <div class="item">
+                               
+                                    <div class="card">
+                                        <img src="https://madeyra.com/image/cache/catalog/Amber/D65HQbt3ns-521x293.webp" class="card-img-top" alt="...">
+                                        <div class="credit-tag">
+                                           <div class="price">
+                                               <span>Ayda <br> 64</span>
+                                           </div>
+                                           <div class="tag">
+                                               <span>24 Ay Faizsiz</span>
+                                           </div>
+                                        </div>
+                                        <i class="fa-solid fa-heart"></i>
+                                        <div class="card-body">
+                                          <span>Amber divan dəsti</span>
+                                          <div class="row">
+                                            <div class="favorite-price">
+                                              <span class="oldprice">1,487</span> <span class="newprice">1,115</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                <div class="item">
+                                   
+                                        <div class="card">
+                                            <img src="https://madeyra.com/image/cache/catalog/lugano%20yataq/lugano%202-521x293.webp" alt="">
+                                            <div class="credit-tag">
+                                               <div class="price">
+                                                   <span>Ayda <br> 64</span>
+                                               </div>
+                                               <div class="tag">
+                                                   <span>24 Ay Faizsiz</span>
+                                               </div>
+                                            </div>
+                                            <i class="fa-solid fa-heart"></i>
+                                            <div class="card-body">
+                                              <span>Lugano yataq dəsti</span>
+                                              <div class="row">
+                                                <div class="favorite-price">
+                                                  <span class="oldprice">1,487</span> <span class="newprice">1,746</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                    <div class="item">
+                                       
+                                            <div class="card">
+                                                <img src="https://madeyra.com/image/cache/catalog/Sena%20dest/Sena%20yataq/1-521x293.webp" alt="">
+                                                <div class="credit-tag">
+                                                   <div class="price">
+                                                       <span>Ayda <br> 64</span>
+                                                   </div>
+                                                   <div class="tag">
+                                                       <span>24 Ay Faizsiz</span>
+                                                   </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                  <span>Sena ekonom yataq dəsti</span>
+                                                  <div class="row">
+                                                    <div class="favorite-price">
+                                                      <span class="oldprice">1,465</span> <span class="newprice">1,099</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                          </div>
+                                        <div class="item">
+                                           
+                                                <div class="card">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Life%20desti/Life%20yataq/1-521x293.webp" alt="">
+                                                    <div class="credit-tag">
+                                                       <div class="price">
+                                                           <span>Ayda <br> 64</span>
+                                                       </div>
+                                                       <div class="tag">
+                                                           <span>24 Ay Faizsiz</span>
+                                                       </div>
+                                                    </div>
+                                                    <i class="fa-solid fa-heart"></i>
+                                                    <div class="card-body">
+                                                      <span>Sena ekonom yataq dəsti</span>
+                                                      <div class="row">
+                                                        <div class="favorite-price">
+                                                          <span class="oldprice">1,465</span> <span class="newprice">1,099</span>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                       
+                        </div>
+                       
+                    </div>
+                    
+                  </div>
+          </div>
+      </section>
+      <section>
+          <div class="favorite">
+              <div class="container">
+                <div class="row">
+                    <h6>
+                        Yeni Məhsul
+                    </h6>
+                    
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                           
+                                <div class="card">
+                                    <img src="https://madeyra.com/image/cache/catalog/Amber/D65HQbt3ns-521x293.webp" class="card-img-top" alt="...">
+                                    <div class="credit-tag">
+                                       <div class="price">
+                                           <span>Ayda <br> 64</span>
+                                       </div>
+                                       <div class="tag">
+                                           <span>24 Ay Faizsiz</span>
+                                       </div>
+                                    </div>
+                                    <i class="fa-solid fa-heart"></i>
+                                    <div class="card-body">
+                                      <span>Amber divan dəsti</span>
+                                      <div class="row">
+                                        <div class="favorite-price">
+                                          <span class="oldprice">1,487</span> <span class="newprice">1,115</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            <div class="item">
+                               
+                                    <div class="card">
+                                        <img src="https://madeyra.com/image/cache/catalog/lugano%20yataq/lugano%202-521x293.webp" alt="">
+                                        <div class="credit-tag">
+                                           <div class="price">
+                                               <span>Ayda <br> 64</span>
+                                           </div>
+                                           <div class="tag">
+                                               <span>24 Ay Faizsiz</span>
+                                           </div>
+                                        </div>
+                                        <i class="fa-solid fa-heart"></i>
+                                        <div class="card-body">
+                                          <span>Lugano yataq dəsti</span>
+                                          <div class="row">
+                                            <div class="favorite-price">
+                                              <span class="oldprice">1,487</span> <span class="newprice">1,746</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                <div class="item">
+                                   
+                                        <div class="card">
+                                            <img src="https://madeyra.com/image/cache/catalog/Sena%20dest/Sena%20yataq/1-521x293.webp" alt="">
+                                            <div class="credit-tag">
+                                               <div class="price">
+                                                   <span>Ayda <br> 64</span>
+                                               </div>
+                                               <div class="tag">
+                                                   <span>24 Ay Faizsiz</span>
+                                               </div>
+                                            </div>
+                                            <i class="fa-solid fa-heart"></i>
+                                            <div class="card-body">
+                                              <span>Sena ekonom yataq dəsti</span>
+                                              <div class="row">
+                                                <div class="favorite-price">
+                                                  <span class="oldprice">1,465</span> <span class="newprice">1,099</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                    <div class="item">
+                                       
+                                            <div class="card">
+                                                <img src="https://madeyra.com/image/cache/catalog/Life%20desti/Life%20yataq/1-521x293.webp" alt="">
+                                                <div class="credit-tag">
+                                                   <div class="price">
+                                                       <span>Ayda <br> 64</span>
+                                                   </div>
+                                                   <div class="tag">
+                                                       <span>24 Ay Faizsiz</span>
+                                                   </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                  <span>Sena ekonom yataq dəsti</span>
+                                                  <div class="row">
+                                                    <div class="favorite-price">
+                                                      <span class="oldprice">1,465</span> <span class="newprice">1,099</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                          </div>
+                                   
+                    </div>
+                </div>
+              </div>
+          </div>
+      </section>
+    <section>
+        <div class="end">
+            <div class="container">
+                <div class="row">
+                    <h6>Madeyra online mebel mağazasına xoş gəlmisiniz.</h6>
+                </div>
+                <div class="row">
+                    <p>Madeyra onlayn mebel mağazasında yataq dəstindən yumşaq mebelə qədər sərfəli və keyfiyyətli ev mebeli ala bilərsiniz. Hal-hazırda Madeyra brendinin Azərbaycan Respublikası üzrə ümumi mağazalar şəbəkəsinə 78 mebel mağazası daxildir. Mağazalarımızda və veb saytımızda bütün mebellərin satışı mövcuddur. 18 ay müddətinə kreditlə mebel ala bilərsiniz, eyni zamanda hər zövq üçün əla seçimimiz var – Klassik üslubdan moderna qədər.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
     
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script>
+       $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:false,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:3
+        }
+    }
+})
+    </script>
 </body>
 </html>
