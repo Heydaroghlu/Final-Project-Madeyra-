@@ -3,7 +3,11 @@
     font-family: 'Poppins', sans-serif;
     src: url(../font/Poppins-SemiBold.ttf);
     text-decoration: none;
+    .container{
+        width: 85%;
+    }
 }
+
 .header-top{
     background-color: #eee;
     .logo{
@@ -59,6 +63,11 @@
     }
 }
 .header-bottom{
+    .container{
+        .row{
+            padding: 0px 12px;
+        }
+    }
     height: 3rem;
     background-color: #df2027;
     .cataloq{

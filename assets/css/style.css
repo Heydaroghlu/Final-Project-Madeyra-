@@ -22,6 +22,10 @@
   text-decoration: none;
 }
 
+* .container {
+  width: 85%;
+}
+
 .header-top {
   background-color: #eee;
   display: -webkit-box;
@@ -107,6 +111,10 @@
 .header-bottom {
   height: 3rem;
   background-color: #df2027;
+}
+
+.header-bottom .container .row {
+  padding: 0px 12px;
 }
 
 .header-bottom .cataloq {
@@ -334,6 +342,65 @@
   background-color: #eeeeee;
 }
 
+.hero {
+  height: 100%;
+  padding-top: 0.5rem;
+  margin-bottom: -1.6rem;
+}
+
+.hero .item {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero .item img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 350px;
+  overflow: hidden;
+}
+
+.hero button {
+  -webkit-transition: ease-in-out 0.4s;
+  transition: ease-in-out 0.4s;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hero button:hover {
+  background-color: #f3a205 !important;
+}
+
+.hero span {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: white;
+}
+
+.hero .owl-prev {
+  left: 0%;
+  top: 42%;
+  position: absolute;
+  background-color: rgba(71, 75, 87, 0.72) !important;
+}
+
+.hero .owl-next {
+  right: 0%;
+  top: 42%;
+  position: absolute;
+  background-color: rgba(71, 75, 87, 0.72) !important;
+}
+
 .cards {
   width: 100%;
   text-align: center;
@@ -381,19 +448,18 @@
 }
 
 .reclam {
+  cursor: pointer;
   height: 100%;
   width: 100%;
   padding-top: 2rem;
 }
 
 .reclam .reclam-image {
-  margin-top: 1rem;
-  padding-bottom: 1rem;
   height: 100%;
-  width: 100%;
-  cursor: pointer;
+  position: relative;
   margin: auto;
   overflow: hidden;
+  overflow-y: hidden;
 }
 
 .reclam .reclam-image img {
@@ -404,9 +470,9 @@
   height: 100%;
 }
 
-.reclam .reclam-image:hover img {
-  -webkit-transform: scale(1.01);
-          transform: scale(1.01);
+.reclam .reclam-image img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .favorite {
@@ -417,14 +483,33 @@
 .favorite h6 {
   font-weight: 600;
   font-size: 1.1rem;
-  margin-bottom: -0.4rem;
+  margin-bottom: -0.1rem;
+  position: relative;
+}
+
+.favorite .owl-nav {
+  position: absolute;
+  bottom: 105%;
+  font-size: 2rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
 }
 
 .favorite .card {
   cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.favorite .card .favorite-image {
   position: relative;
   margin: auto;
   overflow: hidden;
+  overflow-y: hidden;
 }
 
 .favorite .card img {
@@ -446,9 +531,10 @@
 }
 
 .favorite .card .credit-tag .price {
+  text-transform: uppercase;
   height: 2.4rem;
   width: 2.4rem;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -469,17 +555,29 @@
 }
 
 .favorite .card .credit-tag .tag {
+  text-transform: uppercase;
+  -webkit-transform: skew(-20deg);
+          transform: skew(-20deg);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: -1rem;
+  margin-left: -1.5rem;
   height: 1.8rem;
-  width: 6.2rem;
+  width: 6.5rem;
   background-color: #ff0000;
   color: white;
+  border-radius: 6px;
+}
+
+.favorite .card .credit-tag .tag span {
+  -webkit-transform: skew(20deg);
+          transform: skew(20deg);
 }
 
 .favorite .card .credit-tag .tag span {
