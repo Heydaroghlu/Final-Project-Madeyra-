@@ -62,13 +62,23 @@
         }
     }
 }
+
+.navbar-class{
+    
+    top: 0%;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    
+}
 .header-bottom{
+   
     .container{
         .row{
             padding: 0px 12px;
         }
     }
-    height: 3rem;
+    height: 3.2rem;
     background-color: #df2027;
     .cataloq{
         display: flex;
@@ -76,8 +86,9 @@
         height: 3rem;
         background-color: white;
         span{
-            margin-left: 0.5rem;
+            margin-left: -0.3rem;
         }
+
     }
     .col-xl-4{
         ul{
@@ -133,16 +144,22 @@
                   position: absolute;
                 }
             }
+           
             .dropdown-menu1{
-                height: 100%;
-                width: 8.3rem;
+                
+                height: 4.4rem;
+                width: 9rem;
                 position: absolute;
                 left: -100%;
                 top: 100%;
                 background-color: white;
                 box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;            ul{
                     padding-left: 0%;
+                   
                     li{
+                        display: flex;
+                        align-items: center;
+                        height: 2.2rem;
                         cursor: pointer;
                         list-style: none;
                         a{
@@ -172,22 +189,20 @@
             height: 100%;
             width: 100%;
             position: relative;
+            img{
+                position: relative;
+            }
         }
-        .fa-cart-shopping{
-
-            position: absolute;
-            color: white;
-            margin-left: 1rem;
-            font-size: 1.5rem;
-        }
+  
         span{
             position: absolute;
-            height: 1.15rem;
-            width: 1.15rem;
+            height: 1.1rem;
+            width: 1.1rem;
+            font-size: 0.7rem;
             background-color: #fff;
             border-radius: 50%;
-            top: 10%;
-            right: 0%;
+            top: 20%;
+            right: 15%;
             display: flex;
             align-items: center;
             justify-content: center;

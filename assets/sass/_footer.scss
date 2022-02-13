@@ -62,9 +62,11 @@
     //3cu col-xl-4
     .footer-social{
         p{
+            font-size: 0.9rem;
             margin-top: 1.8rem;
         }
         .social-icons{
+            margin-top: -0.3rem;
             display: flex;
             margin-left: -1rem;
             a{
@@ -86,4 +88,20 @@
              }
         }
     }
+    #footer-end{
+        margin-top: 0.6rem;
+        font-size: 0.84rem;
+        color: #666;
+        a{
+            text-decoration: none;
+        }
+        margin-bottom: -0.2rem;
+
+    }
+    #footer-end2{
+        font-size: 0.84rem;
+        color: #666;
+        margin-bottom: 1rem;
+    }
+  
 }

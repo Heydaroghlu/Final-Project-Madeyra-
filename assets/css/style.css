@@ -1,3 +1,15 @@
+@media (max-width: 575.98px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .hesab-icons h6 {
     display: none;
@@ -7,6 +19,12 @@
   }
   #user-icon {
     display: inline-block;
+  }
+  .cataloq {
+    background-color: #df2027 !important;
+  }
+  .kataloq {
+    display: none;
   }
 }
 
@@ -108,8 +126,15 @@
   color: black;
 }
 
+.navbar-class {
+  top: 0%;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
 .header-bottom {
-  height: 3rem;
+  height: 3.2rem;
   background-color: #df2027;
 }
 
@@ -129,7 +154,7 @@
 }
 
 .header-bottom .cataloq span {
-  margin-left: 0.5rem;
+  margin-left: -0.3rem;
 }
 
 .header-bottom .col-xl-4 ul {
@@ -207,8 +232,8 @@
 }
 
 .header-bottom .hesab-icons .dropdown .dropdown-menu1 {
-  height: 100%;
-  width: 8.3rem;
+  height: 4.4rem;
+  width: 9rem;
   position: absolute;
   left: -100%;
   top: 100%;
@@ -222,6 +247,13 @@
 }
 
 .header-bottom .hesab-icons .dropdown .dropdown-menu1 ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 2.2rem;
   cursor: pointer;
   list-style: none;
 }
@@ -259,21 +291,19 @@
   position: relative;
 }
 
-.header-bottom .hesab-icons .fa-cart-shopping {
-  position: absolute;
-  color: white;
-  margin-left: 1rem;
-  font-size: 1.5rem;
+.header-bottom .hesab-icons .shop-icon img {
+  position: relative;
 }
 
 .header-bottom .hesab-icons span {
   position: absolute;
-  height: 1.15rem;
-  width: 1.15rem;
+  height: 1.1rem;
+  width: 1.1rem;
+  font-size: 0.7rem;
   background-color: #fff;
   border-radius: 50%;
-  top: 10%;
-  right: 0%;
+  top: 20%;
+  right: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -346,6 +376,60 @@
   height: 100%;
   padding-top: 0.5rem;
   margin-bottom: -1.6rem;
+}
+
+.hero .row {
+  padding: 0px 12px;
+}
+
+.hero .col-xl-2 {
+  padding: 0%;
+}
+
+.hero .col-xl-2 ul {
+  width: 100%;
+  background: #fff none repeat scroll 0 0;
+  border-radius: 0 0 5px 5px;
+  position: relative;
+  padding: 0%;
+  margin: 0%;
+  margin-top: -0.7rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.hero .col-xl-2 ul li {
+  cursor: pointer;
+  height: 2.8rem;
+  border-bottom: 1px solid #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+.hero .col-xl-2 ul li a {
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+}
+
+.hero .col-xl-2 ul li i {
+  margin-right: 0.4rem;
+  font-size: 0.55rem;
+  margin-left: 0.5rem;
+  opacity: 0.8;
+}
+
+.hero .col-xl-2 ul li:hover {
+  background-color: #f5f7fa;
+}
+
+.hero .col-xl-2 ul li:hover a {
+  color: #df2027;
 }
 
 .hero .item {
@@ -445,10 +529,16 @@
   background-color: #df2027;
 }
 
+.cards .card:hover {
+  -webkit-animation-name: animate__bounceOutLeft;
+          animation-name: animate__bounceOutLeft;
+}
+
 .reclam {
   cursor: pointer;
   height: 100%;
   width: 100%;
+  margin-bottom: 0.7rem;
   padding-top: 2rem;
 }
 
@@ -479,6 +569,7 @@
 }
 
 .favorite h6 {
+  margin-top: -1rem;
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: -0.1rem;
@@ -514,6 +605,40 @@
   -webkit-transition: ease-in-out 0.3s;
   transition: ease-in-out 0.3s;
   position: relative;
+}
+
+.favorite .card .card-body .kompaniya {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.favorite .card .card-body .kompaniya img {
+  position: relative;
+  width: 3.66rem;
+  height: 3.3rem;
+}
+
+.favorite .card .card-body .kompaniya .img-txt {
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+  width: 3.6rem;
+  font-size: 0.42rem;
+  position: absolute;
 }
 
 .favorite .card .credit-tag {
@@ -606,6 +731,13 @@
   opacity: 0;
 }
 
+.favorite .card .favorite-price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
 .favorite .card .favorite-price span {
   font-size: 1.1rem;
   font-weight: 600;
@@ -621,7 +753,7 @@
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.favorite .card:hover img {
+.favorite .card:hover .favorite-image img {
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
 }
@@ -630,13 +762,21 @@
   opacity: 1;
 }
 
-.end h6 {
+.end h1 {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600;
+  color: #333 !important;
+  letter-spacing: 0.01rem;
+  opacity: 0.95;
 }
 
 .end p {
   font-size: 0.88rem;
+  color: #333;
+  font-weight: 400;
+  line-height: 1.5385;
+  text-align: left;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 .new {
@@ -648,6 +788,14 @@
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: -0.4rem;
+}
+
+.qeydiyyat {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+
+.qeydiyyat .container {
+  width: 65%;
 }
 
 .footer {
@@ -719,10 +867,12 @@
 }
 
 .footer .footer-social p {
+  font-size: 0.9rem;
   margin-top: 1.8rem;
 }
 
 .footer .footer-social .social-icons {
+  margin-top: -0.3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -754,5 +904,22 @@
 .footer .footer-social .social-icons i:hover {
   -webkit-box-shadow: #26394d 0px 20px 30px -10px;
           box-shadow: #26394d 0px 20px 30px -10px;
+}
+
+.footer #footer-end {
+  margin-top: 0.6rem;
+  font-size: 0.84rem;
+  color: #666;
+  margin-bottom: -0.2rem;
+}
+
+.footer #footer-end a {
+  text-decoration: none;
+}
+
+.footer #footer-end2 {
+  font-size: 0.84rem;
+  color: #666;
+  margin-bottom: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

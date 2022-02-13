@@ -1,12 +1,16 @@
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) { 
-   
+    html{
+        font-size: 10px;
+    }
  }
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) { 
     
-
+  html{
+      font-size: 14px;
+  }
  }
 
 // Medium devices (tablets, less than 992px)
@@ -24,6 +28,12 @@
    }
    #user-icon{
        display: inline-block;
+   }
+   .cataloq{
+       background-color: #df2027 !important;
+   }
+   .kataloq{
+       display: none;
    }
   
  }
