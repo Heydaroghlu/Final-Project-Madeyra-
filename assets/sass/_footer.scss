@@ -1,0 +1,89 @@
+.footer{
+    height: 100%;
+    padding-bottom: 1rem;
+    background-color: #eee;
+    .footer-logo{
+        margin-top: 1.7rem;
+        width: 100%;
+        img{
+            width: 35%;
+        }
+    }
+    #footer-menu{
+        padding-left: 0%;
+        margin-top: 1.5rem;
+        li{
+            margin-top: 0.3rem;
+            list-style: none;
+            a{
+                text-decoration: none;
+                color: #666;
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            a:hover{
+                font-size: 0.92rem;
+                color: black;
+            }
+        }
+    }
+    //ortadaki col-xl-4
+    .title-block{
+        margin-top: 1.8rem;
+        font-size: 14px;
+
+    }
+    .title-contact{
+        margin-top: 0.7rem;
+        font-size: 14px;
+        color: #666;
+        i{
+            color: #666;
+            font-size: 0.7rem;
+            margin-right: 0.5rem;
+            position: relative;
+        }
+  
+        
+    }
+    .contact-content{
+        p{
+            color: #666;
+            margin-left: 0.3rem;
+            font-size: 14px;
+        }
+        .unvan{
+            margin-top: 0.3rem;
+            border-left: 1px solid #d5d5d5;
+            padding-left: 1rem;
+            margin-bottom: -0.4rem;
+        }
+    }
+    //3cu col-xl-4
+    .footer-social{
+        p{
+            margin-top: 1.8rem;
+        }
+        .social-icons{
+            display: flex;
+            margin-left: -1rem;
+            a{
+                text-decoration: none;
+                color: black;
+            }
+             i{
+                 margin-left: 1rem;
+                 height: 2rem;
+                 width: 2rem;
+                 border-radius: 50%;
+                 background-color: white;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+             }
+             i:hover{
+                box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+             }
+        }
+    }
+}

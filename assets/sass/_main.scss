@@ -16,18 +16,19 @@
     }
     button{
         transition: ease-in-out 0.4s;
-        width: 2.6rem;
-        height: 2.6rem;
+        width: 2.2rem;
+        height: 2.2rem;
         display: flex;
         align-items: center;
-        justify-content: center;
     }
      button:hover{
-         background-color: #f3a205 !important;
+         background-color: rgba(219, 200, 26, 0.993) !important;
      }
      span{
-        font-size: 1.7rem;
-        font-weight:900;
+        font-size: 1.3rem;
+        font-weight:600;
+        
+        padding-bottom: 1rem;
         color: white;
     }
     .owl-prev{
@@ -35,7 +36,7 @@
         top: 42%;
         position: absolute;
         background-color: rgba(71,75,87,.72) !important;
-
+        
 
     }
     .owl-next{

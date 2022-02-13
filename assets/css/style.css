@@ -364,26 +364,24 @@
 .hero button {
   -webkit-transition: ease-in-out 0.4s;
   transition: ease-in-out 0.4s;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 2.2rem;
+  height: 2.2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .hero button:hover {
-  background-color: #f3a205 !important;
+  background-color: rgba(219, 200, 26, 0.993) !important;
 }
 
 .hero span {
-  font-size: 1.7rem;
-  font-weight: 900;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-bottom: 1rem;
   color: white;
 }
 
@@ -650,5 +648,111 @@
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: -0.4rem;
+}
+
+.footer {
+  height: 100%;
+  padding-bottom: 1rem;
+  background-color: #eee;
+}
+
+.footer .footer-logo {
+  margin-top: 1.7rem;
+  width: 100%;
+}
+
+.footer .footer-logo img {
+  width: 35%;
+}
+
+.footer #footer-menu {
+  padding-left: 0%;
+  margin-top: 1.5rem;
+}
+
+.footer #footer-menu li {
+  margin-top: 0.3rem;
+  list-style: none;
+}
+
+.footer #footer-menu li a {
+  text-decoration: none;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.footer #footer-menu li a:hover {
+  font-size: 0.92rem;
+  color: black;
+}
+
+.footer .title-block {
+  margin-top: 1.8rem;
+  font-size: 14px;
+}
+
+.footer .title-contact {
+  margin-top: 0.7rem;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer .title-contact i {
+  color: #666;
+  font-size: 0.7rem;
+  margin-right: 0.5rem;
+  position: relative;
+}
+
+.footer .contact-content p {
+  color: #666;
+  margin-left: 0.3rem;
+  font-size: 14px;
+}
+
+.footer .contact-content .unvan {
+  margin-top: 0.3rem;
+  border-left: 1px solid #d5d5d5;
+  padding-left: 1rem;
+  margin-bottom: -0.4rem;
+}
+
+.footer .footer-social p {
+  margin-top: 1.8rem;
+}
+
+.footer .footer-social .social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -1rem;
+}
+
+.footer .footer-social .social-icons a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer .footer-social .social-icons i {
+  margin-left: 1rem;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .footer-social .social-icons i:hover {
+  -webkit-box-shadow: #26394d 0px 20px 30px -10px;
+          box-shadow: #26394d 0px 20px 30px -10px;
 }
 /*# sourceMappingURL=style.css.map */
