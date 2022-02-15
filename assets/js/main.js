@@ -14,7 +14,7 @@ document.addEventListener("scroll",function()
 })
 function navbarscroll()
 {
-    if(document.documentElement.scrollTop>600)
+    if(document.documentElement.scrollTop>200)
     {
         navbar.classList.add("navbar-class")
         navbar.classList.add("animate__animated","animate__fadeInDown")

@@ -46,6 +46,7 @@
         width: 90% !important;
 
         .form{
+            
             .col-xl-3{
                 display: flex;
                 justify-content: start !important;
@@ -53,7 +54,7 @@
                 
             }
             .col-xl-9{
-                input{
+                .form1-input{
                     width: 100% !important;
                     height: 2.8rem !important;
                 }
