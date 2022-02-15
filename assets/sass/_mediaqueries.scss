@@ -1,49 +1,78 @@
 // Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) { 
-    html{
-        font-size: 10px;
-    }
- }
+
 
 // Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) { 
-    
+
+
+// Medium devices (tablets, less than 992px)
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { 
+    .register-form{
+        width: 70% !important;
+    }
+    #headtop{
+        display: none;
+    }
+ }
+ @media (max-width: 991.98px) { 
+
+    .hesab-icons{
+        h6{
+            display: none;
+        }
+        
+    }
+    .header-bottom{
+     .col-xl-4{
+         display: none;
+     }
+    }
+    #user-icon{
+        display: inline-block;
+    }
+    .cataloq{
+        background-color: #df2027 !important;
+    }
+    .kataloq{
+        display: none;
+    }
+   
+  }
+
+  @media (max-width: 767.98px) { 
+    .register-form{
+        width: 90% !important;
+
+        .form{
+            .col-xl-3{
+                display: flex;
+                justify-content: start !important;
+                left: 0%;
+                
+            }
+            .col-xl-9{
+                input{
+                    width: 100% !important;
+                    height: 2.8rem !important;
+                }
+            }
+        }
+    }
+
   html{
       font-size: 14px;
   }
  }
 
-// Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) { 
-   .hesab-icons{
-       h6{
-           display: none;
-       }
-       
-   }
-   .header-bottom{
-    .col-xl-4{
-        display: none;
-    }
-   }
-   #user-icon{
-       display: inline-block;
-   }
-   .cataloq{
-       background-color: #df2027 !important;
-   }
-   .kataloq{
-       display: none;
-   }
-  
- }
-
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) { 
-    #headtop{
-        display: none;
-    }
- }
-
 // Extra large devices (large desktops)
 // No media query since the extra-large breakpoint has no upper bound on its width
+@media (max-width: 575.98px) { 
+    .register-form{
+        width: 90% !important;
+    }
+
+   
+ }
+ 
