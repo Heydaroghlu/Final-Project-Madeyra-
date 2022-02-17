@@ -15,29 +15,32 @@
     #headtop{
         display: none;
     }
+    .header-bottom{
+        #menu{
+            display: none;
+        }
+        .search{
+            display: flex;
+            justify-content: start;
+        }
+        .right{
+            display: flex;
+            justify-content: end;
+            .sebet{
+                margin-right: 1.4rem;
+            }
+        }
+    }
  }
  @media (max-width: 991.98px) { 
 
-    .hesab-icons{
-        h6{
-            display: none;
-        }
-        
-    }
-    .header-bottom{
-     .col-xl-4{
-         display: none;
-     }
-    }
-    #user-icon{
-        display: inline-block;
-    }
-    .cataloq{
-        background-color: #df2027 !important;
-    }
-    .kataloq{
+    .komekci-menu{
         display: none;
-    }
+ }
+ .header-bottom{
+     display: none;
+ }
+   
    
   }
 
@@ -60,6 +63,7 @@
                 }
             }
         }
+        
     }
 
   html{

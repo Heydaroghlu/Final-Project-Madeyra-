@@ -51,55 +51,59 @@
     <div id="header-bottom" class="header-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 cataloq">
+                <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-3">
                     <div class="kataloq">
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 col-lg-3 col-md-3 col-sm-3 col-3">
-                                <i class="fa-solid fa-bars"></i>
-                            </div>
-                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 col-lg-9 col-md-9 col-sm-9 col-9">
-                                <span>Kataloq</span>
-                            </div>
-                        </div>
+                        <a href=""><i class="fa-solid fa-bars"></i><span>Kataloq</span></a>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
-                    <ul>
-                        <li><a href="">Kampaniyalar</a></li>
-                        <li><a href="">Mağazalar</a></li>
-                        <li><a href="">Videolar</a></li>
-                    </ul>
+                <div id="menu" class="col-xl-3 col-lg-3">
+                    <div class="menu">
+                        <ul id="menu-list">
+                            <li><a href="">Kampaniyalar</a></li>
+                            <li><a href="">Mağazalar</a></li>
+                            <li><a href="">Videolar</a></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
                     <div class="search">
-                        <input placeholder="Axtarış..." type="email" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp">
-                        <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+                        <div class="search-form">
+                            <div class="row">
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+                                    <input style="width: 1rem;" type="text" placeholder="Axtarış...">
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-                    <div class="hesab-icons">
-                        <div class="dropdown">
-                            <i id="user-icon" class="fa-solid fa-user hesab-btn"></i>
-                            <h6 class="hesab-btn"> Hesabım <i class="fa-solid fa-caret-down"></i></h6>
-                            <div id="dropdown-menu1" class="dropdown-menu1 menu-class">
-                                <ul>
-                                    <li><a href="qeydiyyat.html">Qeydiyyatdan Keç</a></li>
-                                    <li><a href="daxilol.html">Daxil ol</a></li>
+                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-4 right">
+                    <div class="hesabim" >
+                        <ul class="navbar-nav d-flex">
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDarkDropdownMenuLink"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hesabım
+                                </a>
+                                <ul class="dropdown-menu" 
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="qeydiyyat.html">Qeydiyyatdan Keç</a></li>
+                                    <li><a class="dropdown-item" href="daxilol.html">Daxil ol</a></li>
                                 </ul>
-                            </div>
-
-                        </div>
-                        <i class="fa-solid fa-heart"></i>
-                        <div class="shop-icon">
-                            <a href="">
-                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/cart.png.pagespeed.ce.jgLDsywCLk.png" alt="">
-                            </a>
-                            <span>0</span>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
-
+                    <div class="love">
+                        <a href=""><i class="fa-solid fa-heart"></i></a>
+                    </div>
+                    <div class="sebet">
+                        <a href="">
+                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/cart.png" alt="">
+                        <span>0</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,7 +165,7 @@
                         <li><a href="">Müştəri xidməti</a></li>
                         <li><a href="">Terminlər</a></li>
                         <li><a href="">Zəmanət</a></li>
-                        <li><a href="">Missiya</a></li>
+                        <li><a href="missiya.html">Missiya</a></li>
                     </ul>
                 </div>
                 <div class="col-xl-4 col-md-4">
@@ -205,7 +209,7 @@
                 </div>
             </div>
             <div class="row">
-                <p id="footer-end">Bütün hüquqlar qorunur <a href="">Madeyra.com</a></p>
+                <p id="footer-end">Bütün hüquqlar qorunur <a href="index.html">Madeyra.com</a></p>
                 <div id="footer-end2">
                     <span>Madeyra © 2022</span>
                 </div>
