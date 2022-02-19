@@ -1,3 +1,9 @@
+@media (min-width: 991.98px) {
+  .header-mobil {
+    display: none !important;
+  }
+}
+
 @media (max-width: 1199.98px) {
   .register-form {
     width: 70% !important;
@@ -31,7 +37,7 @@
 
 @media (max-width: 991.98px) {
   .header-bottom {
-    display: none;
+    display: none !important;
   }
   .komekci-menu {
     display: none;
@@ -195,13 +201,26 @@
 }
 
 .header-bottom {
-  height: 3rem;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #df2027;
 }
 
 .header-bottom .kataloq {
   background-color: white;
   cursor: pointer;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 12px 20px 12px 13px;
   font-weight: 500;
   font-size: 16px;
@@ -380,7 +399,7 @@
 
 .header-bottom .menu #menu-list li {
   list-style: none;
-  margin-left: 1rem;
+  margin-left: 1.2rem;
 }
 
 .header-bottom .menu #menu-list li a {
@@ -542,6 +561,132 @@
   top: 0;
   text-align: center;
   border-radius: 50%;
+}
+
+.header-mobil {
+  height: 3.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #df2027;
+  width: 100%;
+}
+
+.header-mobil .col-lg-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-mobil .menu-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  color: white;
+  height: 2.2rem;
+  width: 2.5rem;
+  background-color: black;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  align-items: center;
+  border-radius: 0.3rem;
+}
+
+.header-mobil .col-lg-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-mobil img {
+  margin-left: -0.5rem;
+  width: 6.4rem;
+}
+
+.header-mobil .right {
+  height: 100%;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-mobil .right .sebet {
+  position: relative;
+}
+
+.header-mobil .right .sebet #sebet-img {
+  position: relative;
+  width: 2em;
+}
+
+.header-mobil .right .sebet #sebet-span {
+  color: #1f1f1f;
+  background-color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 17px;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 30%;
+  top: 1;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.header-mobil .right i {
+  color: white;
+  font-size: 20px;
+  margin-right: 1rem;
+}
+
+.header-mobil .right #navbarDarkDropdownMenuLink {
+  margin-right: 1rem;
+  color: white;
+}
+
+.header-mobil .right #navbarDarkDropdownMenuLink .fa-user {
+  margin-right: 0;
+}
+
+.header-mobil .right .dropdown-toggle::after {
+  display: none;
+}
+
+.header-mobil .right .dropdown .nav-link {
+  color: white;
+}
+
+.header-mobil .right .dropdown-menu {
+  margin-left: -8.6rem !important;
+  padding: 0%;
+}
+
+.header-mobil .right .dropdown-menu .dropdown-item:hover {
+  border-radius: 0.2rem;
+  color: red;
 }
 
 .hero {

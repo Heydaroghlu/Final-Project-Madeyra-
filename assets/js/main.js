@@ -15,7 +15,7 @@ document.addEventListener("scroll",function()
 })
 function navbarscroll()
 {
-    if(document.documentElement.scrollTop>330)
+    if(document.documentElement.scrollTop>200)
     {
         navbar.classList.add("navbar-class")
         $("#category-menu-ul").slideUp("fast")

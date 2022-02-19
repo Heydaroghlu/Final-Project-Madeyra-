@@ -93,11 +93,16 @@
     z-index: 9999;
 }
 .header-bottom {
-    height: 3rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
     background-color: #df2027;
     .kataloq {
         background-color: white;
         cursor: pointer;
+        height: 50px;
+        display: flex;
+        align-items: center;
         a {
             text-decoration: none;
             color: black;
@@ -234,7 +239,7 @@
             align-items: center;
             li {
                 list-style: none;
-                margin-left: 1rem;
+                margin-left: 1.2rem;
                 a {
                     transition: ease-in-out 0.1s;
                     text-decoration: none;
@@ -351,4 +356,97 @@
             }
         }
     }
+}
+//mobil version
+.header-mobil{
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+    background-color: #df2027;
+    width: 100%;
+    .col-lg-1{
+        display: flex;
+        align-items: center;
+    }
+    .menu-icon{
+
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+            color: white;
+        height: 2.2rem;
+        width: 2.5rem;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.3rem;
+    }
+    .col-lg-2{
+        display: flex;
+        align-items: center;
+    }
+    img{
+        margin-left: -0.5rem;
+        width: 6.4rem;
+    }
+   .right{
+       height: 100%;
+       max-width: 100%;
+       display: flex;
+       justify-content: end;
+       align-items: center;
+       .sebet{
+           position: relative;
+           
+        #sebet-img{
+            
+            position: relative;
+            width: 2em;
+        }
+        #sebet-span{
+            color: #1f1f1f;
+            background-color: #ffffff;
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 17px;
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            left: 30%;
+            top: 1;
+            text-align: center;
+            border-radius: 50%;
+        }
+        
+    }
+    i{
+        color: white;
+        font-size: 20px;
+        margin-right: 1rem;
+    }
+   #navbarDarkDropdownMenuLink{
+       margin-right: 1rem;
+       color: white;
+       .fa-user{
+           margin-right: 0;
+       }
+   }
+   .dropdown-toggle::after{
+       display: none;
+   }
+   .dropdown {
+    .nav-link {
+        color: white;
+    }
+}
+.dropdown-menu {
+    margin-left: -8.6rem !important;
+    padding: 0%;
+    .dropdown-item:hover {
+        border-radius: 0.2rem;
+        color: red;
+    }
+}
+   }
 }
