@@ -19,6 +19,7 @@
         #menu{
             display: none;
         }
+        
         .search{
             display: flex;
             justify-content: start;
@@ -32,14 +33,20 @@
         }
     }
  }
- @media (max-width: 991.98px) { 
 
+ @media (max-width: 991.98px) { 
+    .header-bottom{
+        display: none;
+    }
     .komekci-menu{
         display: none;
  }
- .header-bottom{
-     display: none;
- }
+ 
+.hero{
+    .col-xl-12{
+        padding: 0% !important;
+    }
+}
    
    
   }

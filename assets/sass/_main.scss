@@ -1,16 +1,16 @@
 //hero-slide
 .hero{
+
     .row{
         padding: 0px 12px;
     }
-
-    .col-xl-2{
-       padding: 0%;
+    
+    .col-xl-12{
+       padding-left: 215px;
 
     }
     height: 100%;
     padding-top: 0.5rem;
-    margin-bottom: -1.6rem;
     .item{
         height: 100%;
         overflow: hidden;
@@ -60,7 +60,7 @@
     width: 100%;
     text-align: center;
    .card{
-       margin-top: 2rem;
+       margin-top: 2.2rem;
        height: 9rem;
        h5{
            margin-top: 0.5rem;
@@ -95,7 +95,7 @@
     height: 100%;
     width: 100%;
     margin-bottom: 0.7rem;
-    padding-top: 2rem;
+    padding-top: 1.2rem;
     .reclam-image{
         height: 100%;
         position: relative;
