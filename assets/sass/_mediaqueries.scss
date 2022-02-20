@@ -13,6 +13,7 @@
     .header-mobil{
         display: none !important;
     }
+    
 }
 @media (max-width: 1199.98px) { 
     
@@ -93,7 +94,9 @@
     .register-form{
         width: 90% !important;
     }
-
+    .card-title{
+        font-size: 13px !important;
+    }
    
  }
  

@@ -24,7 +24,6 @@ function navbarscroll()
         navbar.classList.add("animate__animated","animate__fadeInDown")
         mobil_nav.classList.add("navbar-class")
         mobil_nav.classList.add("animate__animated","animate__fadeInDown")
-
     }
     else{
         navbar.classList.remove("navbar-class")
@@ -84,8 +83,5 @@ accordion_button.forEach(element => {
     element.addEventListener("click",function()
     {
         element.classList.toggle("accordion-class")
-
-      
-        
     })
 });
