@@ -85,3 +85,11 @@ accordion_button.forEach(element => {
         element.classList.toggle("accordion-class")
     })
 });
+let mobil_search=document.querySelectorAll(".mobil-search")
+let mobil_search_input=document.getElementById("down-search")
+mobil_search.forEach(x=>{
+    x.addEventListener("click",function()
+    {
+       mobil_search_input.classList.toggle("down-search-class")
+    })
+})
