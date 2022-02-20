@@ -644,6 +644,29 @@
           align-items: center;
 }
 
+.header-mobil .right .search-class {
+  visibility: visible !important;
+}
+
+.header-mobil .right #search-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.header-mobil .right #search-1 .fa-magnifying-glass {
+  visibility: hidden;
+}
+
+.header-mobil .right #search-1 .fa-xmark {
+  visibility: hidden;
+  position: absolute;
+}
+
 .header-mobil .right .sebet {
   position: relative;
 }
@@ -1437,6 +1460,49 @@
   background-color: #bdb8b8;
 }
 
+.fixed-bell {
+  background-color: red;
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
+  z-index: 99999999;
+  left: 10px;
+  bottom: 20px;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-family: Lato, "Source Sans Pro", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  line-height: normal;
+  border-radius: 50% 50% 100% 100%;
+}
+
+.fixed-top i {
+  cursor: pointer;
+  position: fixed;
+  bottom: 1%;
+  right: 2%;
+  height: 2.2rem;
+  width: 2.2rem;
+  color: white;
+  background-color: #333;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .footer {
   height: 100%;
   padding-bottom: 1rem;
@@ -1628,25 +1694,22 @@
   height: 2.2rem;
   margin-top: 1rem;
   width: 70%;
+  padding-left: 0.5rem;
 }
 
 .register .register-form .form .col-xl-9 input::-webkit-input-placeholder {
-  padding-left: 0.5rem;
   font-size: 0.9rem;
 }
 
 .register .register-form .form .col-xl-9 input:-ms-input-placeholder {
-  padding-left: 0.5rem;
   font-size: 0.9rem;
 }
 
 .register .register-form .form .col-xl-9 input::-ms-input-placeholder {
-  padding-left: 0.5rem;
   font-size: 0.9rem;
 }
 
 .register .register-form .form .col-xl-9 input::placeholder {
-  padding-left: 0.5rem;
   font-size: 0.9rem;
 }
 
@@ -1668,6 +1731,8 @@
 }
 
 .register .register-form .form .form-check #flexCheckChecked {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
   margin-top: 2%;
   width: 1.2rem;
   height: 1.2rem;
@@ -1687,18 +1752,20 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: -1.2rem;
+  height: 100%;
   padding-bottom: 0.3rem;
 }
 
 .register .register-form .form .form-btn button {
+  margin-top: 1rem;
   -webkit-transition: ease-in-out 0.1s;
   transition: ease-in-out 0.1s;
-  margin-top: 2.1rem;
   font-weight: 500 !important;
   font-size: 0.9rem;
-  border: transparent;
-  outline: none;
+  border: transparent !important;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 .register .register-form .form .form-btn button:hover {

@@ -87,9 +87,27 @@ accordion_button.forEach(element => {
 });
 let mobil_search=document.querySelectorAll(".mobil-search")
 let mobil_search_input=document.getElementById("down-search")
+let search_open=document.getElementById("search_open")
+let search_close=document.getElementById("search_closed")
+search_open.addEventListener("click",function()
+{
+    search_open.classList.remove("search-class")
+    search_close.classList.add("search-class")
+})
+search_close.addEventListener("click",function()
+{
+    search_close.classList.remove("search-class")
+    search_open.classList.add("search-class")
+})
 mobil_search.forEach(x=>{
     x.addEventListener("click",function()
     {
        mobil_search_input.classList.toggle("down-search-class")
+       
     })
+})
+let fixed_top=document.querySelector("#fixed-top")
+fixed_top.addEventListener("click",function()
+{
+    window.scrollTo(0,0)
 })

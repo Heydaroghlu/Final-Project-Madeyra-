@@ -284,7 +284,6 @@
 
             input::placeholder {
                 font-size: 0.9rem;
-
                 font-weight: 400;
             }
             .col-xl-2 {
@@ -405,6 +404,22 @@
        display: flex;
        justify-content: end;
        align-items: center;
+       .search-class{
+           visibility: visible !important;
+       }
+       #search-1{
+           display: flex;
+           align-items: center;
+           position: relative;
+           .fa-magnifying-glass{
+               visibility: hidden;
+           }
+           .fa-xmark{
+               visibility: hidden;
+            position: absolute;
+        }
+       }
+       
        .sebet{
            position: relative;
            

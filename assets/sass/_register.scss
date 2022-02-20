@@ -41,9 +41,9 @@
                height: 2.2rem;
                margin-top: 1rem;
                width: 70%;
+               padding-left: 0.5rem;
            }
            input::placeholder{
-               padding-left: 0.5rem;
                font-size: 0.9rem;
            }
            
@@ -63,6 +63,7 @@
                 margin-top: 0%;
              }
             #flexCheckChecked{
+                box-shadow: none !important;
                 margin-top: 2%;
                 width: 1.2rem;
                 height: 1.2rem;
@@ -79,20 +80,22 @@
        .form-btn{
            display: flex;
            justify-content: center;
-           margin-top: -1.2rem;
+           height: 100%;
            padding-bottom: 0.3rem;
            button{
+               margin-top: 1rem;
                transition: ease-in-out 0.1s;
-               margin-top: 2.1rem;
                font-weight: 500 !important;
                font-size: 0.9rem;
-               border: transparent;
-               outline: none;
+               border: transparent !important;
+               outline: none !important;
+               box-shadow: none !important;
            }
            button:hover{
                background-color: black !important;
                color: white;
            }
+           
        }
        .form-forgot{
            a{
