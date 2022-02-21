@@ -1,9 +1,87 @@
 .komekci-class{
+    height: 100%;
+    margin-bottom: 4rem;
+    margin-top: 3rem;
     .row{
+    
         margin: 0% auto;
     }
-
+   .col-xl-2{
+       padding: 0%;
+       margin: 0%;
+   }
     .komekci-menu{
-        background-color: red;
+        
+        position: sticky;
+        top: 20px;
+        width: 200px;
+        height: 280px;
+        border: 3px solid #df2027;
+        border-radius: 5px;
+        background-color: #fff;
+        .menu-title{
+            display: flex;
+            align-items: center;
+            height: 2.6rem;
+            width: 100%;
+            border-bottom: 0.5px solid rgb(206, 204, 204);
+            h6{
+                margin-left: 1rem;
+            }
+        }
+        .menu-list{
+            ul{
+                padding: 0%;
+                
+                li{
+                    cursor: pointer;
+                    padding: 0%;
+                    height: 2.91rem;
+                    border-bottom: 1px solid #eee;
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+                    a{
+                        text-decoration: none;
+                        font-size: 14px;
+                        color: #222222;
+                    }
+                    i{
+                        margin-left: 1rem;
+                        margin-right: 0.7rem;
+                        opacity: 0.7;
+                        font-size: 0.6rem;
+                    }
+                }
+                li:hover{
+                    background-color: #eee;
+                    color: #df2027;
+                    a{
+                        color: #df2027;
+                    }
+                }
+            }
+        }
+       
     }
+     .text-title{
+         text-align: left;
+         margin-top: 0.4rem;
+           h6{
+               margin-left: 1rem;
+               font-size: 18px;
+               line-height: 1.5385;
+               letter-spacing: -.02em;
+               font-weight: 600;
+               font-family: Arial, sans-serif;
+               span{
+                   font-size: 16px;
+                   font-family: Arial, sans-serif;
+                   
+               }
+           }
+        }
+        .text{
+            padding-left: 1rem;
+        }
 }

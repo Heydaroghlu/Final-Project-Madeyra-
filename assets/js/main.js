@@ -20,14 +20,14 @@ function navbarscroll()
     if(document.documentElement.scrollTop>200)
     {
         navbar.classList.add("navbar-class")
-        $("#category-menu-ul").slideUp("fast")
+        // $("#category-menu-ul").slideUp("fast")
         navbar.classList.add("animate__animated","animate__fadeInDown")
         mobil_nav.classList.add("navbar-class")
         mobil_nav.classList.add("animate__animated","animate__fadeInDown")
     }
     else{
         navbar.classList.remove("navbar-class")
-        $("#category-menu-ul").slideDown("fast")
+        // $("#category-menu-ul").slideDown("fast")
         navbar.classList.remove("animate__animated","animate__fadeInDown")
         mobil_nav.classList.remove("navbar-class")
         mobil_nav.classList.remove("animate__animated","animate__fadeInDown")
@@ -46,7 +46,7 @@ if(window.location!="file:///C:/Users/heyde/OneDrive/Desktop/Madeyra/index.html"
         })
     })  
 }
-else if(window.location=="file:///C:/Users/heyde/OneDrive/Desktop/Madeyra/index.html" || document.documentElement.scrollTop>300)
+else
 {
     $(document).ready(function()
     {
@@ -111,3 +111,25 @@ fixed_top.addEventListener("click",function()
 {
     window.scrollTo(0,0)
 })
+let sebet_icon=document.querySelectorAll(".sebet")
+let sebet=document.getElementById("sebet-list")
+let sebet_mobil=document.getElementById("sebet-list-mobil")
+
+sebet_icon.forEach(element => {
+   
+    element.addEventListener("click",function()
+    {
+        sebet.classList.toggle("sebet-class")
+    sebet_mobil.classList.toggle("sebet-class")
+    })
+});
+let sebet_delete=document.querySelectorAll(".sebet-delete")
+sebet_delete.forEach(x=>
+    {
+        
+        x.addEventListener("click",function(e)
+        {
+            e.preventDefault()
+            alert("sil")
+        })
+    })

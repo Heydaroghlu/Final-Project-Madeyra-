@@ -356,22 +356,7 @@
         }
     }
 }
-.fixed-bell{
-    background-color: red;
-    width: 4rem;
-    height: 4rem;
-    position: fixed;
-    z-index: 99999999;
-    left: 10px;
-    bottom: 20px;
-    display: flex !important;
-    flex-direction: row;
-    font-family: Lato, "Source Sans Pro", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent;
-    line-height: normal;
-    border-radius: 50% 50% 100% 100%;
-}
+
 .fixed-top{
     i{
         cursor: pointer;

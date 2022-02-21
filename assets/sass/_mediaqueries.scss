@@ -50,9 +50,11 @@
     .header-bottom{
         display: none !important;
     }
-    .komekci-menu{
-        display: none;
- }
+    .komekci-class{
+        .col-xl-2{
+            display: none !important;
+        }
+    }
  
 .hero{
     .col-xl-12{
@@ -94,11 +96,35 @@
 // Extra large devices (large desktops)
 // No media query since the extra-large breakpoint has no upper bound on its width
 @media (max-width: 575.98px) { 
+    .container{
+        width: 96% !important;
+    }
+    .cards{
+        
+        .card{
+           margin: 2%  !important;
+        }
+    }
+    .reclam{
+        .col-xl-4{
+            margin-top: 2rem;
+            .reclam-image{
+                width: 85%;
+            }
+        }
+       
+    }
     .register-form{
         width: 90% !important;
     }
     .card-title{
         font-size: 13px !important;
+    }
+    #fixed-top{
+        width: 2.6rem;
+        height: 2.6rem;
+        margin-bottom: 1rem;
+        margin-right: 2rem;
     }
    
  }
