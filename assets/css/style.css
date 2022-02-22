@@ -73,6 +73,28 @@
 }
 
 @media (max-width: 575.98px) {
+  .komekci-class .text {
+    padding: 0% !important;
+  }
+  .komekci-class .text p {
+    font-size: 17px !important;
+  }
+  .komekci-class .text-title h6 {
+    margin: 0% !important;
+    padding: 0% !important;
+    margin-bottom: -0.2rem !important;
+    margin-top: 1rem !important;
+  }
+  .komekci-class .termin-text {
+    padding: 0% !important;
+  }
+  .komekci-class p {
+    padding: 0% !important;
+    margin: 0% !important;
+  }
+  .komekci-class .container {
+    width: 100% !important;
+  }
   .container {
     width: 96% !important;
   }
@@ -97,10 +119,12 @@
     margin-bottom: 1rem;
     margin-right: 2rem;
   }
+  html {
+    font-size: 16px;
+  }
 }
 
 * {
-  font-family: "Poppins", sans-serif;
   src: url(../font/Poppins-SemiBold.ttf);
   text-decoration: none;
   margin: 0%;
@@ -1973,7 +1997,7 @@
 .komekci-class .komekci-menu {
   position: -webkit-sticky;
   position: sticky;
-  top: 20px;
+  top: 100px;
   width: 200px;
   height: 280px;
   border: 3px solid #df2027;
@@ -2058,5 +2082,27 @@
 
 .komekci-class .text {
   padding-left: 1rem;
+}
+
+.komekci-class .text p {
+  font-size: 16px !important;
+  font-weight: 400;
+  color: #333 !important;
+  line-height: 1.5385;
+  padding-left: 1rem;
+}
+
+.komekci-class .termin-text {
+  padding-left: 0.9rem;
+}
+
+.komekci-class .termin-text p {
+  margin-bottom: 1%;
+  font-size: 0.88rem;
+}
+
+.komekci-class .termin-text p strong {
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

@@ -51,6 +51,7 @@
         display: none !important;
     }
     .komekci-class{
+        
         .col-xl-2{
             display: none !important;
         }
@@ -87,7 +88,7 @@
         }
         
     }
-
+  
   html{
       font-size: 14px;
   }
@@ -96,6 +97,32 @@
 // Extra large devices (large desktops)
 // No media query since the extra-large breakpoint has no upper bound on its width
 @media (max-width: 575.98px) { 
+    .komekci-class{
+          .text{
+              padding: 0% !important;
+              p{
+                  font-size: 17px !important;
+              }
+          }
+          .text-title{
+              h6{
+                margin: 0% !important;
+                padding: 0% !important;
+                margin-bottom: -0.2rem !important;
+                margin-top: 1rem !important;
+              }
+          }
+        .termin-text{
+            padding: 0% !important;
+        }
+        p{
+            padding: 0% !important;
+            margin: 0% !important;
+        }
+        .container{
+            width: 100% !important;
+        }
+      }
     .container{
         width: 96% !important;
     }
@@ -125,6 +152,9 @@
         height: 2.6rem;
         margin-bottom: 1rem;
         margin-right: 2rem;
+    }
+    html{
+        font-size: 16px;
     }
    
  }
