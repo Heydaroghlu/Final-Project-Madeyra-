@@ -8,18 +8,11 @@
 
 
 // Large devices (desktops, less than 1200px)
-@media (min-width: 991.98px){
 
-    .header-mobil{
-        display: none !important;
-    }
-    .down-search{
-        display: none !important;
-    }
-    
-}
 @media (max-width: 1199.98px) { 
-    
+    .container{
+        max-width: 100%;
+    }
     .register-form{
         width: 70% !important;
     }
@@ -44,7 +37,7 @@
         }
     }
  }
-
+ 
  @media (max-width: 991.98px) { 
     
     .header-bottom{
@@ -158,4 +151,16 @@
     }
    
  }
- 
+ @media (min-width: 991.98px){
+    
+    .header-mobil{
+        display: none !important;
+    }
+    .down-search{
+        display: none !important;
+    }
+    // .container{
+    //     max-width: 100%;
+    // }
+    
+}

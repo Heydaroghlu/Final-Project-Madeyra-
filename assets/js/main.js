@@ -134,5 +134,5 @@ sebet_delete.forEach(x=>
         })
     })
     fetch("https://madeyra.com/magazalar")
-    .then(Response=>Response.json())
+    .then(Response=>Response)
     .then(data=>console.log(data))
