@@ -1,0 +1,46 @@
+.mehsul{
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    .mehsul-sekil{
+        position: relative;
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+        h5{
+            height: 2.5rem;
+            padding:0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #df2027;
+            border-radius: 2rem;
+            position: absolute;
+            bottom: 18%;
+            right: 0%;
+            color: white;
+            margin-right: 0.3rem;
+        }
+    }
+    .still{
+        margin-top: 1.2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        span{
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        i{
+            margin-left: 0.7rem;
+            font-size: 1.5rem;
+        }
+        i:hover{
+            cursor: pointer;
+            color: #df2027;
+            
+        }
+    }
+}

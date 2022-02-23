@@ -1,7 +1,10 @@
-@media (max-width: 1199.98px) {
+@media (min-width: 1199.98px) {
   .container {
-    max-width: 100%;
+    max-width: 1320px;
   }
+}
+
+@media (max-width: 1199.98px) {
   .register-form {
     width: 70% !important;
   }
@@ -97,6 +100,9 @@
   }
   .hesab-class .col-lg-9 .melumatlarim input {
     width: 100%;
+  }
+  .basliq {
+    display: none !important;
   }
 }
 
@@ -492,7 +498,7 @@
 
 .header-bottom .menu {
   height: 100%;
-  margin-left: 10px;
+  margin-left: -7%;
 }
 
 .header-bottom .menu #menu-list {
@@ -675,12 +681,12 @@
 }
 
 .sebet .sebet-class {
-  visibility: visible !important;
+  display: block !important;
 }
 
 .sebet .sebet-list {
   position: absolute;
-  visibility: hidden;
+  display: none;
   min-height: 5rem;
   width: 20rem;
   background-color: white;
@@ -784,6 +790,14 @@
   width: 8rem;
   font-size: 0.8rem;
   margin-bottom: 1rem;
+}
+
+.sebet:hover .sebet-list {
+  display: block !important;
+}
+
+.sebet-list:hover {
+  display: block !important;
 }
 
 .header-mobil {
@@ -2404,6 +2418,13 @@
   background-color: #f9f9f9;
 }
 
+.siyahi h3 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
 .siyahi .siyahi-top a {
   text-decoration: none;
   color: #343434 !important;
@@ -2420,7 +2441,7 @@
 }
 
 .siyahi .siyahi-top .fa-house-chimney {
-  font-size: 12px;
+  font-size: 10px;
   margin-right: 0.3rem;
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
@@ -2434,8 +2455,8 @@
   background-color: #f5f5f5;
 }
 
-.siyahi #mehsul-name {
-  margin-left: 64%;
+.siyahi .mehsul-tag {
+  margin-left: 10%;
 }
 
 .siyahi .arzu {
@@ -2459,9 +2480,17 @@
   width: 100%;
 }
 
+.siyahi .arzu #arzu-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .siyahi .arzu .arzu-name {
   padding-left: 2rem;
-  margin-top: 1.3rem;
 }
 
 .siyahi .arzu .arzu-name a {
@@ -2554,5 +2583,267 @@
 .siyahi .arzu .arzu-delete i:hover {
   background-color: red;
   color: white;
+}
+
+.siyahi .davam-et {
+  padding-top: 1rem;
+}
+
+.siyahi .davam-et .btn:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+.siyahi .davam-et .btn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.sebetclass {
+  background-color: #f9f9f9;
+  padding-top: 2rem;
+  height: 100%;
+  padding-bottom: 2rem;
+}
+
+.sebetclass #davam {
+  color: #666;
+  text-decoration: none;
+  width: 100%;
+  border: 1px solid #666;
+  height: 2.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sebetclass #davam:hover {
+  color: #df2027;
+  border: 1px solid #df2027;
+}
+
+.sebetclass #sebet-text {
+  padding-bottom: 1rem;
+}
+
+.sebetclass #sebet-text h3 {
+  font-size: 1.4rem;
+}
+
+.sebetclass #sebet-text .btn {
+  border-radius: 2px;
+  width: 8rem;
+}
+
+.sebetclass #sebet-text .btn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.sebetclass .item {
+  margin-bottom: 1rem;
+  height: 100%;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  padding-left: 1rem;
+  background-color: white;
+}
+
+.sebetclass .item .item-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sebetclass .item .item-img img {
+  max-width: 100%;
+}
+
+.sebetclass .item .item-name {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sebetclass .item .item-name a {
+  color: #242831;
+  font-weight: 500;
+  letter-spacing: -.015em;
+  font-size: 1.1875rem;
+  text-decoration: none;
+}
+
+.sebetclass .item .item-price {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sebetclass .item .item-price p {
+  margin: 0%;
+  font-size: 16px;
+}
+
+.sebetclass .item .item-delete {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 1rem;
+}
+
+.sebetclass .item .item-delete i {
+  color: red;
+}
+
+.sebetclass .umumi {
+  padding-top: 0.7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #d8d6d6;
+}
+
+.sebetclass .umumi p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.sebetclass .endirim {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #d8d6d6;
+}
+
+.sebetclass .endirim p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.sebetclass .catdirlma {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sebetclass .catdirlma p {
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.sebetclass .btn {
+  margin-bottom: 1rem;
+}
+
+.sebetclass .sebet-melumat {
+  margin-bottom: 1rem;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 2px;
+}
+
+.sebetclass .sebet-melumat .melumat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mehsul {
+  width: 100%;
+  height: 100%;
+  background-color: #f9f9f9;
+}
+
+.mehsul .mehsul-sekil {
+  position: relative;
+}
+
+.mehsul .mehsul-sekil img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.mehsul .mehsul-sekil h5 {
+  height: 2.5rem;
+  padding: 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #df2027;
+  border-radius: 2rem;
+  position: absolute;
+  bottom: 18%;
+  right: 0%;
+  color: white;
+  margin-right: 0.3rem;
+}
+
+.mehsul .still {
+  margin-top: 1.2rem;
+  height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.mehsul .still span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.mehsul .still i {
+  margin-left: 0.7rem;
+  font-size: 1.5rem;
+}
+
+.mehsul .still i:hover {
+  cursor: pointer;
+  color: #df2027;
 }
 /*# sourceMappingURL=style.css.map */

@@ -233,7 +233,7 @@
     // menu
     .menu {
         height: 100%;
-        margin-left: 10px;
+        margin-left: -7%;
         #menu-list {
             margin-left: -1.9rem;
             display: flex;
@@ -361,11 +361,11 @@
         border-radius: 50%;
     }
     .sebet-class{
-        visibility: visible !important;
+        display: block !important;
     }
     .sebet-list{
         position: absolute;
-        visibility: hidden;
+        display: none;
         min-height: 5rem;
         width: 20rem;
         background-color: white;
@@ -444,6 +444,14 @@
         }
        
     }
+}
+.sebet:hover{
+    .sebet-list{
+        display: block !important;
+    }
+}
+.sebet-list:hover{
+    display: block !important;
 }
 
 //mobil version

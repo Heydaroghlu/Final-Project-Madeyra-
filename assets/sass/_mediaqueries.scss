@@ -8,11 +8,13 @@
 
 
 // Large devices (desktops, less than 1200px)
-
-@media (max-width: 1199.98px) { 
+@media (min-width: 1199.98px){
     .container{
-        max-width: 100%;
+        max-width: 1320px;
     }
+}
+@media (max-width: 1199.98px) { 
+   
     .register-form{
         width: 70% !important;
     }
@@ -113,6 +115,9 @@
             }
         }
     }
+   }
+   .basliq{
+       display: none !important;
    }
  }
 

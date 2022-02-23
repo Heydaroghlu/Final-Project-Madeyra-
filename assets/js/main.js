@@ -111,18 +111,19 @@ fixed_top.addEventListener("click",function()
 {
     window.scrollTo(0,0)
 })
-let sebet_icon=document.querySelectorAll(".sebet")
-let sebet=document.getElementById("sebet-list")
-let sebet_mobil=document.getElementById("sebet-list-mobil")
+// let sebet_icon=document.querySelectorAll(".sebet")
+// let sebet=document.getElementById("sebet-list")
+// let sebet_mobil=document.getElementById("sebet-list-mobil")
 
-sebet_icon.forEach(element => {
+// // sebet_icon.forEach(element => {
    
-    element.addEventListener("click",function()
-    {
-        sebet.classList.toggle("sebet-class")
-    sebet_mobil.classList.toggle("sebet-class")
-    })
-});
+// //     element.addEventListener("click",function(e)
+// //     {
+        
+// //         sebet.classList.toggle("sebet-class")
+// //     sebet_mobil.classList.toggle("sebet-class")
+// //     })
+// // });
 let sebet_delete=document.querySelectorAll(".sebet-delete")
 sebet_delete.forEach(x=>
     {
@@ -133,4 +134,10 @@ sebet_delete.forEach(x=>
             alert("sil")
         })
     })
+    
+    // window.addEventListener("click",function(e)
+    // {
+        
+    //     sebet.classList.remove("sebet-class")
+    // })
     
