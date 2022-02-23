@@ -133,6 +133,4 @@ sebet_delete.forEach(x=>
             alert("sil")
         })
     })
-    fetch("https://madeyra.com/magazalar")
-    .then(Response=>Response)
-    .then(data=>console.log(data))
+    

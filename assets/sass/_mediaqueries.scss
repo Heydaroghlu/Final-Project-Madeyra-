@@ -60,7 +60,9 @@
   }
 
   @media (max-width: 767.98px) { 
-      
+      .container{
+          width: 80%;
+      }
     .register-form{
         width: 90% !important;
 
@@ -85,6 +87,33 @@
   html{
       font-size: 14px;
   }
+  .hesab-class{
+    .col-lg-3{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+        
+        .hesab-menu{
+            width: 100%;
+            margin-bottom: 1.2rem;
+        }
+    }
+    
+    .col-lg-9{
+        display: flex;
+        justify-content: center;
+        padding: 0% !important;
+        .melumatlarim{
+            width: 100% !important;
+            .col-xl-10{
+                padding: 0% 3%;
+            }
+            input{
+                width: 100%;
+            }
+        }
+    }
+   }
  }
 
 // Extra large devices (large desktops)
@@ -149,7 +178,26 @@
     html{
         font-size: 16px;
     }
-   
+   .hesab-class{
+    .col-lg-3{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+        .hesab-menu{
+            width: 100%;
+            margin-bottom: 1.2rem;
+        }
+    }
+    
+    .col-lg-9{
+        display: flex;
+        justify-content: center;
+        padding: 0% !important;
+        .melumatlarim{
+            width: 100% !important;
+        }
+    }
+   }
  }
  @media (min-width: 991.98px){
     

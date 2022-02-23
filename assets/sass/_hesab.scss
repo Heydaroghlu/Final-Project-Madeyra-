@@ -1,0 +1,188 @@
+.hesab-class{
+    background-color: #f9f9f9;
+    height: 100%;
+    padding-bottom: 4rem;
+    padding-top: 3rem;
+    .row{
+    
+        margin: 0% auto;
+    }
+    
+   .col-xl-2{
+       padding: 0%;
+       margin: 0%;
+   }
+    .hesab-menu{
+        
+        position: sticky;
+        top: 100px;
+        width: 200px;
+        height: 280px;
+        border: 3px solid #df2027;
+        border-radius: 5px;
+        background-color: #fff;
+        .menu-title{
+            display: flex;
+            align-items: center;
+            height: 2.6rem;
+            width: 100%;
+            border-bottom: 0.5px solid rgb(206, 204, 204);
+            h6{
+                margin-top: 0.5rem;
+               font-size: 0.92rem;
+                margin-left: 1rem;
+            }
+        }
+        .menu-list{
+            ul{
+                padding: 0%;
+                
+                li{
+                    cursor: pointer;
+                    padding: 0%;
+                    height: 2.91rem;
+                    border-bottom: 1px solid #eee;
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+                    a{
+                        text-decoration: none;
+                        font-size: 14px;
+                        color: #222222;
+                    }
+                    i{
+                        margin-left: 1rem;
+                        margin-right: 0.7rem;
+                        opacity: 0.7;
+                        font-size: 0.6rem;
+                    }
+                }
+                li:hover{
+                    background-color: #eee;
+                    color: #df2027;
+                    a{
+                        color: #df2027;
+                    }
+                }
+            }
+        }
+       
+    }
+    .col-xl-10{
+        padding-left: 2.6rem;
+    }
+    //hesab-melumatlari
+    .melumatlarim{
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        border: 1px solid rgba(0,0,0,.125);
+        h1{
+            letter-spacing: -.017em;
+            font-size: 1.52rem;
+            margin-top: 0.9rem;
+            margin-bottom: 0.625rem;
+    font-weight: 500;
+    color: #333;
+    text-align: left;
+        }
+        .row{
+            margin-bottom: 0.8rem;
+        }
+        .col-{
+            background-color: red;
+        }
+        .col-xl-2{
+            padding-left: 1rem;
+            label{
+                font-weight: 500;
+                font-size: 14px;
+                color: #333;
+
+            }
+        }
+        .col-xl-10{
+            
+            padding-right: 30%;
+            input{
+                border-radius: 0% !important;
+                height: 2.3rem;
+            }
+            input:focus{
+                box-shadow: none !important;
+                border: 1px solid gray;
+            }
+        }
+        .col-xl-12{
+            padding-right: 15%;
+            display: flex;
+            justify-content: space-between;
+            .btn{
+                margin-bottom: 1.6rem;
+            }
+            .btn-dark{
+                border-radius: 0%;
+                margin-left: 1rem;
+            }
+            .btn-warning:hover{
+                background-color: black;
+                color: white;
+                border: 1px solid black;
+            }
+        }
+        
+    }
+}
+//unvan
+.unvan-class{
+    .col-xl-10{
+        display: block;
+    }
+}
+.unvan-kitabcasi{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding-bottom: 0.5rem;
+    border-radius: 5px;
+    h1{
+        letter-spacing: -.017em;
+        font-size: 1.25rem;
+        margin-top: 0.9rem;
+        margin-bottom: 0.625rem;
+font-weight: 500;
+color: #333;
+text-align: left;
+    }
+    .unvan{
+        transition: ease-in-out 0.2s;
+        margin: auto;   
+        margin-bottom: 0.8rem;         
+        border: 1px solid #ddd;
+        width: 96%;
+        padding: 0% !important;
+        .col-xl-5{
+            height: 100%;
+            border-right: 1px solid #ddd;
+            p{
+                margin: 0%;
+            }
+        }
+        .col-xl-7{
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
+    }
+    .unvan:hover{
+        background-color: #f9f9f9;
+    }
+    
+}
+.unvan-button{
+    padding-top: 1rem;
+    .col-xl-12{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}

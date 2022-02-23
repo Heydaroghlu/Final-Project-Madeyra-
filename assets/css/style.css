@@ -45,6 +45,9 @@
 }
 
 @media (max-width: 767.98px) {
+  .container {
+    width: 80%;
+  }
   .register-form {
     width: 90% !important;
   }
@@ -63,6 +66,37 @@
   }
   html {
     font-size: 14px;
+  }
+  .hesab-class .col-lg-3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .hesab-class .col-lg-3 .hesab-menu {
+    width: 100%;
+    margin-bottom: 1.2rem;
+  }
+  .hesab-class .col-lg-9 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0% !important;
+  }
+  .hesab-class .col-lg-9 .melumatlarim {
+    width: 100% !important;
+  }
+  .hesab-class .col-lg-9 .melumatlarim .col-xl-10 {
+    padding: 0% 3%;
+  }
+  .hesab-class .col-lg-9 .melumatlarim input {
+    width: 100%;
   }
 }
 
@@ -115,6 +149,31 @@
   }
   html {
     font-size: 16px;
+  }
+  .hesab-class .col-lg-3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .hesab-class .col-lg-3 .hesab-menu {
+    width: 100%;
+    margin-bottom: 1.2rem;
+  }
+  .hesab-class .col-lg-9 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0% !important;
+  }
+  .hesab-class .col-lg-9 .melumatlarim {
+    width: 100% !important;
   }
 }
 
@@ -2017,6 +2076,8 @@
 }
 
 .komekci-class .komekci-menu .menu-title h6 {
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
   margin-left: 1rem;
 }
 
@@ -2092,7 +2153,7 @@
 }
 
 .komekci-class .termin-text {
-  padding-left: 0.9rem;
+  padding-left: 1.6rem;
 }
 
 .komekci-class .termin-text p {
@@ -2103,5 +2164,395 @@
 .komekci-class .termin-text p strong {
   margin-top: 0.6rem;
   margin-bottom: 1rem;
+}
+
+.hesab-class {
+  background-color: #f9f9f9;
+  height: 100%;
+  padding-bottom: 4rem;
+  padding-top: 3rem;
+}
+
+.hesab-class .row {
+  margin: 0% auto;
+}
+
+.hesab-class .col-xl-2 {
+  padding: 0%;
+  margin: 0%;
+}
+
+.hesab-class .hesab-menu {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  width: 200px;
+  height: 280px;
+  border: 3px solid #df2027;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.hesab-class .hesab-menu .menu-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 2.6rem;
+  width: 100%;
+  border-bottom: 0.5px solid #cecccc;
+}
+
+.hesab-class .hesab-menu .menu-title h6 {
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+  margin-left: 1rem;
+}
+
+.hesab-class .hesab-menu .menu-list ul {
+  padding: 0%;
+}
+
+.hesab-class .hesab-menu .menu-list ul li {
+  cursor: pointer;
+  padding: 0%;
+  height: 2.91rem;
+  border-bottom: 1px solid #eee;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hesab-class .hesab-menu .menu-list ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #222222;
+}
+
+.hesab-class .hesab-menu .menu-list ul li i {
+  margin-left: 1rem;
+  margin-right: 0.7rem;
+  opacity: 0.7;
+  font-size: 0.6rem;
+}
+
+.hesab-class .hesab-menu .menu-list ul li:hover {
+  background-color: #eee;
+  color: #df2027;
+}
+
+.hesab-class .hesab-menu .menu-list ul li:hover a {
+  color: #df2027;
+}
+
+.hesab-class .col-xl-10 {
+  padding-left: 2.6rem;
+}
+
+.hesab-class .melumatlarim {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.hesab-class .melumatlarim h1 {
+  letter-spacing: -.017em;
+  font-size: 1.52rem;
+  margin-top: 0.9rem;
+  margin-bottom: 0.625rem;
+  font-weight: 500;
+  color: #333;
+  text-align: left;
+}
+
+.hesab-class .melumatlarim .row {
+  margin-bottom: 0.8rem;
+}
+
+.hesab-class .melumatlarim .col- {
+  background-color: red;
+}
+
+.hesab-class .melumatlarim .col-xl-2 {
+  padding-left: 1rem;
+}
+
+.hesab-class .melumatlarim .col-xl-2 label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.hesab-class .melumatlarim .col-xl-10 {
+  padding-right: 30%;
+}
+
+.hesab-class .melumatlarim .col-xl-10 input {
+  border-radius: 0% !important;
+  height: 2.3rem;
+}
+
+.hesab-class .melumatlarim .col-xl-10 input:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border: 1px solid gray;
+}
+
+.hesab-class .melumatlarim .col-xl-12 {
+  padding-right: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.hesab-class .melumatlarim .col-xl-12 .btn {
+  margin-bottom: 1.6rem;
+}
+
+.hesab-class .melumatlarim .col-xl-12 .btn-dark {
+  border-radius: 0%;
+  margin-left: 1rem;
+}
+
+.hesab-class .melumatlarim .col-xl-12 .btn-warning:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+.unvan-class .col-xl-10 {
+  display: block;
+}
+
+.unvan-kitabcasi {
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding-bottom: 0.5rem;
+  border-radius: 5px;
+}
+
+.unvan-kitabcasi h1 {
+  letter-spacing: -.017em;
+  font-size: 1.25rem;
+  margin-top: 0.9rem;
+  margin-bottom: 0.625rem;
+  font-weight: 500;
+  color: #333;
+  text-align: left;
+}
+
+.unvan-kitabcasi .unvan {
+  -webkit-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+  margin: auto;
+  margin-bottom: 0.8rem;
+  border: 1px solid #ddd;
+  width: 96%;
+  padding: 0% !important;
+}
+
+.unvan-kitabcasi .unvan .col-xl-5 {
+  height: 100%;
+  border-right: 1px solid #ddd;
+}
+
+.unvan-kitabcasi .unvan .col-xl-5 p {
+  margin: 0%;
+}
+
+.unvan-kitabcasi .unvan .col-xl-7 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.unvan-kitabcasi .unvan:hover {
+  background-color: #f9f9f9;
+}
+
+.unvan-button {
+  padding-top: 1rem;
+}
+
+.unvan-button .col-xl-12 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.siyahi {
+  background-color: #f9f9f9;
+}
+
+.siyahi .siyahi-top a {
+  text-decoration: none;
+  color: #343434 !important;
+}
+
+.siyahi .siyahi-top a span {
+  font-size: 14px;
+}
+
+.siyahi .siyahi-top .fa-angle-right {
+  font-size: 10px;
+  padding-right: 0.2rem;
+  color: #979797;
+}
+
+.siyahi .siyahi-top .fa-house-chimney {
+  font-size: 12px;
+  margin-right: 0.3rem;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #343434 !important;
+}
+
+.siyahi .arzu-siyahisi {
+  height: 100%;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  background-color: #f5f5f5;
+}
+
+.siyahi #mehsul-name {
+  margin-left: 64%;
+}
+
+.siyahi .arzu {
+  height: 100%;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  padding-left: 1rem;
+  background-color: white;
+}
+
+.siyahi .arzu .arzu-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.siyahi .arzu .arzu-img img {
+  width: 100%;
+}
+
+.siyahi .arzu .arzu-name {
+  padding-left: 2rem;
+  margin-top: 1.3rem;
+}
+
+.siyahi .arzu .arzu-name a {
+  text-decoration: none;
+  color: #242831;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.siyahi .arzu .arzu-text {
+  padding-left: 2rem;
+}
+
+.siyahi .arzu .arzu-text span {
+  font-size: 0.9rem;
+}
+
+.siyahi .arzu .arzu-status {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.siyahi .arzu .arzu-status p {
+  color: green;
+  margin-top: 0.9rem !important;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  font-size: 0.9rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem !important;
+  height: 2rem;
+  min-width: 5rem;
+  border: 2px solid green;
+}
+
+.siyahi .arzu .arzu-price {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.siyahi .arzu .arzu-price span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #333 !important;
+}
+
+.siyahi .arzu .arzu-delete {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.siyahi .arzu .arzu-delete i {
+  -webkit-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+  height: 1.8rem;
+  width: 1.8rem;
+  color: red;
+  border: 1px solid red;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.siyahi .arzu .arzu-delete i:hover {
+  background-color: red;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
