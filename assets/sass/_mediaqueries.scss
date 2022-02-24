@@ -38,6 +38,15 @@
             }
         }
     }
+    .mehsul{
+        padding: 0% !important;
+        .col-xl-2{
+            padding-left: 1.1rem !important;
+        }
+        .still{
+            display: none !important;
+        }
+    }
  }
  
  @media (max-width: 991.98px) { 
@@ -57,13 +66,22 @@
         padding: 0% !important;
     }
 }
-   
-   
+   .mehsul{
+       .col-xl-2{
+           padding: 0% !important;
+       }
+       .col-xl-10{
+           padding: 0% !important;
+       }
+   }
+
+
   }
 
   @media (max-width: 767.98px) { 
       .container{
           width: 80%;
+          
       }
     .register-form{
         width: 90% !important;
@@ -119,6 +137,7 @@
    .basliq{
        display: none !important;
    }
+  
  }
 
 // Extra large devices (large desktops)
@@ -152,6 +171,9 @@
       }
     .container{
         width: 96% !important;
+    }
+    .row {
+        --bs-gutter-x: 5% !important;
     }
     .cards{
         

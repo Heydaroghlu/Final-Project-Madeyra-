@@ -119,6 +119,7 @@
 .favorite{
     height: 100%;
     padding-top: 1.5rem;
+   
     h6{
         margin-top: -1rem;
         font-weight: 600;
@@ -160,7 +161,8 @@
                 justify-content: end;
                 img{
                     position: relative;
-                    width: 3.66rem;
+                    max-width: 3.8rem;
+                    min-width: 3.5rem;
                     height: 3.3rem;
                 }
                 .img-txt{

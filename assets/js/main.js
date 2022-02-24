@@ -111,19 +111,19 @@ fixed_top.addEventListener("click",function()
 {
     window.scrollTo(0,0)
 })
-// let sebet_icon=document.querySelectorAll(".sebet")
-// let sebet=document.getElementById("sebet-list")
-// let sebet_mobil=document.getElementById("sebet-list-mobil")
+let sebet_icon=document.querySelectorAll(".sebet")
+let sebet=document.getElementById("sebet-list")
+let sebet_mobil=document.getElementById("sebet-list-mobil")
 
-// // sebet_icon.forEach(element => {
+sebet_icon.forEach(element => {
    
-// //     element.addEventListener("click",function(e)
-// //     {
+    element.addEventListener("click",function(e)
+    {
         
-// //         sebet.classList.toggle("sebet-class")
-// //     sebet_mobil.classList.toggle("sebet-class")
-// //     })
-// // });
+        sebet.classList.toggle("sebet-class")
+    sebet_mobil.classList.toggle("sebet-class")
+    })
+});
 let sebet_delete=document.querySelectorAll(".sebet-delete")
 sebet_delete.forEach(x=>
     {
@@ -135,9 +135,46 @@ sebet_delete.forEach(x=>
         })
     })
     
-    // window.addEventListener("click",function(e)
-    // {
-        
-    //     sebet.classList.remove("sebet-class")
-    // })
-    
+  let filter_icon=document.getElementById("filter-icon")
+  let qiymet=document.querySelector(".qiymet")
+  let qiymet_range=document.querySelector(".qiymet-range")
+  let qiymet_icon=document.getElementById("qiymet-icon")
+  filter_icon.onclick=function()
+  {
+    qiymet_range.classList.toggle("filter-class")
+  }
+ qiymet_icon.addEventListener("click",function()
+  {
+    qiymet_range.classList.toggle("filter-class")
+  })
+  //grid
+  let grid2=document.getElementById("grid2")
+  let grid3=document.getElementById("grid3")
+  let mehsul_card=document.querySelectorAll(".favorite .col-xl-4")
+grid2.onclick=function()
+{
+    grid3.style.color="black"
+    grid2.style.color="red"
+    mehsul_card.forEach(x=>
+        {
+            x.className=""
+        })
+        mehsul_card.forEach(x=>
+            {
+                x.classList.add("col-xl-6","col-lg-6","col-md-6","col-sm-12","col-12")
+            })
+}
+grid3.onclick=function()
+{
+    grid2.style.color="black"
+    grid3.style.color="red"
+    mehsul_card.forEach(x=>
+        {
+            x.className=""
+        })
+        mehsul_card.forEach(x=>
+            {
+                x.classList.add("col-xl-4","col-lg-4","col-md-6","col-sm-12","col-12")
+            })
+}
+

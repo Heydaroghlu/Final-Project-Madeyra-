@@ -33,6 +33,15 @@
   .header-bottom .right .sebet {
     margin-right: 1.4rem;
   }
+  .mehsul {
+    padding: 0% !important;
+  }
+  .mehsul .col-xl-2 {
+    padding-left: 1.1rem !important;
+  }
+  .mehsul .still {
+    display: none !important;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -43,6 +52,12 @@
     display: none !important;
   }
   .hero .col-xl-12 {
+    padding: 0% !important;
+  }
+  .mehsul .col-xl-2 {
+    padding: 0% !important;
+  }
+  .mehsul .col-xl-10 {
     padding: 0% !important;
   }
 }
@@ -131,6 +146,9 @@
   }
   .container {
     width: 96% !important;
+  }
+  .row {
+    --bs-gutter-x: 5% !important;
   }
   .cards .card {
     margin: 2%  !important;
@@ -313,7 +331,7 @@
   top: 0% !important;
   position: fixed !important;
   width: 100%;
-  z-index: 999 !important;
+  z-index: 99999889 !important;
 }
 
 .header-bottom {
@@ -1378,7 +1396,8 @@
 
 .favorite .card .card-body .kompaniya img {
   position: relative;
-  width: 3.66rem;
+  max-width: 3.8rem;
+  min-width: 3.5rem;
   height: 3.3rem;
 }
 
@@ -2784,6 +2803,7 @@
 }
 
 .mehsul {
+  padding-left: 2.2rem;
   width: 100%;
   height: 100%;
   background-color: #f9f9f9;
@@ -2845,5 +2865,105 @@
 .mehsul .still i:hover {
   cursor: pointer;
   color: #df2027;
+}
+
+.mehsul .col-xl-2 {
+  padding: 0%;
+  margin: 0% -0.5%;
+}
+
+.mehsul .col-xl-10 {
+  padding-left: 2.1rem;
+}
+
+.mehsul .mehsul-filter {
+  background-color: white;
+  margin-top: 2.55rem;
+  padding-left: 0%;
+  width: 100%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.mehsul .mehsul-filter .filter {
+  cursor: pointer;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mehsul .mehsul-filter .filter i {
+  width: 0.9rem;
+  height: 0.9rem;
+  font-size: 0.7rem;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#grid3 {
+  color: red;
+}
+
+.filter-class {
+  height: 4rem !important;
+  visibility: visible !important;
+}
+
+.qiymet {
+  height: 100%;
+  cursor: pointer;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.qiymet-range {
+  height: 0;
+  visibility: hidden;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 24px;
+  height: 24px;
+  -webkit-appearance: none;
+  background-color: black;
+  /* @apply w-6 h-6 appearance-none pointer-events-auto; */
+}
+
+.h-screen {
+  padding: 0ch !important;
+  height: 3rem;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madeyra mebel|Mebel mağazası|Aşağı qiymətlər və yüksək keyfiyyət</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.8.9/dist/tailwind.min.css">
     <link rel="icon" href="https://madeyra.com/catalog/view/images/favicon.ico">
     <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
@@ -72,13 +73,13 @@
                             </div>
                             <div class="category-menu">
                                 <ul id="category-menu-ul">
-                                    <li class="category-li"><a href=""><i class="fa-solid fa-arrow-right-long"></i>Yataq Mebeli</a>
+                                    <li class="category-li"><a href="mehsul.html"><i class="fa-solid fa-arrow-right-long"></i>Yataq Mebeli</a>
                                       <div class="sub-menu">
                                           <div class="row">
                                               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                   <ul>
-                                                      <li><a href=""><i class="fa-solid fa-angle-right"></i>Yataq Dəsti</a></li>
-                                                      <li><a href=""><i class="fa-solid fa-angle-right"></i>Çarpayı</a></li>
+                                                      <li><a href="mehsul.html"><i class="fa-solid fa-angle-right"></i>Yataq Dəsti</a></li>
+                                                      <li><a href="mehsul.html"><i class="fa-solid fa-angle-right"></i>Çarpayı</a></li>
                                                       <li><a href=""><i class="fa-solid fa-angle-right"></i>Paltar Dolabı</a></li>
                                                       <li><a href=""><i class="fa-solid fa-angle-right"></i>Komod Güzgü</a></li>
                                                       <li><a href=""><i class="fa-solid fa-angle-right"></i>Tumbalar</a></li>
@@ -97,7 +98,7 @@
                                             <div class="row">
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                     <ul>
-                                                        <li><a href=""><i class="fa-solid fa-angle-right"></i>Qonaq Dəsti</a></li>
+                                                        <li><a href="mehsul.html"><i class="fa-solid fa-angle-right"></i>Qonaq Dəsti</a></li>
                                                         <li><a href=""><i class="fa-solid fa-angle-right"></i>Masa</a></li>
                                                         <li><a href=""><i class="fa-solid fa-angle-right"></i>Tv stend</a></li>
                                                         <li><a href=""><i class="fa-solid fa-angle-right"></i>Vitrin</a></li>
@@ -448,7 +449,7 @@
                             <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading1">
                               <div class="accordion-body">
                                   <ul class="accordion-ul">
-                                      <li><a href="">Yataq dəsti</a></li>
+                                      <li><a href="mehsul.html">Yataq dəsti</a></li>
                                       <li><a href="">Masa</a></li>
                                       <li><a href="">Tv stend</a></li>
                                       <li><a href="">Vitrin</a></li>
@@ -600,122 +601,663 @@
     <div class="mehsul siyahi">
         <div class="container">
             <div class="row">
-                <div class="col-xl-3">
+                <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-12">
                     <div class="mehsul-filter">
-
-                    </div>
-                </div>
-                <div class="col-xl-9">
-                    <div class="mehsul-sekil">
-                        <img src="https://madeyra.com/image/cache/catalog/catagory%20foto/yataq-1920x400.webp" alt="">
-                      <h5>Yataq Dəsti</h5>
-                    </div>
-                    <div class="siyahi-top">
-                        <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a></i> <i
-                            class="fa-solid fa-angle-right"></i> <a href=""><span>Yataq Mebeli</span></a> <i
-                            class="fa-solid fa-angle-right"></i> <a href=""><span>
-                                Yataq dəsti</span></a>
-                    </div>
-                    <div class="still">
-                        <span>Sütun stili:</span><i class="fa-solid fa-border-all"></i><i class="fa-solid fa-table-cells"></i>
-                    </div>
-                    <div class="row">
-                        <div class="favorite">
-                            <div class="row">
-                                <div class="col-xl-4">
-                                    <div class="item">
-
-                                        <div class="card">
-                                            <div class="favorite-image">
-                                                <img src="https://madeyra.com/image/cache/catalog/Amber/D65HQbt3ns-521x293.webp"
-                                                    class="card-img-top" alt="...">
-                                            </div>
-                                            <div class="credit-tag">
-                                                <div class="price">
-                                                    <span>Ayda <br> 64</span>
+                       <div class="container">
+                           <div class="row">
+                               <div class="filter">
+                                       <h4>Filter</h4>
+                                   <i id="filter-icon" class="fa-solid fa-chevron-down"></i>
+                                </div>
+                               <div class="qiymet">
+                                   <h3>Qiymət</h3>
+                                   <i id="qiymet-icon" class="fa-solid fa-caret-up"></i>
+                               </div>
+                               <div class="qiymet-range">
+                                <div class="h-screen flex justify-center items-center">
+                                    <div  x-data="range()" x-init="mintrigger(); maxtrigger()" class="relative w-full">
+                                      <div>
+                                        <input  type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="mintrigger" x-model="minprice"  class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+                                  
+                                        <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger" x-model="maxprice" class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+                                  
+                                        <div class="relative z-10 h-2 w-90">
+                                  
+                                          <div  class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-red-600"></div>
+                                  
+                                          <div  class="absolute z-20 h-1 top-0 bottom-0 rounded-md bg-red-600" x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
+                                  
+                                          <div class="absolute z-30 w-4 h-4 top-0 left-0 bg-red-600 rounded-full -mt-1" x-bind:style="'left: '+minthumb+'%'"></div>
+                                  
+                                          <div class="absolute z-30 w-4 h-4 top-0 right-0 bg-red-600 rounded-full -mt-1" x-bind:style="'right: '+maxthumb+'%'"></div>
+                                  
+                                        </div>
+                                  
+                                      </div>
+                                  
+                                        <div class="flex items-center justify-between pt-3  space-x-4 text-sm text-gray-700">
+                                          <div>
+                                            <input type="text" maxlength="5" x-on:input.debounce="mintrigger" x-model="minprice"
+                                              wire:model.debounce.300="minPrice"
+                                              class="w-20 px-3  text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
+                                          </div>
+                                          <div>
+                                            <input type="text" maxlength="5" x-on:input.debounce.300="maxtrigger" x-model="maxprice"
+                                              wire:model.debounce="maxPrice"
+                                              class="w-20 px-3  text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
+                                          </div>
+                                        </div>
+                                  
+                                    </div>
+                                    </div>
+                                  </div>
+                                  </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-xl-10 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="mehsul-sekil">
+                            <img src="https://madeyra.com/image/cache/catalog/catagory%20foto/yataq-1920x400.webp" alt="">
+                          <h5>Yataq Dəsti</h5>
+                        </div>
+                        <div class="siyahi-top">
+                            <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a></i> <i
+                                class="fa-solid fa-angle-right"></i> <a href=""><span>Yataq Mebeli</span></a> <i
+                                class="fa-solid fa-angle-right"></i> <a href=""><span>
+                                    Yataq dəsti</span></a>
+                        </div>
+                        <div class="still">
+                            <span>Sütun stili:</span><i id="grid2"  class="fa-solid fa-border-all"></i><i id="grid3" class="fa-solid fa-table-cells"></i>
+                        </div>
+                        <div class="row">
+                            <div class="favorite">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Amber/D65HQbt3ns-521x293.webp"
+                                                        class="card-img-top" alt="...">
                                                 </div>
-                                                <div class="tag">
-                                                    <span>24 Ay Faizsiz</span>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <i class="fa-solid fa-heart"></i>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                                        <span>Amber divan dəsti</span>
-                                                        <div class="row">
-                                                            <div class="favorite-price">
-                                                                <div class="price">
-                                                                    <span class="oldprice">1,487</span> <span
-                                                                        class="newprice">1,115</span>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
                                                                 </div>
-        
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-        
-                                                        <div class="kompaniya">
-                                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
-                                                                alt="">
-                                                            <div class="img-txt">
-                                                                <span>indi al</span>
-                                                                <span>2 ay</span>
-                                                                <span>sonra ödə</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+            
                                                 </div>
-        
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-xl-4">
-                                    <div class="item">
-
-                                        <div class="card">
-                                            <div class="favorite-image">
-                                                <img src="https://madeyra.com/image/cache/catalog/lugano%20yataq/lugano%202-521x293.webp"
-                                                    alt="">
-                                            </div>
-                                            <div class="credit-tag">
-                                                <div class="price">
-                                                    <span>Ayda <br> 64</span>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
                                                 </div>
-                                                <div class="tag">
-                                                    <span>24 Ay Faizsiz</span>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <i class="fa-solid fa-heart"></i>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                                        <span>Lugano yataq dəsti</span>
-                                                        <div class="row">
-                                                            <div class="favorite-price">
-                                                                <div class="price">
-                                                                    <span class="oldprice">1,487</span> <span
-                                                                        class="newprice">1,746</span>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
                                                                 </div>
-        
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-        
-                                                        <div class="kompaniya">
-                                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
-                                                                alt="">
-                                                            <div class="img-txt">
-                                                                <span>indi al</span>
-                                                                <span>2 ay</span>
-                                                                <span>sonra ödə</span>
-                                                            </div>
-                                                        </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
                                                     </div>
                                                 </div>
-        
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="item">
+    
+                                            <div class="card">
+                                                <div class="favorite-image">
+                                                    <img src="https://madeyra.com/image/cache/catalog/Casamia%20dest/Casamia%20yataq/1-521x293.webp"
+                                                        class="card-img-top" alt="...">
+                                                </div>
+                                                <div class="credit-tag">
+                                                    <div class="price">
+                                                        <span>Ayda <br> 64</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <span>24 Ay Faizsiz</span>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                            <span>Amber divan dəsti</span>
+                                                            <div class="row">
+                                                                <div class="favorite-price">
+                                                                    <div class="price">
+                                                                        <span class="oldprice">1,487</span> <span
+                                                                            class="newprice">1,115</span>
+                                                                    </div>
+            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+            
+                                                            <div class="kompaniya">
+                                                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                                    alt="">
+                                                                <div class="img-txt">
+                                                                    <span>indi al</span>
+                                                                    <span>2 ay</span>
+                                                                    <span>sonra ödə</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -723,7 +1265,9 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
+               
             </div>
         </div>
     </div>
@@ -798,7 +1342,7 @@
     <i id="fixed-top" class="fa-solid fa-angle-up"></i>
 </div>
         </footer>
-  
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -808,6 +1352,54 @@
             crossorigin="anonymous"></script>
         <script src="./assets/js/main.js"></script>
         <script src="./assets/js/owl.carousel.min.js"></script>
+        <script>
+            function range() {
+              return {
+                minprice: 0,
+                maxprice: 10000,
+                min: 0,
+                max: 10000,
+                minthumb: 0,
+                maxthumb: 0,
+                mintrigger() {
+                  this.validation();
+                  this.minprice = Math.min(this.minprice, this.maxprice - this.maxprice/10);
+                  this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
+                  console.log("minprice",this.minprice)
+                  console.log("minthumb",this.minthumb)
+                },
+                maxtrigger() {
+                  this.validation();
+                  this.maxprice = Math.max(this.maxprice, this.minprice -this.minprice);
+                  this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);
+                  console.log("maxprice",this.maxprice)
+                  console.log("maxthumb",this.maxthumb)
+                },
+                validation() {
+                  if (/^\d*$/.test(this.minprice)) {
+                    if (this.minprice > this.max) {
+                      this.minprice = 9500;
+                    }
+                    if (this.minprice < this.min) {
+                      this.minprice = this.min+100;
+                    }
+                  } else {
+                    this.minprice = 0;
+                  }
+                  if (/^\d*$/.test(this.maxprice)) {
+                    if (this.maxprice > this.max) {
+                      this.maxprice = this.max;
+                    }
+                    if (this.maxprice < this.min) {
+                      this.maxprice = 200;
+                    }
+                  } else {
+                    this.maxprice = 10000;
+                  }
+                }
+              }
+            }
+          </script>
         <script>
             $('.owl-carousel').owlCarousel({
                 loop: true,
