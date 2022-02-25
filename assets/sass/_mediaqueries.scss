@@ -14,7 +14,9 @@
     }
 }
 @media (max-width: 1199.98px) { 
-   
+  .kampaniyalar{
+      padding-left: 19rem !important;
+  }
     .register-form{
         width: 70% !important;
     }
@@ -74,7 +76,10 @@
            padding: 0% !important;
        }
    }
-
+   .kampaniyalar{
+       
+    padding-left: 0% !important;
+}
 
   }
 
@@ -83,6 +88,7 @@
           width: 80%;
           
       }
+      
     .register-form{
         width: 90% !important;
 
