@@ -139,19 +139,28 @@ sebet_delete.forEach(x=>
   let qiymet=document.querySelector(".qiymet")
   let qiymet_range=document.querySelector(".qiymet-range")
   let qiymet_icon=document.getElementById("qiymet-icon")
-  filter_icon.onclick=function()
+  if(filter_icon)
   {
-    qiymet_range.classList.toggle("filter-class")
+    filter_icon.addEventListener("click",function()
+    {
+      qiymet_range.classList.toggle("filter-class")
+  
+    })
   }
- qiymet_icon.addEventListener("click",function()
-  {
-    qiymet_range.classList.toggle("filter-class")
-  })
+ if(qiymet_icon)
+ {
+    qiymet_icon.addEventListener("click",function()
+    {
+      qiymet_range.classList.toggle("filter-class")
+    })
+ }
   //grid
   let grid2=document.getElementById("grid2")
   let grid3=document.getElementById("grid3")
   let mehsul_card=document.querySelectorAll(".favorite .col-xl-4")
-grid2.onclick=function()
+if(grid2)
+{
+    grid2.onclick=function()
 {
     grid3.style.color="black"
     grid2.style.color="red"
@@ -164,7 +173,10 @@ grid2.onclick=function()
                 x.classList.add("col-xl-6","col-lg-6","col-md-6","col-sm-12","col-12")
             })
 }
-grid3.onclick=function()
+}
+if(grid3)
+{
+    grid3.onclick=function()
 {
     grid2.style.color="black"
     grid3.style.color="red"
@@ -177,4 +189,14 @@ grid3.onclick=function()
                 x.classList.add("col-xl-4","col-lg-4","col-md-6","col-sm-12","col-12")
             })
 }
+}
+console.log("salam")
+let map_open=document.querySelectorAll(".map-open")
 
+map_open.forEach(x=>
+    {
+        x.addEventListener("click",function(e)
+        {
+            x.nextElementSibling.classList.toggle("map-class2")
+        })
+    })

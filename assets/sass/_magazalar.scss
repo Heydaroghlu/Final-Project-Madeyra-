@@ -1,0 +1,48 @@
+.magazalar{
+    background-color: #f9f9f9;
+    margin: 0%;
+    padding-top: 2rem;
+    
+    .ofisler{
+        margin-top: 0.2rem;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        border-radius: 3px;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        .ofis{
+            h4{
+                margin-top: 2rem;
+            }
+            h5{
+                padding-top: 1rem;
+                font-size: 1.1rem;
+            }
+            .map-class{
+                display: none;
+            }
+            .map-class2{
+                display: block !important;
+            }
+            span{
+                color: #333;
+        font-size: 1rem;
+    
+            }
+            .ofis-tel{
+                margin-top: 0.8rem;
+                margin-bottom: 0.1rem;
+            }
+            i{
+                color: #df2027;
+                margin-right: 0.3rem;
+            }
+            a{
+                color: rgb(57, 57, 241);
+                font-size: 0.92rem;
+                margin-bottom: 0.2rem;
+                padding: 0%;
+            }
+        }
+    }
+}
