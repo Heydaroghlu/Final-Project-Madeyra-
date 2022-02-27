@@ -66,6 +66,9 @@
   .kampaniyalar {
     padding-left: 0% !important;
   }
+  #merhele-sebet {
+    display: none !important;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -3057,6 +3060,10 @@ input[type=range]::-webkit-slider-thumb {
   padding-top: 0.2rem;
 }
 
+.detail {
+  background-color: white;
+}
+
 .detail .col-xl-7 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -3207,8 +3214,6 @@ input[type=range]::-webkit-slider-thumb {
 .detail .col-xl-5 .mehsul-kredit .payment-calculator {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
   max-width: 60ch;
   margin: 0px auto;
@@ -3267,6 +3272,105 @@ input[type=range]::-webkit-slider-thumb {
   color: #cccccc;
 }
 
+.detail .favorite {
+  background-color: red !important;
+}
+
+.aciqlama {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.aciqlama a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding-top: 0.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid yellow;
+}
+
+.aciqlama .aciqlama-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.aciqlama .aciqlama-text p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.aciqlama p {
+  font-size: 14px;
+  margin-bottom: 0.1rem !important;
+}
+
+.comment {
+  margin-top: 1rem;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.comment button:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.comment input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.comment textarea:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.comment body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40em;
+  width: 88%;
+}
+
+.comment .rating {
+  display: inline-block;
+}
+
+.comment .star {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  padding: 0 0.15em;
+  cursor: pointer;
+  color: #555;
+}
+
+.comment .star.is-active {
+  color: #F9DC5C;
+}
+
+.comment .screen-reader {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .magazalar {
   background-color: #f9f9f9;
   margin: 0%;
@@ -3320,5 +3424,22 @@ input[type=range]::-webkit-slider-thumb {
   font-size: 0.92rem;
   margin-bottom: 0.2rem;
   padding: 0%;
+}
+
+.sifaris {
+  padding-top: 1rem;
+}
+
+.sifaris a {
+  color: white;
+  text-decoration: none;
+}
+
+.sifaris .merhele {
+  height: 3rem;
+  background-color: #333;
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

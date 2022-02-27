@@ -1,8 +1,10 @@
 .detail{
+    background-color: white;
     .col-xl-7{
         padding-top: 1rem;
         padding-bottom: 1rem;
     }
+   
     .col-xl-5
     {
         padding-top: 1rem;
@@ -109,7 +111,6 @@
             
             .payment-calculator {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
                 grid-gap: 20px;
                 max-width: 60ch;
                 margin: 0px auto;
@@ -167,5 +168,87 @@
         margin-top: 0.4rem;
         color: #cccccc;
     }
+   
+    .favorite{
+        background-color: red !important;
+    }
+}
+//aciqlama
+.aciqlama{
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    a{
+        text-decoration: none;
+        color: #555;
+        font-weight: 500;
+        padding-top: 0.4rem;
+        padding-bottom: 0.3rem;
+        border-bottom: 2px solid yellow;
+    }
+  .aciqlama-text{
+      display: flex;   
+      p{
+          display: flex;
+          align-items: center;
+      }   
+  }
+  p{
+      font-size: 14px;
+      margin-bottom: 0.1rem !important;
+  }
+}
+.comment{
+    margin-top: 1rem;
+ height: 100%;
+ width: 100%;
+ background-color: white;
+ button:focus{
+    box-shadow: none;
+}
+input:focus{
+    box-shadow: none;
+}
+textarea:focus{
+    box-shadow: none;
+}
+ body {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40em;
+    width: 88%;
+  }
+  
+  .rating {
+    display: inline-block;
+  }
+  
+  .star {
     
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    padding: 0 0.15em;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  .star.is-active {
+    color: #F9DC5C;
+  }
+  
+  .screen-reader {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  
 }
