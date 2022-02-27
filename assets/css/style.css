@@ -338,6 +338,7 @@
   position: fixed !important;
   width: 100%;
   z-index: 99999889 !important;
+  overflow: hidden;
 }
 
 .header-bottom {
@@ -834,7 +835,7 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: #df2027;
-  width: 100%;
+  max-width: 100%;
 }
 
 .header-mobil .col-lg-1 {
@@ -1263,6 +1264,11 @@
   top: 42%;
   position: absolute;
   background-color: rgba(71, 75, 87, 0.72) !important;
+}
+
+.down-search {
+  width: 100%;
+  overflow: hidden;
 }
 
 .cards {
@@ -3049,6 +3055,216 @@ input[type=range]::-webkit-slider-thumb {
   bottom: 0%;
   text-align: center;
   padding-top: 0.2rem;
+}
+
+.detail .col-xl-7 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.detail .col-xl-5 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.detail .col-xl-5 .mehsul-name {
+  margin-top: 0.5rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.detail .col-xl-5 .mehsul-name i {
+  cursor: pointer;
+  margin-left: 2rem;
+  font-size: 1.3rem;
+  color: #cccccc;
+}
+
+.detail .col-xl-5 .mehsul-name i:hover {
+  color: #df2027;
+}
+
+.detail .col-xl-5 .mehsul-price {
+  margin-top: 0.7rem;
+  height: 4rem;
+  background-color: #ecf0f3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.detail .col-xl-5 .mehsul-price h4 {
+  margin-left: 0.5rem;
+}
+
+.detail .col-xl-5 .mehsul-price a {
+  width: 7.5rem;
+  height: 2.4rem;
+  background-color: #df2027;
+  border-radius: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+.detail .col-xl-5 .mehsul-price a i {
+  margin-right: 0.3rem;
+}
+
+.detail .col-xl-5 .mehsul-price a:hover {
+  background-color: #9e0c11;
+}
+
+.detail .col-xl-5 .mehsul-btn {
+  padding-top: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.detail .col-xl-5 .mehsul-btn a {
+  height: 2.4rem;
+  width: 10rem;
+  font-size: 16px;
+  border-radius: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #ecf0f3;
+}
+
+.detail .col-xl-5 .kredit-ayliq {
+  height: 4rem;
+  width: 8rem;
+  background-color: #fafafa;
+  border-radius: 3px;
+  text-align: center;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.detail .col-xl-5 .kredit-ayliq span {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.detail .col-xl-5 .mehsul-kredit * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.detail .col-xl-5 .mehsul-kredit label {
+  display: block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.detail .col-xl-5 .mehsul-kredit input:not([type="range"]) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+}
+
+.detail .col-xl-5 .mehsul-kredit label,
+.detail .col-xl-5 .mehsul-kredit input {
+  width: 100%;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.detail .col-xl-5 .mehsul-kredit label,
+.detail .col-xl-5 .mehsul-kredit input,
+.detail .col-xl-5 .mehsul-kredit .form-results {
+  font-family: "Museo Slab 500", serif;
+}
+
+.detail .col-xl-5 .mehsul-kredit .payment-calculator {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  max-width: 60ch;
+  margin: 0px auto;
+  margin-left: 1rem;
+}
+
+.detail .col-xl-5 .mehsul-kredit .form-input {
+  padding: 10px;
+  color: #3c3c3c;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+}
+
+.detail .col-xl-5 .mehsul-kredit .form-submit {
+  display: block;
+  padding: 20px;
+  margin-top: 20px;
+  color: #ddea66;
+  background-color: #df2027;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+}
+
+.detail .col-xl-5 .mehsul-kredit .form-range,
+.detail .col-xl-5 .mehsul-kredit .form-submit,
+.detail .col-xl-5 .mehsul-kredit .form-results {
+  grid-column: 1 / -1;
+}
+
+.detail .col-xl-5 .mehsul-kredit .over {
+  color: red;
+}
+
+.detail .col-xl-5 .mehsul-kredit .small {
+  display: none !important;
+}
+
+.detail .col-xl-5 .mehsul-kredit .irs--round .irs-handle {
+  border: 4px solid #df2027;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.detail .col-xl-5 .mehsul-kredit .irs--round .irs-bar,
+.detail .col-xl-5 .mehsul-kredit .irs--round .irs-from, .detail .col-xl-5 .mehsul-kredit .irs--round .irs-to, .detail .col-xl-5 .mehsul-kredit .irs--round .irs-single {
+  background-color: #df2027;
+}
+
+.detail .col-xl-5 .mehsul-kredit .irs--round .irs-from::before, .detail .col-xl-5 .mehsul-kredit .irs--round .irs-to::before, .detail .col-xl-5 .mehsul-kredit .irs--round .irs-single::before {
+  border-top-color: #df2027;
+}
+
+.detail .fa-star {
+  margin-top: 0.4rem;
+  color: #cccccc;
 }
 
 .magazalar {

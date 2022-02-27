@@ -1,6 +1,7 @@
+
 //hero-slide
 .hero{
-
+   
     .row{
         padding: 0px 12px;
     }
@@ -54,7 +55,10 @@
         background-color: rgba(71,75,87,.72) !important;
     }
 }
-
+.down-search{
+    width: 100%;
+    overflow: hidden;
+}
 //cards
 .cards{
     width: 100%;

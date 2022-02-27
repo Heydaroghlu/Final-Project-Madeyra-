@@ -1,10 +1,9 @@
 * {
     src: url(../font/Poppins-SemiBold.ttf);
     text-decoration: none;
-    
     margin: 0%;
     padding: 0%;
-    
+   
     li{
         list-style: none;
     }
@@ -92,6 +91,7 @@
     position: fixed !important;
     width: 100%;
     z-index: 99999889 !important;
+    overflow: hidden;
 }
 .header-bottom {
    
@@ -457,12 +457,13 @@
 
 //mobil version
 .header-mobil{
+    
     z-index: 99;
     height: 3.6rem;
     display: flex;
     align-items: center;
     background-color: #df2027;
-    width: 100%;
+    max-width: 100%;
     .col-lg-1{
         display: flex;
         align-items: center;
@@ -494,6 +495,7 @@
     }
     
    .right{
+       
        z-index: 99;
        height: 100%;
        max-width: 100%;

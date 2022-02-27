@@ -1,0 +1,171 @@
+.detail{
+    .col-xl-7{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .col-xl-5
+    {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        .mehsul-name{
+            margin-top: 0.5rem;
+            width: 100% ; 
+            display: flex;
+            align-items: center;
+            i{
+                cursor: pointer;
+                margin-left: 2rem;
+                font-size: 1.3rem;
+                color: #cccccc;
+            }
+            i:hover{
+                color: #df2027;
+            }
+        }
+        .mehsul-price{
+            margin-top: 0.7rem;
+            height: 4rem;
+            background-color: #ecf0f3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h4{
+                margin-left: 0.5rem;
+            }
+            a{
+                width: 7.5rem;
+                height: 2.4rem;
+                background-color: #df2027;
+                border-radius: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                margin-right: 0.5rem;
+                font-weight: 500;
+                i{
+                    margin-right: 0.3rem;
+                }
+            }
+            a:hover{
+                background-color: #9e0c11;
+            }
+        }
+        .mehsul-btn{
+            padding-top: 0.5rem;
+            display: flex;
+
+            a{
+                height: 2.4rem;
+                width: 10rem;
+                font-size: 16px;
+                border-radius:40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #ecf0f3;
+            }
+        }
+        .kredit-ayliq{
+            height: 4rem;
+            width: 8rem;
+            background-color: #fafafa;
+            border-radius: 3px;
+            text-align: center;
+            span{
+                margin-top: 0.3rem;
+                margin-bottom: 0.3rem;
+            }
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+        .mehsul-kredit{
+            * {
+                box-sizing: border-box;
+            }
+            
+            label {
+                display: block;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+            }
+            
+            input:not([type="range"]) {
+                -webkit-appearance: none;
+                appearance: none;
+            }
+            
+            label,
+            input {
+                width: 100%;
+                font-size: 14px;
+                border-radius: 10px;
+            }
+            
+            label,
+            input,
+            .form-results {
+                font-family: "Museo Slab 500", serif;
+            }
+            
+            .payment-calculator {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+                max-width: 60ch;
+                margin: 0px auto;
+                margin-left: 1rem;
+            }
+            
+            .form-input {
+                padding: 10px;
+                color: #3c3c3c;
+                background-color: #fff;
+                border: 1px solid #e5e5e5;
+            }
+            
+            .form-submit {
+                display: block;
+                padding: 20px;
+                margin-top: 20px;
+                color: #ddea66;
+                background-color: #df2027;
+                text-transform: uppercase;
+                border: 0;
+                cursor: pointer;
+            }
+            
+            .form-range,
+            .form-submit,
+            .form-results {
+                grid-column: 1 / -1;
+            }
+            
+            .over {
+                color: red;
+            }
+            
+            .small {
+                display: none !important;
+            }
+            
+            .irs--round .irs-handle {
+                border: 4px solid #df2027;
+                box-shadow: none;
+            }
+            
+            .irs--round .irs-bar,
+            .irs--round .irs-from, .irs--round .irs-to, .irs--round .irs-single {
+                background-color: #df2027;
+            }
+            
+            .irs--round .irs-from::before, .irs--round .irs-to::before, .irs--round .irs-single::before {
+                border-top-color: #df2027;
+            }
+        }
+    }
+    .fa-star{
+        margin-top: 0.4rem;
+        color: #cccccc;
+    }
+    
+}

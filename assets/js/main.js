@@ -200,3 +200,7 @@ map_open.forEach(x=>
             x.nextElementSibling.classList.toggle("map-class2")
         })
     })
+
+    //kredit-range in detail
+
+    

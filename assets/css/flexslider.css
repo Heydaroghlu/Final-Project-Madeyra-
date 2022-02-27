@@ -41,7 +41,7 @@
  * BASE STYLES
  * ====================================================================================================================*/
 .flexslider {
-  margin: 0;
+  margin: 0 !important;
   padding: 0;
 }
 .flexslider .slides > li {
@@ -176,7 +176,8 @@ html[xmlns] .flexslider .slides {
 .flex-pauseplay a {
   display: block;
   width: 20px;
-  height: 20px;
+  height: 2
+  0px;
   position: absolute;
   bottom: 5px;
   left: 10px;
