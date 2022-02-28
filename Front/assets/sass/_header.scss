@@ -20,7 +20,9 @@
         width: 200px;
         display: flex;
         justify-content: center;
+        
         img {
+            margin-top: 0.1rem;
             width: 7.3rem;
         }
     }
@@ -121,6 +123,7 @@
         width: 200px;
     }
     .category-menu {
+        
         width: 100%;
         #category-menu-ul {
             height: 367px;
@@ -132,6 +135,7 @@
             position: absolute;
             padding: 0%;
             margin: 0%;
+            z-index: 9999999 !important;
             .category-li {
                 list-style: none;
                 cursor: pointer;
@@ -410,7 +414,7 @@
         background-color: white;
         z-index: 999;
         top: 123%;
-        right: 0%;
+        right: -150%;
         .container{
             width: 100% !important;
         }
@@ -526,8 +530,11 @@
     }
     #logo{
         margin-left: -1rem;
+        display: flex;
+       
     }
     img{
+        
         margin-left: -0.5rem;
         width: 6.4rem;
     }

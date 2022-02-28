@@ -20,7 +20,7 @@ function navbarscroll()
     if(document.documentElement.scrollTop>200)
     {
         navbar.classList.add("navbar-class")
-        // $("#category-menu-ul").slideUp("fast")
+        // $("#category-menu-ul").slideDown("fast")
         navbar.classList.add("animate__animated","animate__fadeInDown")
         mobil_nav.classList.add("navbar-class")
         mobil_nav.classList.add("animate__animated","animate__fadeInDown")
