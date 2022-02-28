@@ -203,4 +203,18 @@ map_open.forEach(x=>
 
     //kredit-range in detail
 
+    let search_input=document.getElementById("search-input")
+    let search_icon=document.getElementById("search-icon")
+    let search_neticeler=document.getElementById("search-neticeler")
+   
+
     
+    search_input.addEventListener("click",function()
+    {
+        search_neticeler.classList.add("search-neticeler-class")
+    })
+    search_icon.addEventListener("click",function()
+    {
+        search_neticeler.classList.toggle("search-neticeler-class")
+    })
+   

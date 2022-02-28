@@ -3,7 +3,10 @@
     text-decoration: none;
     margin: 0%;
     padding: 0%;
-   
+    a{ 
+        text-decoration: none;
+        
+    }
     li{
         list-style: none;
     }
@@ -267,7 +270,9 @@
         justify-content: end;
         align-items: center;
         margin-left: 10px;
+        position: relative;
         .search-form {
+            
             padding: 0%;
             margin: 0%;
             display: flex;
@@ -308,19 +313,52 @@
                 background-color: #bdb8b8;
             }
         }
+        .search-neticeler{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color: white;
+            width: 350px;
+            height: 100%;
+            position: absolute;
+            right: 0%;
+            top: 100%;
+            z-index: 99;
+            .col-xl-7{
+                padding: 0%;
+                display: flex;
+                align-items: center;
+                p{
+                    margin: 0%;
+                    margin-left: 0.7rem;
+                    a{
+                        color: black !important;
+                    }
+                }
+            }
+            
+            .col-xl-3{
+                display: flex;
+                align-items: center;
+                
+            }
+        }
     }
     //right
     .dropdown {
+        
         .nav-link {
             color: white;
         }
     }
     .dropdown-menu {
+        
         margin-left: -5rem !important;
         padding: 0%;
         .dropdown-item:hover {
             border-radius: 0.2rem;
             color: red;
+        }
+        .dropdown-item:focus{
+            background-color: white !important;
         }
     }
 
@@ -505,16 +543,46 @@
        .search-class{
            visibility: visible !important;
        }
-       #search-1{
-           display: flex;
-           align-items: center;
+       .search{
            position: relative;
-           .fa-magnifying-glass{
-               visibility: hidden;
-           }
-           .fa-xmark{
-               visibility: hidden;
+           display: flex;
+           justify-content: center;
+        #search-1{
+            display: flex;
+            align-items: center;
+            .fa-magnifying-glass{
+                visibility: hidden;
+            }
+            .fa-xmark{
+                visibility: hidden;
+             position: absolute;
+         }
+        }
+        .search-neticeler{
+            background-color: white;
+            width: 350px;
+            height: 100%;
             position: absolute;
+            
+            top: 100%;
+            z-index: 9999;
+            .col-xl-7{
+                padding: 0%;
+                display: flex;
+                align-items: center;
+                p{
+                    margin: 0%;
+                    margin-left: 0.7rem;
+                   
+                }
+                
+            }
+            
+            .col-xl-3{
+                display: flex;
+                align-items: center;
+                
+            }
         }
        }
        

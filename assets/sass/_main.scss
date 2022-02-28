@@ -266,6 +266,12 @@
     }
 }
 //end
+.search-neticeler-class{
+  display: block !important;
+}
+.search-neticeler{
+    display: none ;
+}
 .end{
     h1{
         font-size: 1.1rem;
@@ -310,6 +316,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    .search-neticeler{
+        
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        background-color: white;
+        width: 388px;
+        height: 100%;
+        position: absolute;
+        right: 3.9%;
+        top: 40%;
+        z-index: 99999999 !important;
+        .col-xl-7{
+            padding: 0%;
+            display: flex;
+            align-items: center;
+            p{
+                margin: 0%;
+                margin-left: 0.7rem;
+            }
+        }
+        
+        .col-xl-3{
+            display: flex;
+            align-items: center;
+            
+        }
+    }
     .search {
         transition: ease-in-out 0.3s;
         height: 0%;

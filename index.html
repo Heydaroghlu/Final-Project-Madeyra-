@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madeyra mebel|Mebel mağazası|Aşağı qiymətlər və yüksək keyfiyyət</title>
     <link rel="icon" href="https://madeyra.com/catalog/view/images/favicon.ico">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css">
+    <link rel="stylesheet" href="./assets/css/flexslider.css">
     <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -234,10 +237,23 @@
                             <div class="search-form">
                                 <div class="row">
                                     <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
-                                        <input style="width: 1rem;" type="text" placeholder="Axtarış...">
+                                        <input id="search-input" style="width: 1rem;" type="search" placeholder="Axtarış...">
                                     </div>
                                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="search-neticeler" class="search-neticeler">
+                                <div class="row">
+                                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                                        <img src="https://madeyra.com/image/cache/catalog/Kitchen/Tulpan/Madeyra_brend_tulpan_metbex_mebeli_modern_yeni_olcu_1-50x50.jpg" alt="">
+                                    </div>
+                                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
+                                        <p><a href="">Metbex Mebeli</a></p>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-">
+                                        <span>1,083 ₼</span>
                                     </div>
                                 </div>
                             </div>
@@ -260,7 +276,7 @@
                             </ul>
                         </div>
                         <div class="love">
-                            <a href=""><i class="fa-solid fa-heart"></i></a>
+                            <a href="arzu-siyahisi.html"><i class="fa-solid fa-heart"></i></a>
                         </div>
                         <div  class="sebet"> 
                             <a>
@@ -309,7 +325,7 @@
                                                     <h6>1,487</h6>
                                                 </div>
                                                 <div class="sebet-button">
-                                                    <a class="btn btn-warning">Sifarişi tamamla</a>
+                                                    <a href="./sifarisi-tamamla.html" class="btn btn-warning">Sifarişi tamamla</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -351,9 +367,10 @@
                                     </li>
                                 </ul>
                             </div>
-                            
-                            <a id="search-1" ><i id="search_open" class="fa-solid fa-magnifying-glass mobil-search search-class"></i> <i id="search_closed" class="fa-solid fa-xmark mobil-search"></i></a>
-                            
+                            <div class="search">
+                                <a id="search-1" ><i id="search_open" class="fa-solid fa-magnifying-glass mobil-search search-class"></i> <i id="search_closed" class="fa-solid fa-xmark mobil-search"></i></a>
+                                
+                            </div>                            
                             <div  class="sebet">
                                 <a>
                                     <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/cart.png" alt="">
@@ -603,7 +620,7 @@
                         <div class="search-form">
                             <div class="row">
                                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
-                                    <input style="width: 1rem;" type="text" placeholder="Axtarış...">
+                                    <input style="width: 1rem;" type="search" placeholder="Axtarış...">
                                 </div>
                                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
                                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -611,7 +628,9 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
+               
             </section>
             <section>
                 <div class="hero">
@@ -1269,15 +1288,24 @@
 </div>
         </footer>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-        <script src="./assets/js/main.js"></script>
-        <script src="./assets/js/owl.carousel.min.js"></script>
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- code pen -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <!-- flex slider -->
+    <script src="./assets/js/jquery.flexslider-min.js"></script>
+    <script src="./assets/js/jquery.flexslider.js"></script>
+    <script src="./assets/js/filter-range.js"></script>
+    <script src="./assets/js/comment-star.js"></script>
         <script>
             $('.owl-carousel').owlCarousel({
                 loop: true,
@@ -1325,6 +1353,33 @@
                 }
             })
 
+        </script>
+         
+        
+        <script>
+            $(window).on("load", function () {
+                // The slider being synced must be initialized first
+                $('#carousel').flexslider({
+                    animation: "slide",
+                    controlNav: false,
+                    animationLoop: true,
+                    slideshow: false,
+                    itemWidth: 150,
+                    directionNav: false,
+                    itemMargin: 10,
+                    asNavFor: '#slider',
+                    minItems: 1,
+                });
+    
+                $('#slider').flexslider({
+                    itemMargin: 0,
+                    animation: "fade",
+                    controlNav: false,
+                    animationLoop: true,
+                    slideshow: false,
+                    sync: "#carousel"
+                });
+            });
         </script>
 </body>
 

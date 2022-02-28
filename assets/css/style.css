@@ -227,6 +227,10 @@
   font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+* a {
+  text-decoration: none;
+}
+
 * li {
   list-style: none;
 }
@@ -574,6 +578,7 @@
       -ms-flex-align: center;
           align-items: center;
   margin-left: 10px;
+  position: relative;
 }
 
 .header-bottom .search .search-form {
@@ -649,6 +654,46 @@
   background-color: #bdb8b8;
 }
 
+.header-bottom .search .search-neticeler {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 350px;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  top: 100%;
+  z-index: 99;
+}
+
+.header-bottom .search .search-neticeler .col-xl-7 {
+  padding: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-bottom .search .search-neticeler .col-xl-7 p {
+  margin: 0%;
+  margin-left: 0.7rem;
+}
+
+.header-bottom .search .search-neticeler .col-xl-7 p a {
+  color: black !important;
+}
+
+.header-bottom .search .search-neticeler .col-xl-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .header-bottom .dropdown .nav-link {
   color: white;
 }
@@ -661,6 +706,10 @@
 .header-bottom .dropdown-menu .dropdown-item:hover {
   border-radius: 0.2rem;
   color: red;
+}
+
+.header-bottom .dropdown-menu .dropdown-item:focus {
+  background-color: white !important;
 }
 
 .header-bottom .right {
@@ -907,23 +956,65 @@
   visibility: visible !important;
 }
 
-.header-mobil .right #search-1 {
+.header-mobil .right .search {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header-mobil .right .search #search-1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
 }
 
-.header-mobil .right #search-1 .fa-magnifying-glass {
+.header-mobil .right .search #search-1 .fa-magnifying-glass {
   visibility: hidden;
 }
 
-.header-mobil .right #search-1 .fa-xmark {
+.header-mobil .right .search #search-1 .fa-xmark {
   visibility: hidden;
   position: absolute;
+}
+
+.header-mobil .right .search .search-neticeler {
+  background-color: white;
+  width: 350px;
+  height: 100%;
+  position: absolute;
+  top: 100%;
+  z-index: 9999;
+}
+
+.header-mobil .right .search .search-neticeler .col-xl-7 {
+  padding: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-mobil .right .search .search-neticeler .col-xl-7 p {
+  margin: 0%;
+  margin-left: 0.7rem;
+}
+
+.header-mobil .right .search .search-neticeler .col-xl-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header-mobil .right i {
@@ -1554,6 +1645,14 @@
   opacity: 1;
 }
 
+.search-neticeler-class {
+  display: block !important;
+}
+
+.search-neticeler {
+  display: none;
+}
+
 .end h1 {
   font-size: 1.1rem;
   font-weight: 600;
@@ -1606,6 +1705,43 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.down-search .search-neticeler {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 388px;
+  height: 100%;
+  position: absolute;
+  right: 3.9%;
+  top: 40%;
+  z-index: 99999999 !important;
+}
+
+.down-search .search-neticeler .col-xl-7 {
+  padding: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.down-search .search-neticeler .col-xl-7 p {
+  margin: 0%;
+  margin-left: 0.7rem;
+}
+
+.down-search .search-neticeler .col-xl-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
