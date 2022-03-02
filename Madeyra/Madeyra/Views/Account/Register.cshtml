@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "Hesab qeydiyyatı";
+}
+@model MemberRegisterViewModel
+<main>
+    <!-- content -->
+    <div class="register">
+        <div class="register-form">
+            <div class="row">
+                <h6>YENİ HESAB YARADIN</h6>
+            </div>
+            <div class="row">
+                <form method="post" asp-action="register"> 
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                <label asp-for="Name">Ad<span>*</span></label>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <input asp-for="Name" placeholder="Ad">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                <label asp-for="Surname">Soyad<span>*</span></label>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <input asp-for="Surname" placeholder="Soyad">
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                <label asp-for="Email">Email<span>*</span></label>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <input asp-for="Email"  placeholder="Email">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                <label asp-for="Telephone">Telefon<span>*</span></label>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <input asp-for="Telephone" placeholder="+(994)-xx-xxx-xx-xx">
+                                <span asp-validation-for="Telephone" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row" >
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                <label asp-for="Adress">Adress <span>*</span></label>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <input asp-for="Adress"  placeholder="Ünvan">
+                                <span asp-validation-for="Adress" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                <label asp-for="Password">Şifrə <span>*</span></label>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <input asp-for="Password"  id="pass" placeholder="Şifrə">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                <label asp-for="ConfirmPassword">Şifrə(təkrar) <span>*</span></label>
+                               
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <input asp-for="ConfirmPassword" type="password" id="pass2" placeholder="Şifrə(təkrar)">
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        <div class="row">
+                            <div class="form-btn">
+                                <button style="margin-top: 2rem;" type="submit" class="btn btn-warning">Qeydiyyat</button>
+                            </div>
+                        </div>
+                       
+                        <hr>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+

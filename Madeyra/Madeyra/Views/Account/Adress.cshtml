@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Hesab məlumatları";
+}
+@model AppUser
+
+<main>
+    <div class="hesab-class unvan-class">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-12">
+                    @await Html.PartialAsync("_AccountmenuPartial")
+                </div>
+                <div class="col-xl-10 col-lg-9 col-md-9 col-sm-12 col-12">
+                    <div class="unvan-kitabcasi">
+                        <div class="row">
+                            <h1>Ünvan kitabçası</h1>
+                        </div>
+                        <div class="unvan">
+                            <div class="row">
+                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
+                                    <p>@Model.Name @Model.Surname</p>
+                                    <p>@Model.PhoneNumber</p>
+                                    <p>@Model.Adress</p>
+                                </div>
+                                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
+                                    <div class="unvan-button">
+                                        <a asp-action="profile" type="button" style="color: white;" class="btn btn-info">Redakte et</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="unvan-button">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <a asp-action="profilemenu" asp-controller="account" type="button" class="btn btn-dark">Geri qayıt</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+

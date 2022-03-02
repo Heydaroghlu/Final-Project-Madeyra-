@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "Səbət";
+}
+
+<main>
+    <div class="sebetclass">
+        <div class="container">
+            <div id="sebet-text" class="row">
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 d-flex justify-content-sm-between">
+                    <h3>Səbət</h3>
+                    <button type="button" class="btn" style="background-color: #ff0000;color:white;">Səbəti təmizlə</button>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <div class="row">
+                        <a id="davam" href="./index.html">Alış-verişə davam</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-9">
+                    <div class="sebet-items">
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                                    <div class="item-img">
+                                        <img src="https://madeyra.com/image/cache/catalog/lugano%20yataq/lugano%202-1067x600.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-6">
+                                    <div class="item-name">
+                                        <a href="">Lugano yataq dəsti</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
+                                    <div class="item-price">
+                                        <p>1747.1₼</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
+                                    <div class="item-delete">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                                    <div class="item-img">
+                                        <img src="https://madeyra.com/image/cache/catalog/Amber/D65HQbt3ns-521x293.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-6">
+                                    <div class="item-name">
+                                        <a href="">Amber divan dəsti</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
+                                    <div class="item-price">
+                                        <p>1747.1₼</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
+                                    <div class="item-delete">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3">
+
+                    <div class="row">
+                        <div class="sebet-melumat">
+                            <div class="melumat umumi">
+                                <p>Səbətin ümumi dəyəri</p> <h6>1747.1 ₼</h6>
+                            </div>
+                            <div class="melumat endirim">
+                                <p>Səbətin endirimli  dəyəri</p> <h6>1745₼</h6>
+                            </div>
+                            <div class="melumat catdirlma">
+                                <p>Çatdırılma:</p> <p>Pulsuz</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a asp-action="checkout" type="button" class="btn btn-danger">Sifarişi Rəsmiləşdir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+

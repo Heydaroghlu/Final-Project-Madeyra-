@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewData["Title"] = "Hesab məlumatları";
+}
+
+@model ProfileViewModel
+<main>
+    <div class="hesab-class">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-12">
+                    @await Html.PartialAsync("_AccountmenuPartial")
+                </div>
+                <div class="col-xl-10 col-lg-9 col-md-9 col-sm-12 col-12">
+                    <div class="melumatlarim">
+                        <form method="post" asp-action="profile">
+                            <div class="row">
+                                <h1>Hesab məlumatları</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                                    <label asp-for="Name" class="form-label">Ad</label>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+                                    <input asp-for="Name" type="text" placeholder="Ad" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                                    <label asp-for="Surname" class="form-label">Soyad</label>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+                                    <input asp-for="Surname" type="text" placeholder="Soyad" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                                    <span asp-validation-for="Surname" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                                    <label asp-for="Email" class="form-label">E-mail</label>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+                                    <input asp-for="Email" type="email" placeholder="E-mail" class="form-control" aria-describedby="passwordHelpBlock">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                                    <label asp-for="PhoneNumber" class="form-label">Tel</label>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+                                    <input asp-for="PhoneNumber" type="tel" placeholder="+(994)-__-___-__-__" class="form-control" aria-describedby="passwordHelpBlock">
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                                    <label asp-for="Adress" class="form-label">Ünvan</label>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+                                    <input asp-for="Adress" type="text" placeholder="Ünvan" class="form-control" aria-describedby="passwordHelpBlock">
+                                    <span asp-validation-for="Adress" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                                    <label asp-for="CurrentPassword" class="form-label">Şifrə</label>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+                                    <input asp-for="CurrentPassword" type="password" placeholder="Şifrə" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                                    <label asp-for="NewPassword" class="form-label">Yeni Şifrə</label>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+                                    <input asp-for="NewPassword" type="password" placeholder="Şifrə" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                                    <label asp-for="NewPasswordConfirmed" class="form-label">Yeni Şifrə (təkrar)</label>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+                                    <input asp-for="NewPasswordConfirmed" type="password" placeholder="Şifrə (təkrar)" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <a asp-action="profilemenu" asp-controller="account" type="button" class="btn btn-dark">Geri qayıt</a>
+                                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                    <button type="submit" class="btn btn-warning">Davam et</button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+

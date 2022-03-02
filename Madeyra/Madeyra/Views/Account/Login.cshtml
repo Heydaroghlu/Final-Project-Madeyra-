@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "Daxil ol";
+}
+
+@model MemberLoginViewModel
+<!-- content -->
+<main>
+    <div class="register">
+        <div class="register-form">
+            <div class="row">
+                <h6>HESABINIZA DAXİL OLUN</h6>
+            </div>
+            <div class="row">
+                <form method="post" asp-action="login"> 
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                <label asp-for="Email">Email</label>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <input asp-for="Email" class="form1-input" type="text" id="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                <label asp-for="Password">Şifrə</label>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <input asp-for="Password" class="form1-input" type="password" id="pass" placeholder="Şifrə">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12"></div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" asp-for="IsPersistent" type="checkbox" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" asp-for="IsPersistent">
+                                        Girişi yadda saxla
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-danger" style="text-align:center" asp-validation-summary="ModelOnly"></div>
+                        <div class="row">
+                            <div class="form-btn">
+                                <button type="submit" style="width: 9.2rem; height: 2.2rem;" class="btn btn-warning">Giriş</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-forgot d-flex justify-content-center">
+                                <a asp-action="forgot" asp-controller="account">Şifrəni unutmusunuz?</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="form-question d-flex justify-content-center">
+                                <p>Hesabınız yoxdur?<a asp-action="register" asp-controller="account">Qeydiyyatdan keçin</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+
