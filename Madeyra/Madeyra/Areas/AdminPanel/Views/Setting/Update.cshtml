@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+}
+@model Setting
+
+
+<div class="container">
+    <h1>Tənzimləmələr</h1>
+    <form method="post" enctype="multipart/form-data" asp-action="update">
+        <div class="row">
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="FacebookIcon" class="form-control" placeholder="FacebookIcon">
+            </div>
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="FacebookUrl" class="form-control" placeholder="FacebookUrl">
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="InstagramIcon" class="form-control" placeholder="InstagramIcon">
+            </div>
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="InstagramUrl" class="form-control" placeholder="InstagramUrl">
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="WhatsappIcon" class="form-control" placeholder="WhatsappIcon">
+            </div>
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="WhatsappUrl" class="form-control" placeholder="WhatsappUrl" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="YoutubeIcon" class="form-control" placeholder="YoutubeIcon">
+            </div>
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="YoutubeUrl" class="form-control" placeholder="YoutubeUrl">
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="TelIcon" class="form-control" placeholder="TelIcon">
+            </div>
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="Tel" class="form-control" placeholder="Tel">
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="Email" class="form-control" placeholder="Email">
+            </div>
+            <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input asp-for="Adress" class="form-control" placeholder="Adress">
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <input asp-for="Faks" class="form-control" placeholder="InstagramUrl">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="mb-3 col-xl-6">
+                <label asp-for="FooterLogoFile" class="form-label">Footer-Image</label>
+                <input asp-for="FooterLogoFile" class="form-control " id="update-input1">
+                <div id="img-div1"><img style="width:150px" src="~/uploads/setting/@Model.FooterLogo" /></div>
+            </div>
+            <div class="mb-3 col-xl-6">
+                <label asp-for="HeaderLogoFile" class="form-label">Header-Image</label>
+                <input asp-for="HeaderLogoFile" class="form-control" id="update-input2">
+                <div id="img-div2"><img style="width:150px" src="~/uploads/setting/@Model.HeaderLogo" /></div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Təsdiqlə</button>
+    </form>
+</div>

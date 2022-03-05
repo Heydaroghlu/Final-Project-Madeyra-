@@ -33,8 +33,15 @@ using Madeyra.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\heyde\source\repos\Madeyra\Madeyra\Views\_ViewImports.cshtml"
+using Madeyra.Services;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"04c4d247d1c2141c091cb9ea938eac72b9503309", @"/Views/Order/WishList.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a07c4d556aad826457bd25822b2b54601e13d74d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ddc0ea38c2fbf656db6134b9cff8708f444fbeca", @"/Views/_ViewImports.cshtml")]
     public class Views_Order_WishList : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -79,7 +86,7 @@ using Madeyra.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n\r\n<main>\r\n    <section>\r\n        <div class=\"siyahi\">\r\n            <div class=\"container\">\r\n                <div class=\"siyahi-top\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04c4d247d1c2141c091cb9ea938eac72b95033096153", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04c4d247d1c2141c091cb9ea938eac72b95033096328", async() => {
                 WriteLiteral("<i class=\"fa-solid fa-house-chimney\"></i>");
             }
             );
@@ -97,7 +104,7 @@ using Madeyra.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</i> <i class=\"fa-solid fa-angle-right\"></i> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04c4d247d1c2141c091cb9ea938eac72b95033097594", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04c4d247d1c2141c091cb9ea938eac72b95033097769", async() => {
                 WriteLiteral("<span>Hesab</span>");
             }
             );
@@ -115,7 +122,7 @@ using Madeyra.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" <i class=\"fa-solid fa-angle-right\"></i> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04c4d247d1c2141c091cb9ea938eac72b95033099006", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04c4d247d1c2141c091cb9ea938eac72b95033099181", async() => {
                 WriteLiteral("\r\n                        <span>\r\n                            Arzu\r\n                            Siyahısı\r\n                        </span>\r\n                    ");
             }
             );
@@ -205,7 +212,7 @@ using Madeyra.ViewModels;
                     </div>
                     <div class=""davam-et"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04c4d247d1c2141c091cb9ea938eac72b950330914194", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04c4d247d1c2141c091cb9ea938eac72b950330914369", async() => {
                 WriteLiteral("Davam et");
             }
             );

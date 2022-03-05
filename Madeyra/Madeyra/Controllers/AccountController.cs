@@ -1,8 +1,10 @@
 ﻿using Madeyra.Models;
+using Madeyra.Services;
 using Madeyra.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +18,14 @@ namespace Madeyra.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        public AccountController(MContext context, RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        private readonly IEmailService _emailService;
+        public AccountController(MContext context,IEmailService emailService, RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
         {
             _roleManager = roleManager;
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            _emailService = emailService;
         }
         public IActionResult Register()
         {
@@ -38,7 +42,7 @@ namespace Madeyra.Controllers
            
             if(_context.AppUsers.Any(x=>x.NormalizedEmail==memberRegister.Email.ToUpper()))
             {
-                ModelState.AddModelError("Email", "This Email is already taken!");
+                ModelState.AddModelError("Email", "Bu Emaili istifadə edə bilməzsiniz!");
                 return View();
             }
             AppUser member = new AppUser
@@ -80,13 +84,13 @@ namespace Madeyra.Controllers
             AppUser member =  _userManager.Users.FirstOrDefault(x => x.NormalizedEmail == memberLogin.Email.ToUpper() && x.IsAdmin==false);
             if(member==null)
             {
-                ModelState.AddModelError("", "UserName or Password is incorrect");
+                ModelState.AddModelError("", "Ad və ya Şifrə yanlışdır");
                 return View();
             }
             var result = await _signInManager.PasswordSignInAsync(member, memberLogin.Password, memberLogin.IsPersistent, false);
             if(!result.Succeeded)
             {
-                ModelState.AddModelError("", "UserName or Password is incorrect");
+                ModelState.AddModelError("", "Ad və ya Şifrə yanlışdır");
                 return View();
             }
 
@@ -137,17 +141,9 @@ namespace Madeyra.Controllers
         public async Task<IActionResult> Profile(ProfileViewModel profile)
         {
             AppUser oldprofile = await _userManager.FindByNameAsync(User.Identity.Name);
-            if(!string.IsNullOrWhiteSpace(profile.NewPassword) && !string.IsNullOrWhiteSpace(profile.NewPassword) && profile.NewPassword==profile.NewPasswordConfirmed)
+            if(oldprofile==null)
             {
-                var passwordchange = await _userManager.ChangePasswordAsync(oldprofile, profile.CurrentPassword, profile.NewPassword);
-                if(!passwordchange.Succeeded)
-                {
-                    foreach(var error in passwordchange.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                    return View();
-                }
+                return NotFound();
             }
             oldprofile.Name = profile.Name;
             oldprofile.Surname = profile.Surname;
@@ -162,6 +158,18 @@ namespace Madeyra.Controllers
                 }
                 return View();
             }
+            if (!string.IsNullOrWhiteSpace(profile.NewPassword) && !string.IsNullOrWhiteSpace(profile.NewPassword) && profile.NewPassword == profile.NewPasswordConfirmed)
+            {
+                var passwordchange = await _userManager.ChangePasswordAsync(oldprofile, profile.CurrentPassword, profile.NewPassword);
+                if (!passwordchange.Succeeded)
+                {
+                    foreach (var error in passwordchange.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                    return View();
+                }
+            }
             return RedirectToAction("profilemenu", "account");
         }
         
@@ -173,6 +181,61 @@ namespace Madeyra.Controllers
         public IActionResult Forgot()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Forgot(ForgotViewModel forgotView)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
+            AppUser user = await _userManager.FindByEmailAsync(forgotView.Email);
+            if(user==null)
+            {
+                ModelState.AddModelError("Email", "Belə bir istifadəçi Mövcud deyil!!!");
+                return View();
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var url = Url.Action("resetpassword", "account", new { email = user.Email, token }, Request.Scheme);
+            _emailService.Send(user.Email, "Şifrə Dəyişikliyi", "<a href='" + url + "'>Şifrə Dəyişikliyi</a>");
+            return RedirectToAction("index","home");
+        }
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPassword)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(resetPassword.Email);
+            if (user == null || !(await _userManager.VerifyUserTokenAsync(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", resetPassword.Token)))
+            {
+                return RedirectToAction("login");
+            }
+
+            return View(resetPassword);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ResetPasswordViewModel resetPassword)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View("ResetPassword",resetPassword);
+            }
+            AppUser user = await _userManager.Users.FirstOrDefaultAsync(x => x.NormalizedEmail == resetPassword.Email.ToUpper());
+            if (user == null)
+            {
+                ModelState.AddModelError("Email", "Bele bir istifadeci yoxdur!!!");
+                return View();
+            }
+            var result = await _userManager.ResetPasswordAsync(user,resetPassword.Token, resetPassword.Password);
+            if (!result.Succeeded)
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+                return View("ResetPassword", resetPassword);
+            }
+            return RedirectToAction("login");
+
         }
     }
 }

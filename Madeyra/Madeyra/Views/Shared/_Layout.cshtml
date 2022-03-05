@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@inject LayoutService Service
+@{
+    Setting setting = Service.GetSetting();
+    CataloqViewModel cataloq = Service.GetCataloq();
+            }
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,23 +37,23 @@
                     <div class="col-xl-2">
                         <div class="logo">
                             <a asp-action="index" asp-controller="home">
-                                <img src="~/img/logo.png.pagespeed.ce.foaeaOanlQ.png"
+                                <img src="~/uploads/setting/@setting.HeaderLogo"
                                      alt="">
                             </a>
                         </div>
                     </div>
                     <div class="col-xl-2">
                         <div class="call">
-                            <i class="fa-solid fa-phone"></i><span>*9696</span>
+                            @Html.Raw(setting.TelIcon)</i><span>@setting.Tel</span>
                         </div>
                     </div>
                     <div class="col-xl-8">
                         <div class="header-icons">
 
-                            <a href="https://www.facebook.com/Madeyra/"><i style="color: #4867aa;" class="fa-brands fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/madeyra/?hl=en"><i style="color: #db4271;" class="fa-brands fa-instagram"></i></a>
-                            <a href="https://api.whatsapp.com/send?phone=994552029696"><i style="color: #27b13e;" class="fa-brands fa-whatsapp"></i></a>
-                            <a href="https://www.youtube.com/user/madeyraaz"><i style="color: #ff0000;" class="fa-brands fa-youtube"></i></a>
+                            <a style="color: #4867aa;" href="@setting.FacebookUrl">@Html.Raw(setting.FacebookIcon)</a>
+                            <a  style="color: #db4271;" href="@setting.InstagramUrl">@Html.Raw(setting.InstagramIcon)</a>
+                            <a style="color: #27b13e;" href="@setting.WhatsappUrl">@Html.Raw(setting.WhatsappIcon)</a>
+                            <a style="color: #ff0000;" href="@setting.YoutubeUrl">@Html.Raw(setting.YoutubeIcon)</a>
                             <ul class="navbar-nav d-flex">
                                 <li class="nav-item dropdown ">
                                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDarkDropdownMenuLink"
@@ -76,161 +81,28 @@
                         </div>
                         <div class="category-menu">
                             <ul id="category-menu-ul">
-                                <li class="category-li">
-                                    <a href=""><i class="fa-solid fa-arrow-right-long"></i>Yataq Mebeli</a>
-                                    <div class="sub-menu">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                    <li><a href="mehsul.html"><i class="fa-solid fa-angle-right"></i>Yataq Dəsti</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Çarpayı</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Paltar Dolabı</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Komod Güzgü</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Tumbalar</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Döşəklər</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="category-li">
-                                    <a href=""><i class="fa-solid fa-arrow-right-long"></i>Qonaq Mebeli</a>
-                                    <div class="sub-menu">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Qonaq Dəsti</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Masa</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Tv stend</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Vitrin</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Komod Güzgü</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                </ul>
+                                @foreach (var item in cataloq.Categories)
+                                {
+                                    <li class="category-li">
+                                        <a href=""><i class="fa-solid fa-arrow-right-long"></i>@item.Name</a>
+                                        <div class="sub-menu">
+                                            <div class="row">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <ul>
+                                                        @foreach (var sub in item.SubCategories)
+                                                        {
+                                                            <li><a href="mehsul.html"><i class="fa-solid fa-angle-right"></i>@sub.Name</a></li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                   
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="category-li">
-                                    <a href=""><i class="fa-solid fa-arrow-right-long"></i>Yumşaq Mebellər</a>
-                                    <div class="sub-menu">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Divan Dəsti</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Divan 3 yerli</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Divan2 yerli</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Künc modullu</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Kreslo</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="category-li">
-                                    <a href=""><i class="fa-solid fa-arrow-right-long"></i>Masa və stullar</a>
-                                    <div class="sub-menu">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Masa</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Jurnal masa</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Stullar</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="category-li">
-                                    <a href=""><i class="fa-solid fa-arrow-right-long"></i>Uşaq və Gənc Mebeli</a>
-                                    <div class="sub-menu">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Uşaq dəsti</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>2 mərtəbəli çarpayı</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Çarpayı</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Paltar dolabı</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Kitab dolabı</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Kompüter masa</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Komod güzgü</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Komod</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Tumba</a></li>
+                                    </li>
+                                }
 
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="category-li">
-                                    <a href=""><i class="fa-solid fa-arrow-right-long"></i>Mətbəx Mebeli</a>
-                                    <div class="sub-menu">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Mətbəx dəsti</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="category-li">
-                                    <a href=""><i class="fa-solid fa-arrow-right-long"></i>Döşəklər</a>
-                                    <div class="sub-menu">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Döşək 120 x 200</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Döşək 160 x 200</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Döşək 90 x 200</a></li>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Döşək 90 x 190</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="category-li">
-                                    <a href=""><i class="fa-solid fa-arrow-right-long"></i>Dəhliz Mebeli</a>
-                                    <div class="sub-menu">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                    <li><a href=""><i class="fa-solid fa-angle-right"></i>Dəhliz dəsti</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <ul>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -639,7 +511,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-md-4">
                         <div class="footer-logo">
-                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/logo_az.png.pagespeed.ce.TjTinvczL3.png"
+                            <img src="~/uploads/setting/@setting.FooterLogo"
                                  alt="">
                         </div>
                         <ul id="footer-menu">
@@ -682,10 +554,10 @@
                                 <p>SOSİAL MEDİA</p>
                             </div>
                             <div class="social-icons">
-                                <a href="https://www.facebook.com/Madeyra/"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/madeyra/?hl=en"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="https://www.instagram.com/madeyra/?hl=en"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="https://www.youtube.com/user/madeyraaz"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="@setting.FacebookUrl">@Html.Raw(setting.FacebookIcon)</a>
+                                <a href="@setting.InstagramUrl">@Html.Raw(setting.InstagramIcon)</a>
+                                <a href="@setting.WhatsappUrl">@Html.Raw(setting.WhatsappIcon)</a>
+                                <a href="@setting.YoutubeUrl">@Html.Raw(setting.YoutubeIcon)</a>
                             </div>
                         </div>
                     </div>

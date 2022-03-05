@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Katagoriya";
+    int count = 0;
+}
+@model List<Product>
+<div class="container">
+    <h1 style="margin-top:1rem">Məhsullar</h1>
+    <a style="margin-bottom:1rem" class="btn btn-warning" asp-action="create">Mehsullar</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Kateqoriya Adı</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.Name</td>
+                
+                
+
+              <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Redaktə Et</a></td>
+                <td><a class="btn btn-danger">Sil</a></td>
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

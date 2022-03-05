@@ -33,8 +33,15 @@ using Madeyra.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\heyde\source\repos\Madeyra\Madeyra\Views\_ViewImports.cshtml"
+using Madeyra.Services;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b5c94a55dab1ffbe40c26dfe89f86e9a4afff751", @"/Views/Account/Adress.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a07c4d556aad826457bd25822b2b54601e13d74d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ddc0ea38c2fbf656db6134b9cff8708f444fbeca", @"/Views/_ViewImports.cshtml")]
     public class Views_Account_Adress : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<AppUser>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "profile", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -128,7 +135,7 @@ using Madeyra.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("</p>\r\n                                </div>\r\n                                <div class=\"col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7\">\r\n                                    <div class=\"unvan-button\">\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5c94a55dab1ffbe40c26dfe89f86e9a4afff7518095", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5c94a55dab1ffbe40c26dfe89f86e9a4afff7518270", async() => {
                 WriteLiteral("Redakte et");
             }
             );
@@ -160,7 +167,7 @@ using Madeyra.ViewModels;
                             <div class=""row"">
                                 <div class=""col-xl-12"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5c94a55dab1ffbe40c26dfe89f86e9a4afff7519927", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5c94a55dab1ffbe40c26dfe89f86e9a4afff75110102", async() => {
                 WriteLiteral("Geri qayıt");
             }
             );

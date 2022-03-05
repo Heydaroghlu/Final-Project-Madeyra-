@@ -1,0 +1,64 @@
+﻿
+
+@{
+    ViewData["Title"] = "Yeni Admin";
+}
+@model AdminViewModel
+<main>
+    <!-- content -->
+    <div class="container">
+        <div class="row">
+            <h6>YENİ HESAB YARADIN</h6>
+        </div>
+        <div class="row">
+            <form method="post">
+                <div class="form">
+                    <div class="row">
+                        <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <input asp-for="Name" class="form-control" placeholder="Ad">
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+                        <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <input asp-for="Surname" class="form-control" placeholder="Soyad">
+                            <span class="text-danger" asp-validation-for="Surname"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <input asp-for="Email" class="form-control" placeholder="Email">
+                            <span class="text-danger" asp-validation-for="Email"></span>
+                        </div>
+                        <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="Tel">
+                            <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <input asp-for="Password" class="form-control" placeholder="Şifrə">
+                            <span class="text-danger" asp-validation-for="Password"></span>
+                        </div>
+                        <div class="mb-3 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Şifrə(təkrar)">
+                            <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                        </div>
+                    </div>
+
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <div class="row">
+                        <div class="form-btn d-flex justify-content-center" style="width:100%">
+                            <button style="margin-top: 2rem;" type="submit" class="btn btn-warning">Qeydiyyat</button>
+                        </div>
+                    </div>
+
+                    <hr>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</main>
+
+
+

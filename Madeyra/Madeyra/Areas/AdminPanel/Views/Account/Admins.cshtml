@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Admins";
+    int count = 0;
+}
+@model List<Madeyra.Models.AppUser>
+<div class="container">
+   <h1>Adminlər</h1>
+    <a class="btn btn-warning" asp-action="createadmin" asp-controller="account">Yeni Admin</a>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ad</th>
+                <th scope="col">Soyad</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefon</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                if (item.IsAdmin == true)
+                {
+                    count++;
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td>@item.Name</td>
+                        <td>@item.Surname</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+

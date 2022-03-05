@@ -33,8 +33,15 @@ using Madeyra.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\heyde\source\repos\Madeyra\Madeyra\Views\_ViewImports.cshtml"
+using Madeyra.Services;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4c0eac916599e7dd92a5ff1c2fa0bc8c26ed4381", @"/Views/Shared/_HelpermenuPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a07c4d556aad826457bd25822b2b54601e13d74d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ddc0ea38c2fbf656db6134b9cff8708f444fbeca", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__HelpermenuPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "aboutus", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -68,7 +75,7 @@ using Madeyra.ViewModels;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n<div class=\"komekci-menu\">\r\n    <div class=\"menu-title\">\r\n        <h6>Köməkçi Menular</h6>\r\n    </div>\r\n    <div class=\"menu-list\">\r\n        <ul>\r\n            <li><i class=\"fa-solid fa-right-long\"></i>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed43815312", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed43815487", async() => {
                 WriteLiteral("Haqqımızda");
             }
             );
@@ -86,7 +93,7 @@ using Madeyra.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n            <li><i class=\"fa-solid fa-right-long\"></i>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed43816738", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed43816913", async() => {
                 WriteLiteral("Müştəri xidməti");
             }
             );
@@ -104,7 +111,7 @@ using Madeyra.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n            <li><i class=\"fa-solid fa-right-long\"></i>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed43818169", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed43818344", async() => {
                 WriteLiteral("Terminlər");
             }
             );
@@ -122,7 +129,7 @@ using Madeyra.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n            <li><i class=\"fa-solid fa-right-long\"></i>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed43819594", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed43819769", async() => {
                 WriteLiteral("Zəmanət");
             }
             );
@@ -140,7 +147,7 @@ using Madeyra.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n            <li><i class=\"fa-solid fa-right-long\"></i>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed438111017", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c0eac916599e7dd92a5ff1c2fa0bc8c26ed438111192", async() => {
                 WriteLiteral("Missiya");
             }
             );

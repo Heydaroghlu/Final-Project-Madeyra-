@@ -14,5 +14,13 @@ namespace Madeyra.Models
 
         }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<Design> Designs { get; set; }
+        public DbSet<Matreal> Matreals { get; set; }
     }
 }

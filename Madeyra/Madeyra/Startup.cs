@@ -1,4 +1,5 @@
 using Madeyra.Models;
+using Madeyra.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,6 +41,8 @@ namespace Madeyra
                  opt.Password.RequiredUniqueChars = 0;
                  opt.Password.RequireUppercase = false;
              }).AddDefaultTokenProviders().AddEntityFrameworkStores<MContext>();
+            services.AddScoped<LayoutService>();
+            services.AddScoped<IEmailService, EmailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,8 +65,13 @@ namespace Madeyra
             app.UseAuthentication();
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    "areas",
+                    "{area:exists}/{controller=dashboard}/{action=index}/{id?}"
+                    );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

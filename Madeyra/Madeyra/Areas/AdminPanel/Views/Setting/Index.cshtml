@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Settings";
+}
+@model List<Setting>
+<div class="container">
+    <h1>Tənzimləmələr</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Logo</th>
+                <th scope="col">Email</th>
+                <th scope="col">Tel</th>
+                <th scope="col">Adress</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td><img style="width:150px"; src="~/uploads/setting/@item.HeaderLogo" /></td>
+                <td>@item.Email</td>
+                <td>@item.Tel</td>
+                <td>@item.Adress</td>
+                <td><a asp-action="update" class="btn btn-success">Redaktə et</a> </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

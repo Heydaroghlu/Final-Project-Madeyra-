@@ -1,4 +1,5 @@
 ﻿using Madeyra.Models;
+using Madeyra.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,11 +12,19 @@ namespace Madeyra.Controllers
 {
     public class HomeController : Controller
     {
-        
+        MContext _context;
+        public HomeController(MContext context)
+        {
+            _context = context;
+        }
 
         public IActionResult Index()
         {
-            return View();
+            HomeViewModel homeView = new HomeViewModel
+            {
+                Settings = _context.Settings.FirstOrDefault()
+            };
+            return View(homeView);
         }
         public IActionResult Basket()
         {
