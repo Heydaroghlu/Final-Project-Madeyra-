@@ -132,9 +132,29 @@ namespace Madeyra.Areas.AdminPanel.Controllers
 
                 }
             }
-            if(product.Price<0)
+            if(product.SalePrice<0)
             {
-                ModelState.AddModelError("Price","Qiymət mənfi ola bilməz")
+                ModelState.AddModelError("Price", "Qiymət mənfi ola bilməz");
+                return View();
+
+            }
+            if (product.CostPrice < 0)
+            {
+                ModelState.AddModelError("Price", "Qiymət mənfi ola bilməz");
+                return View();
+
+            }
+            if (product.DiscountPrice < 0)
+            {
+                ModelState.AddModelError("Price", "Qiymət mənfi ola bilməz");
+                return View();
+
+            }
+            if (product.Count < 0)
+            {
+                ModelState.AddModelError("Price", "Say mənfi ola bilməz");
+                return View();
+
             }
             if (!ModelState.IsValid) return View();
             _context.Products.Add(product);
@@ -142,10 +162,13 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             return RedirectToAction("index");
 
         }
-       /* public IActionResult Update(int id)
+        public IActionResult Update(int id)
         {
-            Product product = _context.Products.Include(x => x.ProductMatreals).Include(x => x.ProductColors).FirstOrDefault(x => x.Id == id);
-            if(product==null)
+            Product product = _context.Products.Include(x => x.ProductMatreals)
+                .Include(x => x.ProductColors)
+                .Include(x=>x.ProductImages)
+                .FirstOrDefault(x => x.Id == id);
+            if (product == null)
             {
                 return RedirectToAction("index", "error");
             }
@@ -162,11 +185,113 @@ namespace Madeyra.Areas.AdminPanel.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update(Product product)
         {
-            ViewBag.SubCategory = _context.SubCategories.ToList();
+           /* ViewBag.SubCategory = _context.SubCategories.ToList();
             ViewBag.ColorIds = _context.Colors.ToList();
             ViewBag.DesignId = _context.Designs.ToList();
-            ViewBag.MatrealId = _context.Matreals.ToList();
-            return View();
-        }*/
+            ViewBag.MatrealId = _context.Matreals.ToList();*/
+            
+            Product oldProduct = _context.Products.Include(x => x.SubCategory).Include(x => x.ProductColors)
+                 .Include(x => x.ProductImages).Include(x => x.ProductMatreals).FirstOrDefault(x => x.Id == product.Id);
+           
+            if (oldProduct==null)
+            {
+                return RedirectToAction("index", "error");
+            }
+            if (product.PosterImage != null)
+            {
+                if (product.PosterImage.ContentType != "image/jpeg" && product.PosterImage.ContentType != "image/png")
+                {
+                    ModelState.AddModelError("PosterImage", "Şəklin formatı düzgün deyil!");
+                    return View();
+                }
+                if (product.PosterImage.Length > 2097152)
+                {
+                    ModelState.AddModelError("PosterImage", "Şəklin ölçüsü 2mb dan artıq ola bilməz!");
+                    return View();
+                }
+                ProductImage posterImage = _context.ProductImages.Where(x => x.ProductId == product.Id).FirstOrDefault(x => x.IsPoster == true);
+                string filename = FileManager.Save(_env.WebRootPath, "uploads/product", product.PosterImage);
+                if (posterImage == null)
+                {
+                    posterImage = new ProductImage
+                    {
+                        IsPoster = true,
+                        Image = filename,
+                        ProductId = product.Id
+                    };
+                    _context.ProductImages.Add(posterImage);
+                }
+                else
+                {
+                    FileManager.Delete(_env.WebRootPath, "uploads/product", posterImage.Image);
+                    posterImage.Image = filename;
+                }
+            }
+            oldProduct.ProductImages.RemoveAll(x => x.IsPoster == false && !product.ProductImageIds.Contains(x.Id));
+
+            if (product.ImageFiles != null)
+            {
+                foreach (var file in product.ImageFiles)
+                {
+                    if (file.ContentType != "image/png" && file.ContentType != "image/jpeg")
+                    {
+                        continue;
+                    }
+
+                    if (file.Length > 2097152)
+                    {
+                        continue;
+                    }
+
+                    ProductImage image = new ProductImage
+                    {
+                        IsPoster = false,
+                        Image = FileManager.Save(_env.WebRootPath, "uploads/product", file)
+                    };
+                    if (oldProduct.ProductImages == null)
+                        oldProduct.ProductImages = new List<ProductImage>();
+                    oldProduct.ProductImages.Add(image);
+                }
+            }
+            oldProduct.ProductMatreals.RemoveAll(x => !product.MatrealIds.Contains(x.MatrealId));
+            foreach (var matrealId in product.MatrealIds.Where(x => !oldProduct.ProductMatreals.Any(bt => bt.MatrealId == x)))
+            {
+                ProductMatreal productMatreal = new ProductMatreal
+                {
+                    ProductId = product.Id,
+                    MatrealId = matrealId
+                };
+
+                oldProduct.ProductMatreals.Add(productMatreal);
+            }
+            oldProduct.ProductColors.RemoveAll(x => !product.ColorIds.Contains(x.ColorId));
+            foreach (var colorId in product.ColorIds.Where(x => !oldProduct.ProductColors.Any(bt => bt.ColorId == x)))
+            {
+                ProductColor productColor = new ProductColor
+                {
+                    ProductId = product.Id,
+                    ColorId = colorId
+                };
+
+                oldProduct.ProductColors.Add(productColor);
+            }
+            
+            oldProduct.Name = product.Name;
+            oldProduct.SalePrice = product.SalePrice;
+            oldProduct.CostPrice = product.CostPrice;
+            oldProduct.DiscountPrice = product.DiscountPrice;
+            oldProduct.Count = product.Count;
+            oldProduct.Size = product.Size;
+            oldProduct.DesignId = product.DesignId;
+            oldProduct.Preference = product.Preference;
+            oldProduct.Includes = product.Includes;
+            oldProduct.IsInterestFree = product.IsInterestFree;
+            oldProduct.SubCategoryId = product.SubCategoryId;
+            _context.SaveChanges();
+            
+                return RedirectToAction("index");
+            }
+           
+        
     }
 }

@@ -152,7 +152,7 @@
                                     </a>
                                     <ul class="dropdown-menu"
                                         aria-labelledby="navbarDarkDropdownMenuLink">
-                                        @if (User.Identity.IsAuthenticated)
+                                        @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
                                         {
                                             <li><a class="dropdown-item" asp-action="profilemenu" asp-controller="account">Hesabım</a></li>
                                             <li><a class="dropdown-item" asp-action="logout" asp-controller="account">Çıxış</a></li>

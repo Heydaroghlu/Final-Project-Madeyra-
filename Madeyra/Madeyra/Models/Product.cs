@@ -16,10 +16,15 @@ namespace Madeyra.Models
         public int DesignId { get; set; }
         public string Includes { get; set; }
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Price { get; set; }
+        public decimal SalePrice { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal CostPrice { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal DiscountPrice { get; set; }
         public bool IsInterestFree { get; set; }
       
         public string Size { get; set; }
+        public int Count { get; set; }
         public int SubCategoryId { get; set; }
         public List<ProductColor> ProductColors { get; set; }
         public List<ProductMatreal> ProductMatreals { get; set; }
@@ -33,7 +38,7 @@ namespace Madeyra.Models
         [NotMapped]
         public List<IFormFile> ImageFiles { get; set; }
         [NotMapped]
-        public List<int> ProductImageIds { get; set; }
+        public List<int> ProductImageIds { get; set; } = new List<int>();
        
         public SubCategory SubCategory { get; set; }
         

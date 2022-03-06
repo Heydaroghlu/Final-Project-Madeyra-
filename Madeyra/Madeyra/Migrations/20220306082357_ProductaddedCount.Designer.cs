@@ -4,14 +4,16 @@ using Madeyra.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Madeyra.Migrations
 {
     [DbContext(typeof(MContext))]
-    partial class MContextModelSnapshot : ModelSnapshot
+    [Migration("20220306082357_ProductaddedCount")]
+    partial class ProductaddedCount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,17 +94,11 @@ namespace Madeyra.Migrations
                     b.Property<int?>("ColorId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("CostPrice")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
                     b.Property<int>("DesignId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("DiscountPrice")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Includes")
                         .HasColumnType("nvarchar(max)");
@@ -120,7 +116,7 @@ namespace Madeyra.Migrations
                     b.Property<string>("Preference")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("SalePrice")
+                    b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Size")

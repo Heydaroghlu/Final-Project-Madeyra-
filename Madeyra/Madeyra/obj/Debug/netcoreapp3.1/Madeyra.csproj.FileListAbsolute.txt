@@ -195,5 +195,5 @@ C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\SubCategory\Update.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Index.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Create.cshtml.g.cs
-C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Madeyra.csproj.AssemblyReference.cache
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Update.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Madeyra.csproj.AssemblyReference.cache

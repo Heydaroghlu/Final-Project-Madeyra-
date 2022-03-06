@@ -11,8 +11,13 @@ namespace Madeyra.Areas.AdminPanel.Controllers
     [Authorize(Roles = "SuperAdmin,Admin")]
     public class DashBoardController : Controller
     {
+
         public IActionResult Index()
         {
+            if(!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("login", "account");
+            }
             return View();
         }
     }

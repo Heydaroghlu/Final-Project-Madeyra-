@@ -5,33 +5,184 @@
 @model Product
 <div class="container">
     <h1>Yeni Məhsul</h1>
-    <form method="post">
-        <div class="mb-3">
-            <input asp-for="Name" class="form-control" placeholder="Məhsulun Adı">
-            <span class="text-danger" asp-validation-for="Name"></span>
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="mb-3 col-xl-6">
+                <label asp-for="Name">Məhsulun adı</label>
+                <input asp-for="Name" class="form-control" placeholder="Məhsulun Adı">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group col-md-3 col-xl-6">
+                <label asp-for="SubCategoryId">Alt Kateqoriya</label>
+                <select class="form-control" asp-for="SubCategoryId" asp-items="@(new SelectList(ViewBag.SubCategory,"Id","Name"))"></select>
+                <span class="text-danger" asp-validation-for="SubCategoryId"></span>
+            </div>
         </div>
-        <div class="form-group col-md-3">
-            <label asp-for="SubCategoryId">Alt Kateqoriya</label>
-            <select class="form-control" asp-for="SubCategoryId" asp-items="@(new SelectList(ViewBag.SubCategory,"Id","Name"))"></select>
-            <span class="text-danger" asp-validation-for="SubCategoryId"></span>
+
+        <div class="row">
+            <div class="form-group col-md-3 col-xl-4">
+                <label asp-for="DesignId">Dizayn</label>
+                <select class="form-control" asp-for="DesignId" asp-items="@(new SelectList(ViewBag.DesignId,"Id","Name"))"></select>
+                <span class="text-danger" asp-validation-for="DesignId"></span>
+            </div>
+            <div class="form-group col-md-3 col-xl-4">
+                <label asp-for="ColorIds">Rənglər</label>
+                <select multiple class="form-control" asp-for="ColorIds" asp-items="@(new SelectList(ViewBag.ColorIds,"Id","Name"))"></select>
+                <span class="text-danger" asp-validation-for="ColorIds"></span>
+            </div>
+            <div class="form-group col-md-3 col-xl-4">
+                <label asp-for="MatrealIds">Matreallar</label>
+                <select multiple class="form-control" asp-for="MatrealIds" asp-items="@(new SelectList(ViewBag.MatrealId,"Id","Name"))"></select>
+                <span class="text-danger" asp-validation-for="MatrealIds"></span>
+            </div>
         </div>
-        <div class="form-group col-md-3">
-            <label asp-for="DesignId">Dizayn</label>
-            <select class="form-control" asp-for="DesignId" asp-items="@(new SelectList(ViewBag.DesignId,"Id","Name"))"></select>
-            <span class="text-danger" asp-validation-for="DesignId"></span>
+
+        <div class="row">
+            <div class="mb-3 col-xl-2">
+                <label asp-for="SalePrice">Qiymət</label>
+                <input asp-for="SalePrice" class="form-control" placeholder="Qiymət">
+                <span class="text-danger" asp-validation-for="SalePrice"></span>
+            </div>
+            <div class="mb-3 col-xl-2">
+                <label asp-for="CostPrice">Maya Dəyəri</label>
+                <input asp-for="CostPrice" class="form-control" placeholder="Maya Dəyəri">
+                <span class="text-danger" asp-validation-for="CostPrice"></span>
+            </div>
+            <div class="mb-3 col-xl-2">
+                <label asp-for="CostPrice">Endirim</label>
+                <input asp-for="DiscountPrice" class="form-control" placeholder="Endirim">
+                <span class="text-danger" asp-validation-for="DiscountPrice"></span>
+            </div>
+
+            <div class="mb-3 col-xl-3">
+                <label asp-for="CostPrice">Say</label>
+                <input asp-for="Count" class="form-control" placeholder="Say">
+                <span class="text-danger" asp-validation-for="Count"></span>
+            </div>
+            <div class="form-check col-xl-3">
+                <input style="width:1rem;height:1rem;" class="form-check-input" type="checkbox" value="" asp-for="IsInterestFree">
+                <label class="form-check-label" asp-for="IsInterestFree">
+                    24 Ay Faizsiz
+                </label>
+            </div>
         </div>
-        <div class="form-group col-md-3">
-            <label asp-for="ColorIds">Rənglər</label>
-            <select multiple class="form-control" asp-for="ColorIds" asp-items="@(new SelectList(ViewBag.ColorIds,"Id","Name"))"></select>
-            <span class="text-danger" asp-validation-for="ColorIds"></span>
+        <div class="row">
+            <div class="form-floating col-xl-12 mb-3">
+                <textarea asp-for="Preference" class="form-control" placeholder="Üstünlüklər" id="editor" style="height: 100px"></textarea>
+            </div>
         </div>
-        <div class="form-group col-md-3">
-            <label asp-for="MatrealIds">Matreallar</label>
-            <select multiple class="form-control" asp-for="MatrealIds" asp-items="@(new SelectList(ViewBag.MatrealId,"Id","Name"))"></select>
-            <span class="text-danger" asp-validation-for="MatrealIds"></span>
+        <div class="row">
+            <div class="form-floating col-xl-12 mb-3">
+                <textarea asp-for="Size" class="form-control" placeholder="Ölçülər" id="editor2" style="height: 100px"></textarea>
+            </div>
         </div>
+        <div class="row">
+            <div class="form-floating col-xl-12 mb-3">
+                <textarea asp-for="Includes" class="form-control" placeholder="Dəstə daxildir:" id="editor3" style="height: 100px"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-xl-6">
+                <input id="product-input1" asp-for="PosterImage" class="form-control" placeholder="Məhsulun Adı">
+                <span class="text-danger" asp-validation-for="PosterImage"></span>
+                <div id="product-img1">
+                    <img style="max-width:150px" src="~/uploads/product/@Model.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image"/>
+                </div>
+            </div>
+            <div class="mb-3 col-xl-6">
+                <input id="product-input2" asp-for="ImageFiles" class="form-control" placeholder="Məhsulun Adı">
+                <span class="text-danger" asp-validation-for="ImageFiles"></span>
+                <div id="product-img2">
+                    @foreach (var item in Model.ProductImages.Where(x => x.IsPoster == false))
+                    {
+                    <div class="img-box" style="display: inline-block; position: relative;margin-right:8px">
+                        <input type="hidden" name="ProductImageIds[]" value="@item.Id" />
+                        <img style="max-width:150px" src="~/uploads/product/@item.Image" />
+                        <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                            <i class="fa-solid fa-circle-minus" style="color:red;font-size:30px"></i>
+                        </span>
+                    </div>
+                            }
+                       
+                        </div>
+                    </div>
+        </div>
+        <div asp-validation-summary="ModelOnly"></div>
 
         <button type="submit" class="btn btn-warning">Yarat</button>
     </form>
 </div>
 
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(document).on("click", ".remove-img-box", function () {
+                $(this).parent().remove();
+            })
+        })
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor2'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor3'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        let productinput1 = document.getElementById("product-input1")
+        let productdiv1 = document.getElementById("product-img1")
+        productinput1.onchange = function (e) {
+            let files = e.target.files
+            let filesarr = [...files]
+            filesarr.forEach(x => {
+                if (x.type.startsWith("image/")) {
+                    let reader = new FileReader()
+                    reader.onload = function () {
+                        productdiv1.innerHTML = ""
+                        let newimg = document.createElement("img")
+                        newimg.style.width = "150px"
+                        newimg.setAttribute("src", reader.result)
+                        productdiv1.appendChild(newimg)
+                    }
+                    reader.readAsDataURL(x)
+                }
+            })
+        }
+    </script>
+    <script>
+    let productinput = document.getElementById("product-input2")
+    let productdiv = document.getElementById("product-img2")
+    productinput.onchange = function (e) {
+        let files = e.target.files
+        let filesarr = [...files]
+        filesarr.forEach(x => {
+            if (x.type.startsWith("image/")) {
+                let reader = new FileReader()
+                reader.onload = function () {
+
+                    let newimg = document.createElement("img")
+                    newimg.style.width = "150px"
+                    newimg.setAttribute("src", reader.result)
+                    productdiv.appendChild(newimg)
+                }
+                reader.readAsDataURL(x)
+            }
+        })
+    }
+    </script>
+}
