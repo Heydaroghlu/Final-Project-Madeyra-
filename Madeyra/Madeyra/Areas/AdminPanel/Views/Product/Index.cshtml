@@ -1,37 +1,80 @@
-﻿
+﻿@using X.PagedList.Mvc.Core
+@using X.PagedList
 @{
     ViewData["Title"] = "Katagoriya";
-    int count = 0;
+    int count = Model.FirstItemOnPage-1;
+    
 }
-@model List<Product>
+@model IPagedList<Product>
 <div class="container">
     <h1 style="margin-top:1rem">Məhsullar</h1>
-    <a style="margin-bottom:1rem" class="btn btn-warning" asp-action="create">Mehsullar</a>
+    <a style="margin-bottom:1rem" class="btn btn-warning" asp-action="create">Yeni Mehsul</a>
+    <div class="col-lg-12">
+        <form method="get" asp-action="index" class="my-3">
+            <div class="row d-flex align-items-center" >
+                <div class="col-xl-3">
+                    <select class="form-control" name="deleted">
+                        <option value="">
+                           Bütün Məhsullar
+                        </option>
+                        <option value="false">Yeni Məhsullar</option>
+                        <option value="true">Silinən Məhsullar</option>
+                        
+                    </select>
+                </div>
+                <div class="col-xl-6">
+                    <input type="text" name="search" class="form-control filter" autocomplete="off" value="@ViewBag.search" id="exampleInputEmail1" placeholder="Axtar..." />
+                </div>
+                <button type="submit" class="btn btn-secondary my-2">Axtar</button>
+            </div>
+            
+        </form>
+    </div>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Kateqoriya Adı</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col">Şəkli</th>
+                <th scope="col">Adı</th>
+                <th scope="col">Qiyməti</th>
+                <th scope="col">Sayı</th>
+                <th scope="col">Redaktə et</th>
+                <th scope="col">Sil</th>
+
+
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 count++;
-            <tr>
-                <th scope="row">@count</th>
-                <td>@item.Name</td>
-                
-                
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@item.SubCategory.Name</td>
+                    <td><img style="width:120px;" src="~/uploads/product/@item.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /></td>
+                    <td>@item.Name</td>
+                    <td>@item.SalePrice</td>
+                    <td>@item.Count</td>
 
-              <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Redaktə Et</a></td>
-                <td><a class="btn btn-danger">Sil</a></td>
 
-            </tr>
+
+
+                    <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Redaktə Et</a></td>
+                    <td><a class="btn btn-danger">Sil</a></td>
+
+                </tr>
             }
 
         </tbody>
     </table>
 </div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptionsBase
+    {
+        DisplayItemSliceAndTotal = false,
+        ContainerDivClasses = new[] { "navigation" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" }
+    }
+    )

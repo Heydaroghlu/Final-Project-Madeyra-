@@ -9,5 +9,6 @@ namespace Madeyra.ViewModels
     public class HomeViewModel
     {
         public Setting Settings { get; set; }
+        public List<Product> Products { get; set; }
     }
 }

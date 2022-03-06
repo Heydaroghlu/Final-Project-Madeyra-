@@ -206,7 +206,7 @@ namespace Madeyra.Controllers
             AppUser user = await _userManager.FindByEmailAsync(resetPassword.Email);
             if (user == null || !(await _userManager.VerifyUserTokenAsync(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", resetPassword.Token)))
             {
-                return RedirectToAction("login");
+                return RedirectToAction("index", "error");
             }
 
             return View(resetPassword);

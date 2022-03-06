@@ -4,7 +4,7 @@
 }
 @model Product
 <div class="container">
-    <h1>Yeni Məhsul</h1>
+    <h1>Məhsulu Yenilə</h1>
     <form method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="mb-3 col-xl-6">
@@ -39,30 +39,31 @@
 
         <div class="row">
             <div class="mb-3 col-xl-2">
-                <label asp-for="SalePrice">Qiymət</label>
-                <input asp-for="SalePrice" class="form-control" placeholder="Qiymət">
+                <input asp-for="SalePrice" class="form-control" placeholder="Satış qiyməti">
                 <span class="text-danger" asp-validation-for="SalePrice"></span>
             </div>
             <div class="mb-3 col-xl-2">
-                <label asp-for="CostPrice">Maya Dəyəri</label>
-                <input asp-for="CostPrice" class="form-control" placeholder="Maya Dəyəri">
+                <input asp-for="CostPrice" class="form-control" placeholder="Maya dəyəri">
                 <span class="text-danger" asp-validation-for="CostPrice"></span>
             </div>
             <div class="mb-3 col-xl-2">
-                <label asp-for="CostPrice">Endirim</label>
-                <input asp-for="DiscountPrice" class="form-control" placeholder="Endirim">
+                <input asp-for="DiscountPrice" class="form-control" placeholder="Endirim Faizi">
                 <span class="text-danger" asp-validation-for="DiscountPrice"></span>
             </div>
-
-            <div class="mb-3 col-xl-3">
-                <label asp-for="CostPrice">Say</label>
+            <div class="mb-3 col-xl-2">
                 <input asp-for="Count" class="form-control" placeholder="Say">
                 <span class="text-danger" asp-validation-for="Count"></span>
             </div>
-            <div class="form-check col-xl-3">
-                <input style="width:1rem;height:1rem;" class="form-check-input" type="checkbox" value="" asp-for="IsInterestFree">
+            <div class="form-check">
+                <input style="width:1rem;height:1rem;" class="form-check-input" type="checkbox" asp-for="IsInterestFree">
                 <label class="form-check-label" asp-for="IsInterestFree">
                     24 Ay Faizsiz
+                </label>
+            </div>
+            <div class="form-check">
+                <input style="width:1rem;height:1rem;" class="form-check-input" type="checkbox" asp-for="IsNew">
+                <label class="form-check-label" asp-for="IsNew">
+                    Yeni Məhsul
                 </label>
             </div>
         </div>
@@ -86,7 +87,7 @@
                 <input id="product-input1" asp-for="PosterImage" class="form-control" placeholder="Məhsulun Adı">
                 <span class="text-danger" asp-validation-for="PosterImage"></span>
                 <div id="product-img1">
-                    <img style="max-width:150px" src="~/uploads/product/@Model.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image"/>
+                    <img style="max-width:150px" src="~/uploads/product/@Model.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" />
                 </div>
             </div>
             <div class="mb-3 col-xl-6">
@@ -95,21 +96,21 @@
                 <div id="product-img2">
                     @foreach (var item in Model.ProductImages.Where(x => x.IsPoster == false))
                     {
-                    <div class="img-box" style="display: inline-block; position: relative;margin-right:8px">
-                        <input type="hidden" name="ProductImageIds[]" value="@item.Id" />
-                        <img style="max-width:150px" src="~/uploads/product/@item.Image" />
-                        <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
-                            <i class="fa-solid fa-circle-minus" style="color:red;font-size:30px"></i>
-                        </span>
-                    </div>
-                            }
-                       
+                        <div class="img-box" style="display: inline-block; position: relative;margin-right:8px">
+                            <input type="hidden" name="ProductImageIds[]" value="@item.Id" />
+                            <img style="max-width:150px" src="~/uploads/product/@item.Image" />
+                            <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                                <i class="fa-solid fa-circle-minus" style="color:red;font-size:30px"></i>
+                            </span>
                         </div>
-                    </div>
+                    }
+
+                </div>
+            </div>
         </div>
         <div asp-validation-summary="ModelOnly"></div>
 
-        <button type="submit" class="btn btn-warning">Yarat</button>
+        <button type="submit" style="width:10rem;margin-bottom:2rem" class="btn btn-success">Yenilə</button>
     </form>
 </div>
 

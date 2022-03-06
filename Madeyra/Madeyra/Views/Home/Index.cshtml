@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Madeyra mebel|Mebel mağazası|Aşağı qiymətlər və yüksək keyfiyyət";
 }
-
+@model HomeViewModel
 <main>
     <section>
         <div id="down-search" class="down-search">
@@ -390,190 +390,62 @@
                 </div>
                 <hr>
                 <div class="owl-carousel owl-theme">
-                    <div class="item">
+                    @foreach (var product in Model.Products)
+                    {
+                        if (product.IsNew == true && product.IsDeleted==false)
+                        {
+                            <div class="item">
 
-                        <div class="card">
-                            <div class="favorite-image">
-                                <img src="https://madeyra.com/image/cache/catalog/Casamia%20dest/Casamia%20yataq/1-521x293.webp"
-                                     alt="">
-                            </div>
-                            <div class="credit-tag">
-                                <div class="price">
-                                    <span>Ayda <br> 64</span>
-                                </div>
-                                <div class="tag">
-                                    <span>24 Ay Faizsiz</span>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-heart"></i>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                        <span>Casamia yataq dəsti</span>
+                                <div class="card">
+                                    <div class="favorite-image">
+                                        <img src="~/uploads/product/@product.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image"
+                                             alt="">
+                                    </div>
+                                    @if (product.IsInterestFree == true)
+                                    {
+                                        <div class="credit-tag">
+                                            <div class="price">
+                                                <span>Ayda <br> 64</span>
+                                            </div>
+                                            <div class="tag">
+                                                <span>24 Ay Faizsiz</span>
+                                            </div>
+                                        </div>
+                                    }
+                                    <i class="fa-solid fa-heart"></i>
+                                    <div class="card-body">
                                         <div class="row">
-                                            <div class="favorite-price">
-                                                <div class="price">
-                                                    <span class="oldprice">1,487</span> <span class="newprice">2,201</span>
+                                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                <span>@product.Name</span>
+                                                <div class="row">
+                                                    <div class="favorite-price">
+                                                        <div class="price">
+                                                            <span class="oldprice">@((product.SalePrice).ToString("#.##"))₼</span> <span class="newprice">@((product.SalePrice*(1-(product.DiscountPrice/100))).ToString("#.##"))</span>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
-
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
 
-                                        <div class="kompaniya">
-                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
-                                                 alt="">
-                                            <div class="img-txt">
-                                                <span>indi al</span>
-                                                <span>2 ay</span>
-                                                <span>sonra ödə</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-
-                        <div class="card">
-                            <div class="favorite-image">
-                                <img src="https://madeyra.com/image/cache/catalog/Favori%20dest/Favori%20yataq/1-521x293.webp"
-                                     alt="">
-                            </div>
-                            <div class="credit-tag">
-                                <div class="price">
-                                    <span>Ayda <br> 64</span>
-                                </div>
-                                <div class="tag">
-                                    <span>24 Ay Faizsiz</span>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-heart"></i>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                        <span>Favori yataq dəsti</span>
-                                        <div class="row">
-                                            <div class="favorite-price">
-                                                <div class="price">
-                                                    <span class="oldprice">1,487</span> <span class="newprice">1,623</span>
+                                                <div class="kompaniya">
+                                                    <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                         alt="">
+                                                    <div class="img-txt">
+                                                        <span>indi al</span>
+                                                        <span>2 ay</span>
+                                                        <span>sonra ödə</span>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
 
-                                        <div class="kompaniya">
-                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
-                                                 alt="">
-                                            <div class="img-txt">
-                                                <span>indi al</span>
-                                                <span>2 ay</span>
-                                                <span>sonra ödə</span>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-                    </div>
-                    <div class="item">
 
-                        <div class="card">
-                            <div class="favorite-image">
-                                <img src="https://madeyra.com/image/cache/catalog/Melanni/1-521x293.webp"
-                                     alt="">
-                            </div>
-                            <div class="credit-tag">
-                                <div class="price">
-                                    <span>Ayda <br> 64</span>
-                                </div>
-                                <div class="tag">
-                                    <span>24 Ay Faizsiz</span>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-heart"></i>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                        <span>Melanni qonaq dəsti</span>
-                                        <div class="row">
-                                            <div class="favorite-price">
-                                                <div class="price">
-                                                    <span class="oldprice">1,487</span> <span class="newprice">1,162</span>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-
-                                        <div class="kompaniya">
-                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
-                                                 alt="">
-                                            <div class="img-txt">
-                                                <span>indi al</span>
-                                                <span>2 ay</span>
-                                                <span>sonra ödə</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-
-                        <div class="card">
-                            <div class="favorite-image">
-                                <img src="https://madeyra.com/image/cache/catalog/Qardenya/Ja0N1bRF5i-521x293.webp"
-                                     alt="">
-                            </div>
-                            <div class="credit-tag">
-                                <div class="price">
-                                    <span>Ayda <br> 64</span>
-                                </div>
-                                <div class="tag">
-                                    <span>24 Ay Faizsiz</span>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-heart"></i>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                        <span>Qardenya divan dəsti</span>
-                                        <div class="row">
-                                            <div class="favorite-price">
-                                                <div class="price">
-                                                    <span class="oldprice">1,487</span> <span class="newprice">1,162</span>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-
-                                        <div class="kompaniya">
-                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
-                                                 alt="">
-                                            <div class="img-txt">
-                                                <span>indi al</span>
-                                                <span>2 ay</span>
-                                                <span>sonra ödə</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
 
                 </div>
 

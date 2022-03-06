@@ -14,6 +14,8 @@ namespace Madeyra.Models
         public string Name { get; set; }
        public string Preference { get; set; }
         public int DesignId { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsNew { get; set; }
         public string Includes { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal SalePrice { get; set; }

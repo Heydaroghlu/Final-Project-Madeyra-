@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace Madeyra.Areas.AdminPanel.Controllers
 {
@@ -20,9 +21,28 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             _env = env;
             _context = context;
         }
-        public IActionResult Index(int page = 1, string search = null)
+        public IActionResult Index(int page = 1, bool? deleted = null, string? search=null)
         {
-            return View(_context.Products.Include(x=>x.ProductMatreals).ToList());
+            var products = _context.Products
+                .Include(x => x.SubCategory)
+                .Include(x => x.ProductMatreals).
+                Include(x => x.ProductImages).AsQueryable();
+                 if (deleted == false)
+            {
+                products = products.Where(x => x.IsNew == true);
+            }
+            if (deleted == true)
+            {
+                products = products.Where(x => x.IsDeleted == true);
+            }
+            if(search!=null)
+            {
+                products = products.Where(x => x.Name.Contains(search));
+            }
+            ViewBag.IsNew=
+            ViewBag.IsDeleted = deleted;
+            ViewBag.Search = search;
+            return View(products.ToPagedList(page, 5));
         }
         public IActionResult Create()
         {
@@ -280,6 +300,7 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             oldProduct.SalePrice = product.SalePrice;
             oldProduct.CostPrice = product.CostPrice;
             oldProduct.DiscountPrice = product.DiscountPrice;
+            oldProduct.IsNew = product.IsNew;
             oldProduct.Count = product.Count;
             oldProduct.Size = product.Size;
             oldProduct.DesignId = product.DesignId;
