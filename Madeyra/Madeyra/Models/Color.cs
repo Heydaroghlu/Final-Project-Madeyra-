@@ -11,5 +11,6 @@ namespace Madeyra.Models
         [StringLength(maximumLength: 20)]
         public string Name { get; set; }
         public List<Product> Products { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

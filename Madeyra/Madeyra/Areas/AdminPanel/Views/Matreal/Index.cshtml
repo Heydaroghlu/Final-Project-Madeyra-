@@ -1,0 +1,83 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core 
+@{
+    ViewData["Title"] = "Matreal";
+    int count = 0;
+}
+@model IPagedList<Matreal>
+<div class="container">
+    <h1 style="margin-top:1rem">Matreallar</h1>
+    <a style="margin-bottom:1rem" class="btn btn-warning" asp-action="create">Yeni Matreal</a><div class="col-lg-12">
+                                                                                                  <div class="col-lg-12">
+                                                                                                      <form method="get" asp-action="index" class="my-3">
+                                                                                                          <div class="row d-flex align-items-center">
+                                                                                                              <div class="col-xl-3">
+                                                                                                                  <select class="form-control" name="deleted">
+                                                                                                                      <option value="">
+                                                                                                                          Bütün Məhsullar
+                                                                                                                      </option>
+                                                                                                                      <option value="false">Yeni Məhsullar</option>
+                                                                                                                      <option value="true">Silinən Məhsullar</option>
+
+                                                                                                                  </select>
+                                                                                                              </div>
+                                                                                                              <div class="col-xl-6">
+                                                                                                                  <input type="text" name="search" class="form-control filter" autocomplete="off" value="@ViewBag.search" id="exampleInputEmail1" placeholder="Axtar..." />
+                                                                                                              </div>
+                                                                                                              <button type="submit" class="btn btn-secondary my-2">Axtar</button>
+                                                                                                          </div>
+
+                                                                                                      </form>
+                                                                                                  </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Adı</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                if (item.IsDeleted == true)
+                {
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td  style="color:red">@item.Name</td>
+                        <td><a class="btn btn-success berpa-btn" data-id="@item.Id" data-name="matreal" asp-route-id="@item.Id">Bərpa Et</a></td>
+
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td>@item.Name</td>
+                        <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Redaktə Et</a></td>
+                        <td><a class="btn btn-danger delete-btn" data-id="@item.Id" data-name="matreal" asp-route-id="@item.Id">Sil</a></td>
+
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptionsBase
+    {
+        DisplayItemSliceAndTotal = false,
+        ContainerDivClasses = new[] { "navigation" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" }
+    }
+
+    )
+</div>

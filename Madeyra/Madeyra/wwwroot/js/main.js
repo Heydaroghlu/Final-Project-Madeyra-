@@ -1,4 +1,9 @@
-let hesab=document.getElementsByClassName("hesab-btn")
+
+
+    console.log("sweet")
+
+
+let hesab = document.getElementsByClassName("hesab-btn")
 let menu=document.getElementById("category-menu")
 let category_menu=document.getElementById("category-menu-ul")
 let array=[...hesab]

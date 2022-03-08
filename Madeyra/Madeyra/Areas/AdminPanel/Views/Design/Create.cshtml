@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Yeni Dizayn";
+}
+
+@model Design
+<div class="container">
+    <h1>Yeni Matreal</h1>
+    <form method="post">
+        <div class="mb-3">
+            <input asp-for="Name" class="form-control" placeholder="Adı">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Yarat</button>
+    </form>
+</div>

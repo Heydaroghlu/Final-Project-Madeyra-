@@ -49,21 +49,33 @@
             @foreach (var item in Model)
             {
                 count++;
-                <tr>
-                    <th scope="row">@count</th>
-                    <td>@item.SubCategory.Name</td>
-                    <td><img style="width:120px;" src="~/uploads/product/@item.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /></td>
-                    <td>@item.Name</td>
-                    <td>@item.SalePrice</td>
-                    <td>@item.Count</td>
+                if (item.IsDeleted == true)
+                {
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td style="color:red">@item.SubCategory.Name</td>
+                        <td><img style="width:120px;" src="~/uploads/product/@item.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /></td>
+                        <td style="color:red">@item.Name</td>
+                        <td style="color:red">@item.SalePrice</td>
+                        <td style="color:red">@item.Count</td>
+                        <td><a class="btn btn-success berpa-btn" data-id="@item.Id" data-name="product" asp-route-id="@item.Id">Bərpa Et</a></td>
 
+                    </tr>
+                }
+                else
+                {
+        <tr>
+            <th scope="row">@count</th>
+            <td >@item.SubCategory.Name</td>
+            <td><img style="width:120px;" src="~/uploads/product/@item.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /></td>
+            <td>@item.Name</td>
+            <td>@item.SalePrice</td>
+            <td>@item.Count</td>
+            <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Redaktə Et</a></td>
+            <td><a class="btn btn-danger delete-btn" data-id="@item.Id" data-name="product" asp-route-id="@item.Id">Sil</a></td>
 
-
-
-                    <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Redaktə Et</a></td>
-                    <td><a class="btn btn-danger">Sil</a></td>
-
-                </tr>
+        </tr>
+                }
             }
 
         </tbody>

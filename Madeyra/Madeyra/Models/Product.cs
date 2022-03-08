@@ -41,7 +41,7 @@ namespace Madeyra.Models
         public List<IFormFile> ImageFiles { get; set; }
         [NotMapped]
         public List<int> ProductImageIds { get; set; } = new List<int>();
-       
+        public Design Design { get; set; }
         public SubCategory SubCategory { get; set; }
         
     }

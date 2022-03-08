@@ -204,3 +204,17 @@ C:\Users\heyde\source\repos\Madeyra\Madeyra\bin\Debug\netcoreapp3.1\Newtonsoft.J
 C:\Users\heyde\source\repos\Madeyra\Madeyra\bin\Debug\netcoreapp3.1\X.PagedList.dll
 C:\Users\heyde\source\repos\Madeyra\Madeyra\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Madeyra.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Product\Detail.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Matreal\Create.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Matreal\Update.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Matreal\Index.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Color\Index.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Color\Create.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Color\Update.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Design\Index.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Design\Create.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Design\Update.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Card\Index.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Card\Create.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Card\Update.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs

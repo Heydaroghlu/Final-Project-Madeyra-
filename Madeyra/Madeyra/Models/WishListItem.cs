@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Madeyra.Models
 {
-    public class ProductPreference
+    public class WishListItem:BaseEntity
     {
+        public AppUser AppUser { get; set; }
+        public string AppUserId { get; set; }
         public int ProductId { get; set; }
-        public int PreferenceId { get; set; }
         public Product Product { get; set; }
-        public Preference Preference { get; set; }
     }
 }

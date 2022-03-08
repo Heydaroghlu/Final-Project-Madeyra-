@@ -69,14 +69,23 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             _context.SaveChanges();
             return RedirectToAction("index","category");
         }
-     /*   public IActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             Category category = _context.Categories.FirstOrDefault(x => x.Id == id);
             if (category == null)
             {
                 return RedirectToAction("index", "error");
             }
-           
-        }*/
+            if (category.IsDeleted == false)
+            {
+                category.IsDeleted = true;
+            }
+            else
+            {
+                category.IsDeleted = false;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
     }
 }

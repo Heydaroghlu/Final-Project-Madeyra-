@@ -22,5 +22,7 @@ namespace Madeyra.Models
         public DbSet<Color> Colors { get; set; }
         public DbSet<Design> Designs { get; set; }
         public DbSet<Matreal> Matreals { get; set; }
+        public DbSet<Card> Cards { get; set; }
+        public DbSet <Slider> Sliders { get; set; }
     }
 }

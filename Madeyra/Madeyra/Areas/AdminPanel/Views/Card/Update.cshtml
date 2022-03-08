@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Redaktə Et";
+}
+@model Card
+<div class="container">
+    <h1>Redaktə Et</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <input asp-for=Text class="form-control" placeholder="Mətn">
+            <span class="text-danger" asp-validation-for="Text"></span>
+        </div>
+        <div class="mb-3">
+            <input asp-for=CardImageFile class="form-control" placeholder="İcon">
+            <span class="text-danger" asp-validation-for="CardImageFile"></span>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Yenilə</button>
+    </form>
+</div>

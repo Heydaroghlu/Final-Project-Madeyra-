@@ -11,5 +11,6 @@ namespace Madeyra.Models
         [StringLength(maximumLength: 60)]
         public string Name { get; set; }
         public List<SubCategory> SubCategories { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

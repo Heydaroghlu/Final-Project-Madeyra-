@@ -39,26 +39,26 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             {
                 products = products.Where(x => x.Name.Contains(search));
             }
-            ViewBag.IsNew=
+            
             ViewBag.IsDeleted = deleted;
             ViewBag.Search = search;
             return View(products.ToPagedList(page, 5));
         }
         public IActionResult Create()
         {
-            ViewBag.SubCategory = _context.SubCategories.ToList();
-            ViewBag.ColorIds = _context.Colors.ToList();
-            ViewBag.DesignId = _context.Designs.ToList();
-            ViewBag.MatrealId = _context.Matreals.ToList();
+            ViewBag.SubCategory = _context.SubCategories.ToList().Where(x => x.IsDeleted == false); ;
+            ViewBag.ColorIds = _context.Colors.ToList().Where(x => x.IsDeleted == false); ;
+            ViewBag.DesignId = _context.Designs.ToList().Where(x=>x.IsDeleted==false);
+            ViewBag.MatrealId = _context.Matreals.ToList().Where(x => x.IsDeleted == false);
             return View();
         }
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            ViewBag.SubCategory = _context.SubCategories.ToList();
-            ViewBag.ColorIds = _context.Colors.ToList();
-            ViewBag.DesignId = _context.Designs.ToList();
-            ViewBag.MatrealId = _context.Matreals.ToList();
+            ViewBag.SubCategory = _context.SubCategories.ToList().Where(x => x.IsDeleted == false); ;
+            ViewBag.ColorIds = _context.Colors.ToList().Where(x => x.IsDeleted == false); ;
+            ViewBag.DesignId = _context.Designs.ToList().Where(x => x.IsDeleted == false);
+            ViewBag.MatrealId = _context.Matreals.ToList().Where(x => x.IsDeleted == false);
             if (!ModelState.IsValid)
             {
                 return View();
@@ -205,10 +205,7 @@ namespace Madeyra.Areas.AdminPanel.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update(Product product)
         {
-           /* ViewBag.SubCategory = _context.SubCategories.ToList();
-            ViewBag.ColorIds = _context.Colors.ToList();
-            ViewBag.DesignId = _context.Designs.ToList();
-            ViewBag.MatrealId = _context.Matreals.ToList();*/
+         
             
             Product oldProduct = _context.Products.Include(x => x.SubCategory).Include(x => x.ProductColors)
                  .Include(x => x.ProductImages).Include(x => x.ProductMatreals).FirstOrDefault(x => x.Id == product.Id);
@@ -312,7 +309,25 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             
                 return RedirectToAction("index");
             }
-           
-        
+        public IActionResult Delete(int id)
+        {
+            Product product = _context.Products.FirstOrDefault(x => x.Id == id);
+            if (product == null)
+            {
+                return RedirectToAction("index", "error");
+            }
+            if (product.IsDeleted == false)
+            {
+                product.IsDeleted = true;
+            }
+            else
+            {
+                product.IsDeleted = false;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+
+
     }
 }

@@ -20,14 +20,27 @@
             @foreach (var item in Model)
             {
                 count++;
-            <tr>
-                <th scope="row">@count</th>
-                <td>@item.Name</td>
-                <td>@item.Category.Name</td>
-                <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Redaktə Et</a></td>
-                <td><a class="btn btn-danger">Sil</a></td>
+                if (item.IsDeleted == false)
+                {
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td>@item.Name</td>
+                        <td>@item.Category.Name</td>
+                        <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.Id">Redaktə Et</a></td>
+                        <td><a class="btn btn-danger delete-btn" data-id="@item.Id" data-name="subcategory" asp-route-id="@item.Id">Sil</a></td>
 
-            </tr>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td style="color:red">@item.Name</td>
+                        <td style="color:red">@item.Category.Name</td>
+                        <td><a class="btn btn-success berpa-btn"  data-id="@item.Id" data-name="subcategory" asp-route-id="@item.Id">Bərpa et</a></td>
+
+                    </tr>
+                }
             }
 
         </tbody>

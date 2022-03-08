@@ -1,0 +1,547 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+}
+@model ProductDetailViewModel
+
+
+<main style="background-color: #ecf0f3;">
+    <section>
+        <div id="down-search" class="down-search">
+            <div class="search">
+                <div class="search-form">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+                            <input style="width: 1rem;" type="search" placeholder="Axtarış...">
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <section>
+        <div style="background-color: #f9f9f9;" class="siyahi">
+            <div class="container">
+                <div class="siyahi-top">
+                    <a asp-action="index" asp-controller="home"><i class="fa-solid fa-house-chimney"></i></a></i> <i class="fa-solid fa-angle-right"></i>
+                    <a>
+                        <span>
+                            @Model.Product.Name
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+                        <!-- Place somewhere in the <body> of your page -->
+                        <div id="slider" class="flexslider">
+                            <ul class="slides">
+                                @foreach (var item in Model.Product.ProductImages)
+                                {
+                                    <li>
+                                        <img src="~/uploads/product/@item.Image"
+                                             alt="">
+                                    </li>
+                                }
+
+                                <!-- items mirrored twice, total of 12 -->
+                            </ul>
+                        </div>
+                        <div id="carousel" class="flexslider">
+                            <ul class="slides">
+                                @foreach (var item in Model.Product.ProductImages)
+                                {
+                                    <li>
+                                        <img src="~/uploads/product/@item.Image"
+                                             alt="">
+                                    </li>
+                                }
+
+                                <!-- items mirrored twice, total of 12 -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
+                        <div class="detail-melumat">
+                            <div class="mehsul-name">
+                                <h5>@Model.Product.Name </h5>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div class="mehsul-star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>
+                                    (0 Şərh
+                                    )
+                                </span>
+                            </div>
+                            <div class="mehsul-price">
+                                <h4>@Model.Product.SalePrice ₼</h4>
+
+                                <a href="" class="btn"><i class="fa-solid fa-cart-arrow-down"></i> Səbətə at</a>
+                            </div>
+                            <div class="mehsul-btn">
+                                <a style="color: #df2027;margin-right: 0.7rem;" class="btn">24ay / 0% / 77₼</a>
+                                <a class="btn"><i class="fa-solid fa-phone-volume"></i>Sizə Zəng edək?</a>
+                            </div>
+                            <div class="mehsul-kredit">
+                                <div class="row">
+                                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
+                                        <form class="payment-calculator" id="calculator">
+                                            <div class="form-range">
+                                                <input class="js-range-slider" type="range" id="financing-term"
+                                                       min="6" max="24" value="6" step="6" data-disable="false"
+                                                       readonly>
+                                            </div>
+                                            <div class="form-results">
+                                                <p id="estimate"></p>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
+                                        <div class="kredit-ayliq">
+                                            <div class="row">
+                                                <span>Aylıq ödəniş</span>
+                                            </div>
+                                            <div class="row">
+                                                <h4>148.41 AZN</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="aciqlama">
+            <div class="container">
+                <div class="row">
+                    <a href="">Açıqlama</a>
+                    <hr>
+                </div>
+                <div class="aciqlama-text">
+                    <p><h6>Dizayn</h6>:@Model.Product.Design.Name</p>
+                </div>
+                <div class="aciqlama-text">
+                    <p>
+                        <h6>Rəng</h6>: @foreach (var item in Model.Product.ProductColors)
+                        {
+                            @item.Color.Name
+                        }
+                    </p>
+                </div>
+                <div class="aciqlama-text">
+                    <p>
+                        <h6>Material</h6>:
+                        @foreach (var item in Model.Product.ProductMatreals)
+                        {
+                            @item.Matreal.Name
+                        }
+                    </p>
+                </div>
+                <div class="aciqlama-text">
+                    <h6>Üstünlüklər</h6>
+                </div>
+                <p>
+                    @Html.Raw(Model.Product.Preference)
+                </p>
+                <div class="aciqlama-text">
+                    <h6>Ölçülər</h6>
+                </div>
+
+                <p>
+                    @Html.Raw(Model.Product.Size)
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="comment">
+            <div class="container">
+                <div class="row">
+                    <h6>Məhsul dəyərləndirməsi</h6>
+                    <span>0</span>
+                </div>
+                <div class="row">
+                    <form class="rating" id="product1">
+                        <button type="submit" class="star" data-star="1">
+                            &#9733;
+                            <span class="screen-reader">1 Star</span>
+                        </button>
+
+                        <button type="submit" class="star" data-star="2">
+                            &#9733;
+                            <span class="screen-reader">2 Stars</span>
+                        </button>
+
+                        <button type="submit" class="star" data-star="3">
+                            &#9733;
+                            <span class="screen-reader">3 Stars</span>
+                        </button>
+
+                        <button type="submit" class="star" data-star="4">
+                            &#9733;
+                            <span class="screen-reader">4 Stars</span>
+                        </button>
+
+                        <button type="submit" class="star" data-star="5">
+                            &#9733;
+                            <span class="screen-reader">5 Stars</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="row">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Adınız</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Şərh</label>
+                        </div>
+                        <button style="margin-top: 1rem;margin-bottom: 0.9rem;background-color: #df2027;color: white;" type="submit" class="btn">Davam Et</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="favorite" style="background-color: #f9f9f9;">
+            <div class="container">
+                <div class="row">
+                    <h6>
+                        Siz həmçinin bu məhsuları bəyənə bilərsiniz
+                    </h6>
+                </div>
+                <hr>
+                <div class="owl-carousel owl-theme">
+                    @foreach (var item in Model.NewProducts)
+                    {
+                        if (item.SubCategoryId == Model.Product.SubCategoryId && item.Id!=Model.Product.Id)
+                        {
+                            <div class="item">
+
+                                <div class="card">
+                                    <div class="favorite-image">
+                                        <a asp-action="detail" asp-controller="product" asp-route-id="@item.Id">
+                                            <img src="~/uploads/product/@item.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image"
+                                                 class="card-img-top" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="credit-tag">
+                                        <div class="price">
+                                            <span>Ayda <br> 64</span>
+                                        </div>
+                                        <div class="tag">
+                                            <span>24 Ay Faizsiz</span>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-heart"></i>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                                <span>@item.Name</span>
+                                                <div class="row">
+                                                    <div class="favorite-price">
+                                                        <div class="price">
+                                                            <span class="oldprice">@((item.SalePrice).ToString("#.##"))₼</span> <span class="newprice">@((item.SalePrice*(1-(item.DiscountPrice/100))).ToString("#.##"))</span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+
+                                                <div class="kompaniya">
+                                                    <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                         alt="">
+                                                    <div class="img-txt">
+                                                        <span>indi al</span>
+                                                        <span>2 ay</span>
+                                                        <span>sonra ödə</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section>
+        <div class="favorite" style="background-color: #f9f9f9;">
+            <div class="container">
+                <div class="row">
+                    <h6>
+                        Son baxdıqlarınız
+                    </h6>
+                </div>
+                <hr>
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+
+                        <div class="card">
+                            <div class="favorite-image">
+                                <img src="https://madeyra.com/image/cache/catalog/Amber/D65HQbt3ns-521x293.webp"
+                                     class="card-img-top" alt="...">
+                            </div>
+                            <div class="credit-tag">
+                                <div class="price">
+                                    <span>Ayda <br> 64</span>
+                                </div>
+                                <div class="tag">
+                                    <span>24 Ay Faizsiz</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                        <span>Amber divan dəsti</span>
+                                        <div class="row">
+                                            <div class="favorite-price">
+                                                <div class="price">
+                                                    <span class="oldprice">1,487</span> <span class="newprice">1,115</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+
+                                        <div class="kompaniya">
+                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                 alt="">
+                                            <div class="img-txt">
+                                                <span>indi al</span>
+                                                <span>2 ay</span>
+                                                <span>sonra ödə</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+
+                        <div class="card">
+                            <div class="favorite-image">
+                                <img src="https://madeyra.com/image/cache/catalog/lugano%20yataq/lugano%202-521x293.webp"
+                                     alt="">
+                            </div>
+                            <div class="credit-tag">
+                                <div class="price">
+                                    <span>Ayda <br> 64</span>
+                                </div>
+                                <div class="tag">
+                                    <span>24 Ay Faizsiz</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                        <span>Lugano yataq dəsti</span>
+                                        <div class="row">
+                                            <div class="favorite-price">
+                                                <div class="price">
+                                                    <span class="oldprice">1,487</span> <span class="newprice">1,746</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+
+                                        <div class="kompaniya">
+                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                 alt="">
+                                            <div class="img-txt">
+                                                <span>indi al</span>
+                                                <span>2 ay</span>
+                                                <span>sonra ödə</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+
+                        <div class="card">
+                            <div class="favorite-image">
+                                <img src="https://madeyra.com/image/cache/catalog/Sena%20dest/Sena%20yataq/1-521x293.webp"
+                                     alt="">
+                            </div>
+                            <div class="credit-tag">
+                                <div class="price">
+                                    <span>Ayda <br> 64</span>
+                                </div>
+                                <div class="tag">
+                                    <span>24 Ay Faizsiz</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                        <span>Sena ekonom yataq dəsti</span>
+                                        <div class="row">
+                                            <div class="favorite-price">
+                                                <div class="price">
+                                                    <span class="oldprice">1,465</span> <span class="newprice">1,099</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+
+                                        <div class="kompaniya">
+                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                 alt="">
+                                            <div class="img-txt">
+                                                <span>indi al</span>
+                                                <span>2 ay</span>
+                                                <span>sonra ödə</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+
+                        <div class="card">
+                            <div class="favorite-image">
+                                <img src="https://madeyra.com/image/cache/catalog/Life%20desti/Life%20yataq/1-521x293.webp"
+                                     alt="">
+                            </div>
+                            <div class="credit-tag">
+                                <div class="price">
+                                    <span>Ayda <br> 64</span>
+                                </div>
+                                <div class="tag">
+                                    <span>24 Ay Faizsiz</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                        <span>Life yataq dəsti</span>
+                                        <div class="row">
+                                            <div class="favorite-price">
+                                                <div class="price">
+                                                    <span class="oldprice">1,708</span> <span class="newprice">1,281</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+
+                                        <div class="kompaniya">
+                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                 alt="">
+                                            <div class="img-txt">
+                                                <span>indi al</span>
+                                                <span>2 ay</span>
+                                                <span>sonra ödə</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+
+                        <div class="card">
+                            <div class="favorite-image">
+                                <img src="https://madeyra.com/image/cache/catalog/nevis%20qonaq/1122-521x293.webp"
+                                     alt="">
+                            </div>
+                            <div class="credit-tag">
+                                <div class="price">
+                                    <span>Ayda <br> 64</span>
+                                </div>
+                                <div class="tag">
+                                    <span>24 Ay Faizsiz</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                        <span>Nevis qonaq dəsti</span>
+                                        <div class="row">
+                                            <div class="favorite-price">
+                                                <div class="price">
+                                                    <span class="oldprice">1,487</span> <span class="newprice">1,162</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+
+                                        <div class="kompaniya">
+                                            <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
+                                                 alt="">
+                                            <div class="img-txt">
+                                                <span>indi al</span>
+                                                <span>2 ay</span>
+                                                <span>sonra ödə</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+

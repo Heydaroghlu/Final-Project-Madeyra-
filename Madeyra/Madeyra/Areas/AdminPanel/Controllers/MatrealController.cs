@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace Madeyra.Areas.AdminPanel.Controllers
 {
@@ -17,9 +18,22 @@ namespace Madeyra.Areas.AdminPanel.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, bool? deleted = null, string? search = null)
         {
-            return View(_context.Matreals.ToList());
+            var matreal = _context.Matreals.AsQueryable();
+
+            if (deleted == true)
+            {
+                matreal = matreal.Where(x => x.IsDeleted == true);
+            }
+            if (search != null)
+            {
+                matreal = matreal.Where(x => x.Name.Contains(search));
+            }
+
+            ViewBag.IsDeleted = deleted;
+            ViewBag.Search = search;
+            return View(matreal.ToPagedList(page,10));
         }
         public IActionResult Create()
         {
@@ -39,6 +53,45 @@ namespace Madeyra.Areas.AdminPanel.Controllers
                 return View();
             }
             _context.Matreals.Add(matreal);
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult Update(int id)
+        {
+            Matreal matreal = _context.Matreals.FirstOrDefault(x => x.Id == id);
+            if(matreal==null)
+            {
+                return RedirectToAction("index", "error");
+            }
+            return View(matreal);
+        }
+        [HttpPost]
+        public IActionResult Update(Matreal matreal)
+        {
+            Matreal oldmatreal = _context.Matreals.FirstOrDefault(x => x.Id == matreal.Id);
+            if (matreal == null)
+            {
+                return RedirectToAction("index", "error");
+            }
+            oldmatreal.Name = matreal.Name;
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult Delete(int id)
+        {
+            Matreal matreal = _context.Matreals.FirstOrDefault(x => x.Id == id);
+            if (matreal == null)
+            {
+                return RedirectToAction("index", "error");
+            }
+            if(matreal.IsDeleted==false)
+            {
+                matreal.IsDeleted = true;
+            }
+            else
+            {
+                matreal.IsDeleted = false;
+            }
             _context.SaveChanges();
             return RedirectToAction("index");
         }

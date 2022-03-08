@@ -91,7 +91,7 @@
                                                     <ul>
                                                         @foreach (var sub in item.SubCategories)
                                                         {
-                                                            <li><a href="mehsul.html"><i class="fa-solid fa-angle-right"></i>@sub.Name</a></li>
+                                                            <li><a asp-action="index" asp-controller="product" asp-route-id="@sub.Id"><i class="fa-solid fa-angle-right"></i>@sub.Name</a></li>
                                                         }
                                                     </ul>
                                                 </div>
@@ -668,6 +668,7 @@
             });
         });
     </script>
+    @RenderSection("Scripts",required:false)
 </body>
 
 

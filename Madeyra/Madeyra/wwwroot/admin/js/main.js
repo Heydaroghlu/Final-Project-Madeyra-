@@ -1,3 +1,58 @@
+﻿
+$(function () {
+    $(document).on("click", ".delete-btn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id")
+        let name = $(this).attr("data-name")
+        Swal.fire({
+            title: 'Razisiz?',
+            text: "Data ni Silmək isdəyirsiniz?",
+            icon: 'Tehluke',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Delete!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`/adminpanel/${name}/delete?id=${id}`)
+                    .then(Response => Response.text())
+                    .then(data => {
+
+                        window.location.reload(true);
+                    })
+            }
+        })
+    })
+
+
+})
+$(function () {
+    $(document).on("click", ".berpa-btn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id")
+        let name = $(this).attr("data-name")
+        Swal.fire({
+            title: 'Razisiz?',
+            text: "Data ni Bərpa etmək istəyirsinizmi ?",
+            icon: 'Tehluke',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bərpa!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`/adminpanel/${name}/delete?id=${id}`)
+                    .then(Response => Response.text())
+                    .then(data => {
+
+                        window.location.reload(true);
+                    })
+            }
+        })
+    })
+
+
+})
 let input = document.getElementById("update-input1")
 let div = document.getElementById("img-div1")
 input.onchange = function (e) {

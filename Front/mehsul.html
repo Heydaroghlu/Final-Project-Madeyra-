@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madeyra mebel|Mebel mağazası|Aşağı qiymətlər və yüksək keyfiyyət</title>
     <link rel="icon" href="https://madeyra.com/catalog/view/images/favicon.ico">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css">
     <link rel="stylesheet" href="./assets/css/flexslider.css">
     <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
@@ -634,42 +632,14 @@
                                    <i id="qiymet-icon" class="fa-solid fa-caret-up"></i>
                                </div>
                                <div class="qiymet-range">
-                                <div class="h-screen flex justify-center items-center">
-                                    <div  x-data="range()" x-init="mintrigger(); maxtrigger()" class="relative w-full">
-                                      <div>
-                                        <input  type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="mintrigger" x-model="minprice"  class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
-                                  
-                                        <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger" x-model="maxprice" class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
-                                  
-                                        <div class="relative z-10 h-2 w-90">
-                                  
-                                          <div  class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-red-600"></div>
-                                  
-                                          <div  class="absolute z-20 h-1 top-0 bottom-0 rounded-md bg-red-600" x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
-                                  
-                                          <div class="absolute z-30 w-4 h-4 top-0 left-0 bg-red-600 rounded-full -mt-1" x-bind:style="'left: '+minthumb+'%'"></div>
-                                  
-                                          <div class="absolute z-30 w-4 h-4 top-0 right-0 bg-red-600 rounded-full -mt-1" x-bind:style="'right: '+maxthumb+'%'"></div>
-                                  
-                                        </div>
-                                  
-                                      </div>
-                                  
-                                        <div class="flex items-center justify-between pt-3  space-x-4 text-sm text-gray-700">
-                                          <div>
-                                            <input type="text" maxlength="5" x-on:input.debounce="mintrigger" x-model="minprice"
-                                              wire:model.debounce.300="minPrice"
-                                              class="w-20 px-3  text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
-                                          </div>
-                                          <div>
-                                            <input type="text" maxlength="5" x-on:input.debounce.300="maxtrigger" x-model="maxprice"
-                                              wire:model.debounce="maxPrice"
-                                              class="w-20 px-3  text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
-                                          </div>
-                                        </div>
-                                  
-                                    </div>
-                                    </div>
+                                <div class="price-range-slider">
+  
+                                    <p class="range-value">
+                                      <input type="text" id="amount" readonly>
+                                    </p>
+                                    <div id="slider-range" class="range-bar"></div>
+                                    
+                                  </div>
                                   </div>
                                   </div>
                                </div>
@@ -1178,53 +1148,22 @@
         <script src="./assets/js/main.js"></script>
         <script src="./assets/js/owl.carousel.min.js"></script>
         <script>
-            function range() {
-              return {
-                minprice: 0,
-                maxprice: 10000,
-                min: 0,
-                max: 10000,
-                minthumb: 0,
-                maxthumb: 0,
-                mintrigger() {
-                  this.validation();
-                  this.minprice = Math.min(this.minprice, this.maxprice - this.maxprice/10);
-                  this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
-                  console.log("minprice",this.minprice)
-                  console.log("minthumb",this.minthumb)
-                },
-                maxtrigger() {
-                  this.validation();
-                  this.maxprice = Math.max(this.maxprice, this.minprice -this.minprice);
-                  this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);
-                  console.log("maxprice",this.maxprice)
-                  console.log("maxthumb",this.maxthumb)
-                },
-                validation() {
-                  if (/^\d*$/.test(this.minprice)) {
-                    if (this.minprice > this.max) {
-                      this.minprice = 9500;
-                    }
-                    if (this.minprice < this.min) {
-                      this.minprice = this.min+100;
-                    }
-                  } else {
-                    this.minprice = 0;
-                  }
-                  if (/^\d*$/.test(this.maxprice)) {
-                    if (this.maxprice > this.max) {
-                      this.maxprice = this.max;
-                    }
-                    if (this.maxprice < this.min) {
-                      this.maxprice = 200;
-                    }
-                  } else {
-                    this.maxprice = 10000;
-                  }
-                }
-              }
-            }
-          </script>
+            //-----JS for Price Range slider-----
+
+$(function() {
+	$( "#slider-range" ).slider({
+	  range: true,
+	  min: 130,
+	  max: 500,
+	  values: [ 130, 250 ],
+	  slide: function( event, ui ) {
+		$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+	  }
+	});
+	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+	  " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+});
+        </script>
         <script>
             $('.owl-carousel').owlCarousel({
                 loop: true,
