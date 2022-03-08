@@ -7,7 +7,7 @@ namespace Madeyra.ViewModels
 {
     public class WishListViewModel
     {
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public string Name { get; set; }
         public int ProductId { get; set; }
         public string Image { get; set; }

@@ -16,10 +16,7 @@ namespace Madeyra.Controllers
         {
             return View();
         }
-        public IActionResult WishList()
-        {
-            return View();
-        }
+
         public IActionResult Checkout()
         {
             return View();

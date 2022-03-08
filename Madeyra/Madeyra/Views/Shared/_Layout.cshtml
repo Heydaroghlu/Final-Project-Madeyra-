@@ -167,7 +167,7 @@
                             </ul>
                         </div>
                         <div class="love">
-                            <a asp-action="wishlist" asp-controller="order"><i class="fa-solid fa-heart"></i></a>
+                            <a asp-action="wishlist" asp-controller="product"><i class="fa-solid fa-heart"></i></a>
                         </div>
                         <div class="sebet">
                             <a>
@@ -667,6 +667,27 @@
                 sync: "#carousel"
             });
         });
+    </script>
+    <script>
+        Command: toastr["success"]("My name is Inigo Montoya. You killed my father. Prepare to die!")
+
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
     </script>
     @RenderSection("Scripts",required:false)
 </body>

@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "Arzu siyahısı";
+}
+
+
+@model List<WishListViewModel>
+<main>
+    <section>
+        <div class="siyahi">
+            <div class="container">
+                <div class="siyahi-top">
+                    <a asp-action="index" asp-controller="home"><i class="fa-solid fa-house-chimney"></i></a></i> <i class="fa-solid fa-angle-right"></i> <a asp-action="profilemenu" asp-controller="account"><span>Hesab</span></a> <i class="fa-solid fa-angle-right"></i> <a asp-action="wishlist" asp-controller="order">
+                        <span>
+                            Arzu
+                            Siyahısı
+                        </span>
+                    </a>
+                </div>
+
+                @if (Model.Count != 0 || Model != null)
+                {
+                    <div class="arzu-siyahisi">
+
+                        <div class="basliq">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 ">
+                                    <p class="mehsul-tag">Məhsulun adı</p>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4">
+                                    <p class="mehsul-tag">Anbarda</p>
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-4  ">
+                                    <p>Qiyməti</p>
+                                </div>
+                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-4 col-4">
+
+                                </div>
+                            </div>
+                        </div>
+                        @foreach (var item in Model)
+                        {
+                            <div class="arzu">
+                                <div class="row">
+                                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                                        <div class="arzu-img">
+                                            <a asp-action="detail" asp-controller="product" asp-route-id="@item.ProductId">
+                                                <img src="~/uploads/product/@item.Image"
+                                                     alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="arzu-name" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
+                                        <div class="row">
+                                            <div class="arzu-name">
+                                                <a href="">@item.Name</a>
+                                                <div class="row">
+                                                    <span>Life qonaq dəsti</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4">
+                                        <div class="arzu-status">
+                                            <p>ANBARDA</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-4">
+                                        <div class="arzu-price">
+                                            <span>@item.Price ₼</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-4 col-4">
+                                        <div class="arzu-delete">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="davam-et">
+                            <a asp-action="profilemenu" asp-controller="account" type="button" class="btn btn-warning">Davam et</a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <h3>Arzu siyahısı</h3>
+                    </div>
+                    <div class="row">
+                        <span>Sizin hər hansı bir Arzunuz mövcud deyil!</span>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</main>
+
+

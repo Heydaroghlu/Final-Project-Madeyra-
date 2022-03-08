@@ -167,7 +167,6 @@ C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Order\Basket.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Order\Checkout.cshtml.g.cs
-C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Order\WishList.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_AccountmenuPartial.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HelpermenuPartial.cshtml.g.cs
@@ -196,7 +195,6 @@ C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Index.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Create.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Update.cshtml.g.cs
-C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Madeyra.csproj.AssemblyReference.cache
 C:\Users\heyde\source\repos\Madeyra\Madeyra\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\heyde\source\repos\Madeyra\Madeyra\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\heyde\source\repos\Madeyra\Madeyra\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
@@ -218,3 +216,5 @@ C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Card\Create.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Card\Update.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Product\WishList.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Madeyra.csproj.AssemblyReference.cache

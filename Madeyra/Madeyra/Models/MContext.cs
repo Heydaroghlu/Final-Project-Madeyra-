@@ -24,5 +24,6 @@ namespace Madeyra.Models
         public DbSet<Matreal> Matreals { get; set; }
         public DbSet<Card> Cards { get; set; }
         public DbSet <Slider> Sliders { get; set; }
+        public DbSet<WishListItem> WishListItems { get; set; }
     }
 }

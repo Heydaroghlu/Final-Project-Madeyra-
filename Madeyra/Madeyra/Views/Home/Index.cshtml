@@ -414,11 +414,11 @@
                                             </div>
                                         </div>
                                     }
-                                    <i class="fa-solid fa-heart"></i>
+                                    <a style="color:black"  asp-controller="product" asp-action="AddtoWish" asp-route-id="@product.Id" ><i class="fa-solid fa-heart"></i></a>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                                <a style="color:black" asp-action="detail" asp-route-id="@product.Id" asp-controller="product"> <span>@product.Name</span></a>
+                                                <a style="color:black" asp-action="detail"  asp-controller="product" asp-route-id="@product.Id"> <span>@product.Name</span></a>
                                                 <div class="row">
                                                     <div class="favorite-price">
                                                         <div class="price">

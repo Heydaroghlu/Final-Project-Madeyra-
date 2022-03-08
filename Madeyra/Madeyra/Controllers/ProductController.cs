@@ -1,7 +1,9 @@
 ﻿using Madeyra.Models;
 using Madeyra.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,11 @@ namespace Madeyra.Controllers
 {
     public class ProductController : Controller
     {
+        UserManager<AppUser> _userManager;
         MContext _context;
-        public ProductController(MContext context)
+        public ProductController(MContext context,UserManager<AppUser> userManager)
         {
+            _userManager = userManager;
             _context = context;
         }
         public IActionResult Index(int id)
@@ -53,5 +57,42 @@ namespace Madeyra.Controllers
             };
             return View(productDetail);
         }
+        public IActionResult AddtoWish(int id)
+        {
+            WishListViewModel wishList = null;
+            Product product = _context.Products.Include(x => x.ProductImages).FirstOrDefault(x => x.Id == id);
+            List<WishListViewModel> wishes = new List<WishListViewModel>();
+
+                string ProductStr;
+                if(HttpContext.Request.Cookies["Product"]!=null)
+                {
+                    ProductStr = HttpContext.Request.Cookies["Product"];
+                    wishes = JsonConvert.DeserializeObject<List<WishListViewModel>>(ProductStr);
+                    wishList = wishes.FirstOrDefault(x => x.ProductId == id);
+                }
+                if (wishList == null)
+                {
+                    wishList = new WishListViewModel
+                    {
+                        ProductId = product.Id,
+                        Name = product.Name,
+                        Image = product.ProductImages.FirstOrDefault(x => x.IsPoster == true).Image,
+                        Price = product.SalePrice
+                    };
+                    wishes.Add(wishList);
+                }
+                ProductStr = JsonConvert.SerializeObject(wishes);
+                HttpContext.Response.Cookies.Append("Product", ProductStr);
+
+            return NoContent();
+        }
+        public IActionResult WishList()
+        {
+            var ProductSr = HttpContext.Request.Cookies["Product"];
+            List<WishListViewModel> wishList = new List<WishListViewModel>();
+            wishList = JsonConvert.DeserializeObject<List<WishListViewModel>>(ProductSr);
+            return View(wishList);
+        }
+
     }
 }
