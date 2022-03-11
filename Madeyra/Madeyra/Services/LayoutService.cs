@@ -36,47 +36,47 @@ namespace Madeyra.Services
             };
             return cataloqView;
         }
-        public List<WishListViewModel> GetWishs()
+       public List<BasketViewModel> GetBasket()
         {
             AppUser member = null;
             if(_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
             {
                 member = _userManager.Users.FirstOrDefault(x => x.UserName == _contextAccessor.HttpContext.User.Identity.Name && !x.IsAdmin);
+
             }
-            List<WishListViewModel> wishes = new List<WishListViewModel>();
+            List<BasketViewModel> baskets = new List<BasketViewModel>();
             if(member==null)
             {
-                var itemStr = _contextAccessor.HttpContext.Request.Cookies["Product"];
+                var itemStr = _contextAccessor.HttpContext.Request.Cookies["Basket"];
                 if(itemStr!=null)
                 {
-                    wishes = JsonConvert.DeserializeObject<List<WishListViewModel>>(itemStr);
-                    foreach(var item in wishes)
+                    baskets = JsonConvert.DeserializeObject<List<BasketViewModel>>(itemStr);
+                    foreach (var basket in baskets)
                     {
-                        Product product = _context.Products.Include(x => x.ProductImages).FirstOrDefault(x => x.Id == item.ProductId);
+                        Product product = _context.Products.Include(x => x.ProductImages).FirstOrDefault(x => x.Id == basket.ProductId);
                         if(product!=null)
                         {
-                            item.Name = product.Name;
-                            item.Price = product.SalePrice;
-                            item.Image = product.ProductImages.FirstOrDefault(x => x.IsPoster == true)?.Image;
+                            basket.ProductName = product.Name;
+                            basket.Price = product.SalePrice;
+                            basket.Image= product.ProductImages.FirstOrDefault(x => x.IsPoster == true)?.Image;
                         }
                     }
                 }
             }
             else
             {
-                List<WishListItem> wishListItems =_context.WishListItems.Include(x=>x.Product).ThenInclude(x=>x.ProductImages)
+                List<BasketItem> basketItems = _context.BasketItems.Include(x => x.Product).ThenInclude(x => x.ProductImages)
                     .Where(x => x.AppUserId == member.Id).ToList();
-                wishes = wishListItems.Select(x => new WishListViewModel
-                { 
-                ProductId=x.ProductId,
-                Image=x.Product.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image,
-                Name=x.Product.Name,
-                Price=x.Product.SalePrice
+                baskets = basketItems.Select(x => new BasketViewModel
+                {
+                    ProductId = x.ProductId,
+                    Count = x.Count,
+                    Image = x.Product.ProductImages.FirstOrDefault(x => x.IsPoster == true)?.Image,
+                    ProductName = x.Product.Name,
+                    Price = x.Product.SalePrice
                 }).ToList();
-
-
             }
-            return wishes;
+            return baskets;
         }
 
     }

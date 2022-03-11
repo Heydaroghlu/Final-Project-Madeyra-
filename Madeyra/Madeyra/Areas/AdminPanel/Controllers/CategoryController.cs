@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace Madeyra.Areas.AdminPanel.Controllers
 {
@@ -17,9 +18,22 @@ namespace Madeyra.Areas.AdminPanel.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, bool? deleted = null, string? search = null)
         {
-            return View(_context.Categories.ToList());
+            var categories = _context.Categories.AsQueryable();
+
+            if (deleted == true)
+            {
+                categories = categories.Where(x => x.IsDeleted == true);
+            }
+            if (search != null)
+            {
+                categories = categories.Where(x => x.Name.Contains(search));
+            }
+
+            ViewBag.IsDeleted = deleted;
+            ViewBag.Search = search;
+            return View(categories.ToPagedList(page, 5));
         }
         public IActionResult Create()
         {

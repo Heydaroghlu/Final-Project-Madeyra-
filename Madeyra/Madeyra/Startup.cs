@@ -43,6 +43,14 @@ namespace Madeyra
              }).AddDefaultTokenProviders().AddEntityFrameworkStores<MContext>();
             services.AddScoped<LayoutService>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddAuthentication()
+               .AddCookie(cfg =>
+               {
+                   cfg.ExpireTimeSpan = TimeSpan.FromDays(30);
+                   cfg.LoginPath = @"/Account/Login";
+                   cfg.LogoutPath = @"/Account/Logout";
+                   cfg.SlidingExpiration = true;
+               });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

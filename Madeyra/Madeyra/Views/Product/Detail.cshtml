@@ -73,7 +73,9 @@
                         <div class="detail-melumat">
                             <div class="mehsul-name">
                                 <h5>@Model.Product.Name </h5>
-                                <i class="fa-solid fa-heart"></i>
+                                <a style="color:black" asp-controller="product" asp-action="AddtoWish" asp-route-id="@Model.Product.Id">
+                                    <i class="fa-solid fa-heart"></i>
+                                </a>
                             </div>
                             <div class="mehsul-star">
                                 <i class="fa-solid fa-star"></i>
@@ -89,7 +91,7 @@
                             <div class="mehsul-price">
                                 <h4>@Model.Product.SalePrice ₼</h4>
 
-                                <a href="" class="btn"><i class="fa-solid fa-cart-arrow-down"></i> Səbətə at</a>
+                                <a data-id="@Model.Product.Id" asp-controller="product" asp-action="AddtoBasket" asp-route-id="@Model.Product.Id"  class="btn add-basket"><i class="fa-solid fa-cart-arrow-down"></i> Səbətə at</a>
                             </div>
                             <div class="mehsul-btn">
                                 <a style="color: #df2027;margin-right: 0.7rem;" class="btn">24ay / 0% / 77₼</a>
@@ -255,7 +257,10 @@
                                             <span>24 Ay Faizsiz</span>
                                         </div>
                                     </div>
-                                    <i class="fa-solid fa-heart"></i>
+                                    <a style="color:black" asp-controller="product" asp-action="AddtoWish" asp-route-id="@item.Id">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </a>
+                                    
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
@@ -320,7 +325,8 @@
                                     <span>24 Ay Faizsiz</span>
                                 </div>
                             </div>
-                            <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-heart"></i>
+
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">

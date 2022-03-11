@@ -734,8 +734,8 @@
 }
 
 .sebet {
-  position: relative;
-  margin-left: 0.8rem;
+  position: relative !important;
+  margin-left: 0.8rem !important;
 }
 
 .sebet img {
@@ -759,7 +759,7 @@
   border-radius: 50%;
 }
 
-.sebet .sebet-class {
+.sebet-class {
   display: block !important;
 }
 
@@ -771,9 +771,11 @@
   background-color: white;
   z-index: 999;
   top: 123%;
-  right: -80%;
+  right: -30% !important;
 }
-
+.sebet .sebet-list {
+    margin-top: 0.5rem;
+}
 .sebet .sebet-list .container {
   width: 100% !important;
 }
@@ -874,7 +876,9 @@
 .sebet:hover .sebet-list {
   display: block !important;
 }
-
+.sebet:focus .sebet-list {
+    bac
+}
 .sebet-list:hover {
   display: block !important;
 }

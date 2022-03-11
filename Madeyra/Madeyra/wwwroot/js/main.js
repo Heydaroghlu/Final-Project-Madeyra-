@@ -1,4 +1,4 @@
-
+﻿
 
     console.log("sweet")
 
@@ -118,27 +118,20 @@ fixed_top.addEventListener("click",function()
 })
 let sebet_icon=document.querySelectorAll(".sebet")
 let sebet=document.getElementById("sebet-list")
-let sebet_mobil=document.getElementById("sebet-list-mobil")
 
 sebet_icon.forEach(element => {
    
     element.addEventListener("click",function(e)
     {
-        
         sebet.classList.toggle("sebet-class")
-    sebet_mobil.classList.toggle("sebet-class")
     })
 });
-let sebet_delete=document.querySelectorAll(".sebet-delete")
-sebet_delete.forEach(x=>
-    {
-        
-        x.addEventListener("click",function(e)
-        {
-            e.preventDefault()
-            alert("sil")
-        })
-    })
+/*$(document).on("click", ".sebet", function () {
+    alert("salam qaqa")
+    $(".sebet-list").classList.toggle("sebet-class")
+    $("#sebet-list-mobil").classList.toggle("sebet-class")
+})*/
+
     
   let filter_icon=document.getElementById("filter-icon")
   let qiymet=document.querySelector(".qiymet")
@@ -222,4 +215,33 @@ map_open.forEach(x=>
     {
         search_neticeler.classList.toggle("search-neticeler-class")
     })
-   
+
+
+//add basket
+$(document).on("click", ".add-basket", function (e) {
+    e.preventDefault();
+
+    var id = $(this).attr("data-id");
+
+
+    fetch('http://localhost:10529/product/addtobasket/' + id)
+        .then(response => response.text())
+        .then(data => {
+            $(".sebet").html(data)
+
+        });
+});
+//remove basket
+$(document).on("click", ".remove-basket", function (e) {
+    e.preventDefault();
+
+    var id = $(this).attr("data-id");
+
+
+    fetch('http://localhost:10529/product/RemoveBasket/' + id)
+        .then(response => response.text())
+        .then(data => {
+            $(".sebet").html(data)
+
+        });
+});

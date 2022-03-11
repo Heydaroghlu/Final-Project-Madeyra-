@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Redaktə Et";
+}
+@model Store
+<div class="container">
+    <h1>Yeni Mağaza</h1>
+    <form method="post">
+        <div class="mb-3">
+            <input asp-for="Name" class="form-control" placeholder="Mağaza Adı">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3">
+            <input asp-for="Address" class="form-control" placeholder="Mağaza Ünvanı">
+            <span class="text-danger" asp-validation-for="Address"></span>
+        </div>
+        <div class="mb-3">
+            <input asp-for="Tel" class="form-control" placeholder="Əlaqə Tel">
+            <span class="text-danger" asp-validation-for="Tel"></span>
+        </div>
+        <button type="submit" class="btn btn-warning">Yarat</button>
+    </form>
+</div>
+

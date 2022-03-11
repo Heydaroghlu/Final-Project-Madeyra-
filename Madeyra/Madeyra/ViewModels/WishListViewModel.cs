@@ -11,5 +11,6 @@ namespace Madeyra.ViewModels
         public string Name { get; set; }
         public int ProductId { get; set; }
         public string Image { get; set; }
+        public int Count { get; set; }
     }
 }

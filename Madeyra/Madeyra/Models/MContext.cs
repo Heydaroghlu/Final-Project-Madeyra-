@@ -18,12 +18,15 @@ namespace Madeyra.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Store> Stores { get; set; }
+
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Design> Designs { get; set; }
         public DbSet<Matreal> Matreals { get; set; }
         public DbSet<Card> Cards { get; set; }
         public DbSet <Slider> Sliders { get; set; }
-        public DbSet<WishListItem> WishListItems { get; set; }
+        public DbSet <Video> Videos { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
     }
 }

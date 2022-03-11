@@ -1,0 +1,75 @@
+﻿@model List<BasketViewModel>
+
+    <a>
+        <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/cart.png" alt="">
+        <span>@{int count = 0;} @foreach (var item in Model)
+        {
+            count += item.Count;
+        }
+        @count
+        </span>
+    </a>
+
+    <div id="sebet-list"  class="sebet-list">
+        @foreach (var item in Model)
+        {
+            <div class="sebet-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
+                            <div class="item-img">
+                                <img src="~/uploads/product/@item.Image" alt="">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                            <h4>@item.ProductName</h4>
+                            <div class="price">
+                                <p class="item-count">@item.Count</p>
+                                <p class="item-price">@item.Price.ToString("#.##")₼</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                            <a data-id="@item.ProductId" asp-controller="product" asp-action="removebasket" asp-route-id="@item.ProductId" class="remove-basket"><i class="fa-solid fa-trash-can "></i></a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+            </div>
+        }
+
+
+        <div class="sebet-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                        <div class="mebleg-text">
+                            <h6>Ümumi Məbləğ</h6>
+                        </div>
+                        <div class="row">
+                            <div class="sebet-button">
+                                <a asp-action="basket" asp-controller="order" type="button" class="btn btn-secondary">Səbətə bax</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                        <div class="mebleg">
+                            @{decimal total = 0; }
+                            @foreach (var item in Model)
+                            {
+                                total += item.Price*item.Count;
+                            }
+                            <h6>
+
+                                @total.ToString("0") ₼
+                            </h6>
+                        </div>
+                        <div class="sebet-button">
+                            <a asp-action="checkout" asp-controller="order" class="btn btn-warning">Sifarişi tamamla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

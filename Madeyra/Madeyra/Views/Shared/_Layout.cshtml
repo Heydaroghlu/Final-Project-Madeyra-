@@ -2,6 +2,7 @@
 @{
     Setting setting = Service.GetSetting();
     CataloqViewModel cataloq = Service.GetCataloq();
+    List<BasketViewModel> baskets = Service.GetBasket();
             }
 <!DOCTYPE html>
 <html lang="en">
@@ -159,8 +160,8 @@
                                         }
                                         else
                                         {
-                                        <li><a class="dropdown-item" asp-action="register" asp-controller="account">Qeydiyyatdan Keç</a></li>
-                                        <li><a class="dropdown-item" asp-action="login" asp-controller="account">Daxil ol</a></li>
+                                            <li><a class="dropdown-item" asp-action="register" asp-controller="account">Qeydiyyatdan Keç</a></li>
+                                            <li><a class="dropdown-item" asp-action="login" asp-controller="account">Daxil ol</a></li>
                                         }
                                     </ul>
                                 </li>
@@ -169,65 +170,11 @@
                         <div class="love">
                             <a asp-action="wishlist" asp-controller="product"><i class="fa-solid fa-heart"></i></a>
                         </div>
-                        <div class="sebet">
-                            <a>
-                                <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/cart.png" alt="">
-                                <span>0</span>
-                            </a>
-                            <div id="sebet-list" class="sebet-list">
-                                <div class="sebet-item">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
-                                                <div class="item-img">
-                                                    <img src="https://madeyra.com/image/cache/catalog/Sena%20dest/Sena%20yataq/1-521x293.webp" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <h4>Sena ekonom yataq dəsti</h4>
-                                                <div class="price">
-                                                    <p class="item-count">2x</p>
-                                                    <p class="item-price">1,465₼</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
-                                                <i class="fa-solid fa-trash-can sebet-delete"></i>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                    </div>
-
-                                </div>
-                                <div class="sebet-footer">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <div class="mebleg-text">
-                                                    <h6>Ümumi Məbləğ</h6>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="sebet-button">
-                                                        <a asp-action="basket" asp-controller="order" type="button" class="btn btn-secondary">Səbətə bax</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                <div class="mebleg">
-                                                    <h6>1,487</h6>
-                                                </div>
-                                                <div class="sebet-button">
-                                                    <a asp-action="checkout" asp-controller="order" class="btn btn-warning">Sifarişi tamamla</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div id="sebet" class="sebet">
+                            @await Html.PartialAsync("_BasketPartial", baskets)
                         </div>
-
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
         <div id="navbar-mobil" class="header-mobil">
@@ -262,61 +209,9 @@
                                 <a id="search-1"><i id="search_open" class="fa-solid fa-magnifying-glass mobil-search search-class"></i> <i id="search_closed" class="fa-solid fa-xmark mobil-search"></i></a>
 
                             </div>
-                            <div class="sebet">
-                                <a>
-                                    <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/cart.png" alt="">
-                                    <span>0</span>
-                                </a>
-                                <div id="sebet-list-mobil" class="sebet-list">
-                                    <div class="sebet-item">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
-                                                    <div class="item-img">
-                                                        <img src="https://madeyra.com/image/cache/catalog/Sena%20dest/Sena%20yataq/1-521x293.webp" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                    <h4>Sena ekonom yataq dəsti</h4>
-                                                    <div class="price">
-                                                        <p class="item-count">2x</p>
-                                                        <p class="item-price">1,465₼</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
-                                                    <i class="fa-solid fa-trash-can sebet-delete"></i>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                        </div>
 
-                                    </div>
-                                    <div class="sebet-footer">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                    <div class="mebleg-text">
-                                                        <h6>Ümumi Məbləğ</h6>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="sebet-button">
-                                                            <a asp-action="basket" asp-controller="order" type="button" class="btn btn-secondary">Səbətə bax</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                    <div class="mebleg">
-                                                        <h6>1,487</h6>
-                                                    </div>
-                                                    <div class="sebet-button">
-                                                        <a asp-action="checkout" asp-controller="order" class="btn btn-warning">Sifarişi tamamla</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                            <div id="basket" class="sebet">
+                                    @await Html.PartialAsync("_BasketPartial", baskets)
                             </div>
                             <div class="language">
                                 <ul class="navbar-nav d-flex">

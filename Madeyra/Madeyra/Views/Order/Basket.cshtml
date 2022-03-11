@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Səbət";
 }
+@model List<BasketViewModel>
 
 <main>
     <div class="sebetclass">
@@ -9,65 +10,45 @@
             <div id="sebet-text" class="row">
                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 d-flex justify-content-sm-between">
                     <h3>Səbət</h3>
-                    <button type="button" class="btn" style="background-color: #ff0000;color:white;">Səbəti təmizlə</button>
+                    <a asp-action="ClearBasket"  asp-controller="product" class="btn delete-basket" style="background-color: #ff0000;color:white;">Səbəti təmizlə</a>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                     <div class="row">
-                        <a id="davam" href="./index.html">Alış-verişə davam</a>
+                        <a id="davam"asp-action="index" asp-controller="home">Alış-verişə davam</a>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xl-9">
                     <div class="sebet-items">
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
-                                    <div class="item-img">
-                                        <img src="https://madeyra.com/image/cache/catalog/lugano%20yataq/lugano%202-1067x600.webp" alt="">
+                        @foreach (var item in Model)
+                        {
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                                        <div class="item-img">
+                                            <img src="~/uploads/product/@item.Image" alt="">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-6">
-                                    <div class="item-name">
-                                        <a href="">Lugano yataq dəsti</a>
+                                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-6">
+                                        <div class="item-name">
+                                            <a href="">@item.ProductName</a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
-                                    <div class="item-price">
-                                        <p>1747.1₼</p>
+                                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
+                                        <div class="item-price">
+                                            <p>@item.Price₼</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
-                                    <div class="item-delete">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
-                                    <div class="item-img">
-                                        <img src="https://madeyra.com/image/cache/catalog/Amber/D65HQbt3ns-521x293.webp" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-6">
-                                    <div class="item-name">
-                                        <a href="">Amber divan dəsti</a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
-                                    <div class="item-price">
-                                        <p>1747.1₼</p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
-                                    <div class="item-delete">
-                                        <i class="fa-solid fa-trash-can"></i>
+                                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
+                                        <div class="item-delete">
+                                            <a data-id="@item.ProductId" asp-controller="product" asp-action="removebasket" asp-route-id="@item.ProductId" class="remove-basket"><i class="fa-solid fa-trash-can "></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+
+                        }
                     </div>
                 </div>
                 <div class="col-xl-3">
@@ -75,10 +56,26 @@
                     <div class="row">
                         <div class="sebet-melumat">
                             <div class="melumat umumi">
-                                <p>Səbətin ümumi dəyəri</p> <h6>1747.1 ₼</h6>
+                                <p>Səbətin ümumi dəyəri</p> @{decimal total = 0; }
+                                @foreach (var item in Model)
+                                {
+                                    total += item.Price * item.Count;
+                                }
+                                <h6>
+
+                                    @total.ToString("0") ₼
+                                </h6>
                             </div>
                             <div class="melumat endirim">
-                                <p>Səbətin endirimli  dəyəri</p> <h6>1745₼</h6>
+                                <p>Səbətin endirimli  dəyəri</p> @{decimal total2 = 0; }
+                                @foreach (var item in Model)
+                                {
+                                    total2 += (item.Price -(item.Price*item.Discount)/100)* item.Count;
+                                }
+                                <h6>
+
+                                    @total2.ToString("0") ₼
+                                </h6>
                             </div>
                             <div class="melumat catdirlma">
                                 <p>Çatdırılma:</p> <p>Pulsuz</p>
