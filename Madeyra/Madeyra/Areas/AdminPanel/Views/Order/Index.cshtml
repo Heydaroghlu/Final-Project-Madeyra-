@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model IPagedList<Order>
+@using X.PagedList.Mvc.Core
+@using X.PagedList
+@{
+    ViewData["Title"] = "Sifarişlər";
+    int count = Model.FirstItemOnPage - 1;
+
+}
+<div class="container">
+    <h1 style="margin-top:1rem">Sifarişlər</h1>
+    <div class="col-lg-12">
+        <form method="get" asp-action="index" class="my-3">
+            <div class="row d-flex align-items-center">
+                <div class="col-xl-3">
+                    <select class="form-control" name="deleted">
+                        <option value="0">
+                            Bütün Sifarişlər
+                        </option>
+                        <option value="1">Gözləmədə</option>
+                        <option value="2">Qəbul</option>
+                        <option value="3">İmtina</option>
+                    </select>
+                </div>
+                <div class="col-xl-6">
+                    <input type="text" name="search" class="form-control filter" autocomplete="off" value="@ViewBag.search" id="exampleInputEmail1" placeholder="Axtar..." />
+                </div>
+                <button type="submit" class="btn btn-secondary my-2">Axtar</button>
+            </div>
+
+        </form>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Sifariş Vaxtı</th>
+                <th scope="col">Ad Soyad</th>
+                <th scope="col">Ünvan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@item.Name @item.Surname</td>
+                <td>@item.Address</td>
+                <td>@item.Status</td>
+                <td><a class="btn btn-warning" asp-action="items" asp-controller="order"  asp-route-id="@item.Id">Ətraflı</a></td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptionsBase
+    {
+        DisplayItemSliceAndTotal = false,
+        ContainerDivClasses = new[] { "navigation" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" }
+    }
+    )

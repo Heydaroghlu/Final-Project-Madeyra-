@@ -25,9 +25,23 @@
           integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/plugins/toaster/toastr.min.css">
 </head>
 
 <body>
+    @if (TempData["Error"] != null)
+    {
+        <input type="hidden" id="toaster-error" value="@TempData["Error"]" />}
+    @if (TempData["RemoveBasket"] != null)
+    {
+        <input type="hidden" id="toaster-error" value="@TempData["RemoveBasket"]" />}
+
+    @if (TempData["Success"] != null)
+    {
+        <input type="hidden" id="toaster-success" value="@TempData["Success"]" />}
+    @if (TempData["DeleteBasket"] != null)
+    {
+        <input type="hidden" id="toaster-warning" value="@TempData["DeleteBasket"]" />}
     <div id="body-overlay" class="body-overlay">
 
     </div>
@@ -52,7 +66,7 @@
                         <div class="header-icons">
 
                             <a style="color: #4867aa;" href="@setting.FacebookUrl">@Html.Raw(setting.FacebookIcon)</a>
-                            <a  style="color: #db4271;" href="@setting.InstagramUrl">@Html.Raw(setting.InstagramIcon)</a>
+                            <a style="color: #db4271;" href="@setting.InstagramUrl">@Html.Raw(setting.InstagramIcon)</a>
                             <a style="color: #27b13e;" href="@setting.WhatsappUrl">@Html.Raw(setting.WhatsappIcon)</a>
                             <a style="color: #ff0000;" href="@setting.YoutubeUrl">@Html.Raw(setting.YoutubeIcon)</a>
                             <ul class="navbar-nav d-flex">
@@ -84,24 +98,30 @@
                             <ul id="category-menu-ul">
                                 @foreach (var item in cataloq.Categories)
                                 {
-                                    <li class="category-li">
-                                        <a href=""><i class="fa-solid fa-arrow-right-long"></i>@item.Name</a>
-                                        <div class="sub-menu">
-                                            <div class="row">
-                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                    <ul>
-                                                        @foreach (var sub in item.SubCategories)
-                                                        {
-                                                            <li><a asp-action="index" asp-controller="product" asp-route-id="@sub.Id"><i class="fa-solid fa-angle-right"></i>@sub.Name</a></li>
-                                                        }
-                                                    </ul>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                                   
+                                    if (!item.IsDeleted)
+                                    {
+                                        <li class="category-li">
+                                            <a href=""><i class="fa-solid fa-arrow-right-long"></i>@item.Name</a>
+                                            <div class="sub-menu">
+                                                <div class="row">
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                        <ul>
+                                                            @foreach (var sub in item.SubCategories)
+                                                            {
+                                                                if (!sub.IsDeleted)
+                                                                {
+                                                                    <li><a asp-action="index" asp-controller="product" asp-route-id="@sub.Id"><i class="fa-solid fa-angle-right"></i>@sub.Name</a></li>
+                                                                }
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    }
                                 }
 
                             </ul>
@@ -173,8 +193,8 @@
                         <div id="sebet" class="sebet">
                             @await Html.PartialAsync("_BasketPartial", baskets)
                         </div>
-                        </div>
                     </div>
+                </div>
             </div>
         </div>
         <div id="navbar-mobil" class="header-mobil">
@@ -211,7 +231,7 @@
                             </div>
 
                             <div id="basket" class="sebet">
-                                    @await Html.PartialAsync("_BasketPartial", baskets)
+                                @await Html.PartialAsync("_BasketPartial", baskets)
                             </div>
                             <div class="language">
                                 <ul class="navbar-nav d-flex">
@@ -488,6 +508,7 @@
     <script src="~/js/jquery.flexslider.js"></script>
     <script src="~/js/filter-range.js"></script>
     <script src="~/js/comment-star.js"></script>
+    <script src="~/plugins/toaster/toastr.min.js"></script>
     <script>
         $('.owl-carousel').owlCarousel({
             loop: true,
@@ -564,27 +585,44 @@
         });
     </script>
     <script>
-        Command: toastr["success"]("My name is Inigo Montoya. You killed my father. Prepare to die!")
+        $(function () {
+            if ($("#toaster-error").length) {
+                toastr["error"]($("#toaster-error").val())
+            }
 
-        toastr.options = {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        }
+            if ($("#toaster-success").length) {
+                toastr["success"]($("#toaster-success").val())
+            }
+            if ($("#toaster-success").length) {
+                toastr["removebasket"]($("#toaster-success").val())
+            }
+
+            if ($("#toaster-er").length) {
+                toastr["deletebasket"]($("#toaster-error").val())
+            }
+
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+        })
+
     </script>
-    @RenderSection("Scripts",required:false)
+
+    @RenderSection("Scripts", required: false)
 </body>
 
 

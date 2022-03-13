@@ -221,4 +221,7 @@ C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Store\Create.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Store\Update.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BasketPartial.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Views\Account\Orders.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Order\Index.cshtml.g.cs
+C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Order\Items.cshtml.g.cs
 C:\Users\heyde\source\repos\Madeyra\Madeyra\obj\Debug\netcoreapp3.1\Madeyra.csproj.AssemblyReference.cache

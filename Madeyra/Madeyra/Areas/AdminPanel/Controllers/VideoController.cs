@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Madeyra.Areas.AdminPanel.Controllers
 {
+    [Area("AdminPanel")]
     public class VideoController : Controller
     {
         private readonly MContext _context;

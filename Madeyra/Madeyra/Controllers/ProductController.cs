@@ -1,5 +1,6 @@
 ﻿using Madeyra.Models;
 using Madeyra.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -57,6 +58,7 @@ namespace Madeyra.Controllers
             };
             return View(productDetail);
         }
+        
         public IActionResult AddtoWish(int id)
         {
             WishListViewModel wishList = null;
@@ -84,11 +86,21 @@ namespace Madeyra.Controllers
                 }
                 ProductStr = JsonConvert.SerializeObject(wishes);
                 HttpContext.Response.Cookies.Append("Product", ProductStr);
-
             return NoContent();
         }
+       
         public IActionResult WishList()
         {
+            AppUser member = null;
+            if(User.Identity.IsAuthenticated)
+            {
+                member = _userManager.Users.FirstOrDefault(x => x.NormalizedUserName == User.Identity.Name.ToUpper());
+
+            }
+            if (member==null || member.IsAdmin==true)
+            {
+                return RedirectToAction("login", "account");
+            }
             var ProductSr = HttpContext.Request.Cookies["Product"];
             List<WishListViewModel> wishList = new List<WishListViewModel>();
             wishList = JsonConvert.DeserializeObject<List<WishListViewModel>>(ProductSr);
@@ -106,11 +118,16 @@ namespace Madeyra.Controllers
             wishListViews.Remove(wishList);
             ProductStr = JsonConvert.SerializeObject(wishListViews);
             HttpContext.Response.Cookies.Append("Product", ProductStr);
+            TempData["Error"] = "Məhsul Arzu siyahınızdan silindi";
+
             return RedirectToAction("wishlist");
         }
+
         public IActionResult AddtoBasket(int id)
         {
-            Product product = _context.Products.Include(x => x.ProductImages).FirstOrDefault(x => x.Id == id);
+           
+
+            Product product = _context.Products.Include(x=>x.SubCategory).Include(x => x.ProductImages).FirstOrDefault(x => x.Id == id);
             BasketViewModel basketItem = null;
             if(product==null)
             {
@@ -141,10 +158,12 @@ namespace Madeyra.Controllers
                         ProductName = product.Name,
                         Image = product.ProductImages.FirstOrDefault(x => x.IsPoster == true).Image,
                         Price = product.SalePrice,
+                        Category=product.SubCategory.Name,
                         Discount=product.DiscountPrice,
                         Count = 1,
                     };
                     products.Add(basketItem);
+
                 }
                 else
                 {
@@ -152,6 +171,7 @@ namespace Madeyra.Controllers
                 }
                 productStr = JsonConvert.SerializeObject(products);
                 HttpContext.Response.Cookies.Append("Basket", productStr);
+
 
             }
             else
@@ -169,6 +189,7 @@ namespace Madeyra.Controllers
                         Price=product.SalePrice
                     };
                     _context.BasketItems.Add(memberBasketItem);
+
                 }
                 else
                 {
@@ -186,11 +207,13 @@ namespace Madeyra.Controllers
                       Image = x.Product.ProductImages
                                 .FirstOrDefault(x => x.IsPoster == true).Image
                   }).ToList();
-
+                       
             }
+
             return PartialView("_BasketPartial",products);
+
         }
-       public IActionResult RemoveBasket(int id)
+        public IActionResult RemoveBasket(int id)
         {
             Product product = _context.Products.Include(x => x.ProductImages).FirstOrDefault(x => x.Id == id);
             BasketViewModel basketItem = null;
@@ -208,10 +231,10 @@ namespace Madeyra.Controllers
 
                 basketItem = products.FirstOrDefault(x => x.ProductId == id);
 
-                if(basketItem.Count==1)
+                if (basketItem.Count == 1)
                 { products.Remove(basketItem); }
                 else { basketItem.Count--; }
-                
+
 
 
                 ProductStr = JsonConvert.SerializeObject(products);
@@ -222,7 +245,7 @@ namespace Madeyra.Controllers
                 BasketItem memberBasketItem = _context.BasketItems.Include(x => x.Product).FirstOrDefault(x => x.AppUserId == member.Id && x.ProductId == id);
 
 
-                if (memberBasketItem.Count==1)
+                if (memberBasketItem.Count == 1)
                 { _context.BasketItems.Remove(memberBasketItem); }
                 else { memberBasketItem.Count--; }
                 _context.SaveChanges();
@@ -243,17 +266,17 @@ namespace Madeyra.Controllers
                 member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
 
             }
-            if(member!=null)
+            if (member != null)
             {
                 BasketItem basket = _context.BasketItems.FirstOrDefault(x => x.AppUserId == member.Id);
-                if(basket!=null)
+                if (basket != null)
                 {
                     _context.BasketItems.Remove(basket);
                     _context.SaveChanges();
                 }
-              
+
             }
-            return NoContent();
+            return RedirectToAction("basket","order");
         }
 
 

@@ -2,14 +2,15 @@
 @{
     ViewData["Title"] = "Sifarişi rəsmiləşdirmə";
 }
+@model List<CheckOutViewModel>
 <main>
     <div class="container">
         <div class="row">
-            <div class="sifaris">
+            <div style="min-height:300px" class="sifaris">
                 <div class="row">
                     <div id="merhele-sebet" class="col-xl-6 col-lg-6">
                         <div class="merhele">
-                            <a href="sebet.html">
+                            <a asp-action="basket" asp-controller="order">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <h6>Səbətim</h6>
                             </a>
@@ -18,40 +19,105 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="merhele">
-                            <a href="sifarisi-tamamla.html">
+                            <a asp-action="checkout" asp-controller="order">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <h6>Ünvan və Sifarişin təsdiqi</h6>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Unvan</th>
-                                <th scope="col">Məhsulun adı</th>
-                                <th scope="col">Model</th>
-                                <th scope="col">Sayı</th>
-                                <th scope="col">Məbləği</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                @if (Model.Count > 0 && Model != null)
+                {
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-3 col-md-3">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                            <form method="post">
+                                <div class="mb-3">
+                                    <label asp-for="First().Name" class="form-label">Ad</label>
+                                    <input asp-for="First().Name" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="First().Surname" class="form-label">Soyad</label>
+                                    <input asp-for="First().Surname" class="form-control" >
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="First().Adress" class="form-label">Ünvan</label>
+                                    <input asp-for="First().Adress" class="form-control" >
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="First().Phone" class="form-label">Telefon</label>
+                                    <input asp-for="First().Phone" class="form-control" >
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="First().Email" class="form-label">Email</label>
+                                    <input asp-for="First().Email" class="form-control" >
+                                </div>
+                                <div class="row">
+                                    <button type="submit" style="width: 7rem;margin-bottom: 1rem;" class="btn btn-warning">Davam et</button>
+                                </div>
+                            </form>
+                            }
+                            else
+                            {
+                        <form method="post">
+                            <div class="mb-3">
+                                <label asp-for="First().Name" class="form-label">Ad Soyad</label>
+                                <input asp-for="First().Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="First().Surname" class="form-label">Ad Soyad</label>
+                                <input asp-for="First().Surname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="First().Adress" class="form-label">Ünvan</label>
+                                <input asp-for="First().Adress" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="First().Phone" class="form-label">Telefon</label>
+                                <input asp-for="First().Phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="First().Email" class="form-label">Telefon</label>
+                                <input asp-for="First().Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="row">
+                                <button type="submit" style="width: 7rem;margin-bottom: 1rem;" class="btn btn-warning">Davam et</button>
+                            </div>
+                        </form>
+                            }
 
-                            <tr>
-                                <td>Xezer rayonu</td>
-                                <th scope="row">Lugano yataq dəsti</th>
-                                <td>Lugano yataq dəsti</td>
-                                <td>1</td>
-                                <td>1,746 ₼</td>
-                            </tr>
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-md-8">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Məhsulun adı</th>
+                                        <th scope="col">Model</th>
+                                        <th scope="col">Sayı</th>
+                                        <th scope="col">Məbləği</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                        </tbody>
-                    </table>
-                </div>
-                <div class="row">
-                    <a style="width: 7rem;margin-bottom: 1rem;" class="btn btn-warning">Davam et</a>
-                </div>
+                                    @foreach (var item in Model)
+                                    {
+                                        decimal total = (item.Price - (item.Price * item.Discount) / 100) * item.Count;
+                                        <tr>
+                                            <td>@item.ProductName</td>
+                                            <td>@item.Category</td>
+                                            <td>@item.Count</td>
+                                            <td>@total.ToString("#.##")₼</td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+
             </div>
         </div>
     </div>

@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewData["Title"] = "Orders";
+    int count = 0;
+}
+
+@model List<Order>
+    <main>
+        <div class="hesab-class">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-12">
+                        @await Html.PartialAsync("_AccountmenuPartial")
+                    </div>
+                    <div class="col-xl-10 col-lg-9 col-md-9 col-sm-12 col-12">
+                        <div class="melumatlarim">
+                            <div class="row">
+                                <h1>Sifariş tarixçəsi</h1>
+                                <div class="container">
+                                </div>
+                            </div>
+
+                            @if (Model.Count == 0 || Model == null)
+                            {
+                                <div class="row">
+                                    <span>Sizin hər hansı bir sifarişiniz mövcud deyil!</span>
+                                </div>
+                            }
+                            else
+                            {
+                        <div class="accordion" id="accordionExample">
+
+                            @foreach (var order in Model)
+                            {
+                                <div class="accordion-item" >
+                                    <h2 class="accordion-header" id="heading-@order.Id">
+                                        <button class="accordion-button collapsed" style="box-shadow:none !important" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@order.Id" aria-expanded="false" aria-controls="collapse-@order.Id">
+                                            @order.CreatedAt
+                                        </button>
+                                    </h2>
+                                    <div id="collapse-@order.Id" class="accordion-collapse collapse" aria-labelledby="heading-@order.Id" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            @foreach (var item in order.OrderItems)
+                                            {
+                                                
+                                                decimal total = (item.SalePrice - (item.SalePrice * item.DiscountPercent) / 100) * item.Count;
+
+                                            <p><img style="width:150px" src="~/uploads/product/@item.Product.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /> <strong>Məhsulun Adı:</strong>@item.ProdName <strong>Cəmi:</strong> @total.ToString("#.##") <strong>Sayı:</strong> @item.Count <strong>Status:</strong>@order.Status</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                            }
+                            <div class="row" style="margin-top:1rem">
+                                <div class="col-xl-12">
+                                    <a asp-action="profilemenu" asp-controller="account" type="button" class="btn btn-warning">Davam et</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>

@@ -237,5 +237,20 @@ namespace Madeyra.Controllers
             return RedirectToAction("login");
 
         }
+        [Authorize(Roles ="Member")]
+        public IActionResult Orders()
+        {
+            AppUser member = null;
+            
+            if(User.Identity.IsAuthenticated)
+            {
+                member = _userManager.Users.FirstOrDefault(x => x.NormalizedUserName == User.Identity.Name.ToUpper());
+            }
+            List<Order> Orders = _context.Orders.Include(x => x.OrderItems)
+                .ThenInclude(x=>x.Product)
+                .ThenInclude(x=>x.ProductImages)
+                .Where(x => x.AppUserId == member.Id).ToList();
+            return View(Orders);
+        }
     }
 }

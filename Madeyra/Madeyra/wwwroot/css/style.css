@@ -874,11 +874,13 @@
 }
 
 .sebet:hover .sebet-list {
+    transition:ease-in-out 2s;
   display: block !important;
 }
 .sebet:focus .sebet-list {
-    bac
+    display: block !important;
 }
+
 .sebet-list:hover {
   display: block !important;
 }

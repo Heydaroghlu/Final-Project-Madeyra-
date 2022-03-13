@@ -56,58 +56,23 @@
         <div class="cards">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="image">
-                                    <div class="card-image">
-                                        <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/shield.png.pagespeed.ce.eQdIut8Mom.png"
-                                             alt="">
+                    @foreach (var item in Model.Cards)
+                    {
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="image">
+                                        <div class="card-image">
+                                            <img src="~/uploads/card/@item.Image"
+                                                 alt="">
+                                        </div>
                                     </div>
+                                    <h5 class="card-title">@item.Text</h5>
                                 </div>
-                                <h5 class="card-title">Rəsmi zəmanət</h5>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="image">
-                                    <div class="card-image">
-                                        <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/truck.png.pagespeed.ce._SIMA9nqeI.png"
-                                             alt="">
-                                    </div>
-                                </div>
-                                <h5 class="card-title">Pulsuz çatdırılma</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="image">
-                                    <div class="card-image">
-                                        <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/headset.png.pagespeed.ce.ugxO5NFth8.png"
-                                             alt="">
-                                    </div>
-                                </div>
-                                <h5 class="card-title">Ödənişsiz Məsləhətçi</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="image">
-                                    <div class="card-image">
-                                        <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/coupon.png.pagespeed.ce.YByKkpYA7l.png"
-                                             alt="">
-                                    </div>
-                                </div>
-                                <h5 class="card-title">Ən sərfəli qiymətlər və xüsusi kampaniyalar</h5>
-                            </div>
-                        </div>
-                    </div>
+                    }
+
                 </div>
             </div>
         </div>

@@ -26,6 +26,7 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             var products = _context.Products
                 .Include(x => x.SubCategory)
                 .Include(x => x.ProductMatreals).
+                Include(x=>x.ProductColors).
                 Include(x => x.ProductImages).AsQueryable();
                  if (deleted == false)
             {

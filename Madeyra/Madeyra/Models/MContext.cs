@@ -28,5 +28,6 @@ namespace Madeyra.Models
         public DbSet <Slider> Sliders { get; set; }
         public DbSet <Video> Videos { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewData["Title"] = "Items";
+}
+@model Order
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>@Model.Name @Model.Surname</td>
+                <td>@Model.CreatedAt</td>
+                <td>@Model.Phone</td>
+                <td>@Model.Status</td>
+                @if (Model.Status == Madeyra.Enums.OrderStatus.Gözləmədə)
+                {
+                    <td><a class="btn btn-success" asp-action="Accept" asp-controller="order" asp-route-id="@Model.Id">Qəbul</a></td>
+                    <td><a class="btn btn-danger" asp-action="reject" asp-controller="order" asp-route-id="@Model.Id">İmtina</a></td>
+
+                }
+                @if (Model.Status == Madeyra.Enums.OrderStatus.İmtina)
+                {
+                    <td><a class="btn btn-warning" asp-action="Waiting" asp-controller="order" asp-route-id="@Model.Id">Gözləmədə</a></td>
+                    <td><a class="btn btn-success" asp-action="Accept" asp-controller="order" asp-route-id="@Model.Id">Qəbul</a></td>
+
+                }
+                @if (Model.Status == Madeyra.Enums.OrderStatus.Qəbul)
+                {
+                    <td><a class="btn btn-warning" asp-action="Waiting" asp-controller="order" asp-route-id="@Model.Id">Gözləmədə</a></td>
+                    <td><a class="btn btn-danger" asp-action="reject" asp-controller="order" asp-route-id="@Model.Id">İmtina</a></td>
+
+                }
+
+            </tr>
+
+        </tbody>
+    </table>
+    <style>
+        .collapsed:hover {
+            text-decoration: none !important
+        }
+    </style>
+    <div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
+
+        <!-- Accordion card -->
+        <div class="card">
+
+            <!-- Card header -->
+            <div class="card-header" role="tab" id="heading-@Model.Id">
+                <a style="text-decoration:none !important" class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse-@Model.Id"
+                   aria-expanded="false" aria-controls="collapseTwo1">
+                    @if (Model.Status == Madeyra.Enums.OrderStatus.Gözləmədə)
+                    {
+                    <h5 style="color:darkgoldenrod" class="mb-0">
+                        @Model.CreatedAt.ToString("dd.MM.yyyy HH:mm") <i class="fas fa-angle-down rotate-icon"></i>
+                    </h5>
+                    }
+                    @if (Model.Status == Madeyra.Enums.OrderStatus.Qəbul)
+                    {
+                <h5 style="color:green" class="mb-0">
+                    @Model.CreatedAt.ToString("dd.MM.yyyy HH:mm") <i class="fas fa-angle-down rotate-icon"></i>
+                </h5>
+                    }
+                    @if (Model.Status == Madeyra.Enums.OrderStatus.İmtina)
+                    {
+                <h5 style="color:red" class="mb-0">
+                    @Model.CreatedAt.ToString("dd.MM.yyyy HH:mm") <i class="fas fa-angle-down rotate-icon"></i>
+                </h5>
+                    }
+
+                </a>
+            </div>
+
+            <!-- Card body -->
+            <div id="collapse-@Model.Id" class="collapse" role="tabpanel" aria-labelledby="heading-@Model.Id"
+                 data-parent="#accordionEx1">
+                <div class="card-body">
+                    @foreach (var item in Model.OrderItems)
+                    {
+
+                        decimal total = (item.SalePrice - (item.SalePrice * item.DiscountPercent) / 100) * item.Count;
+
+                        <p><img style="width:150px" src="~/uploads/product/@item.Product.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /> <strong>Məhsulun Adı:</strong>@item.ProdName <strong>Cəmi:</strong> @total.ToString("#.##") <strong>Sayı:</strong> @item.Count <strong>Status:</strong>@Model.Status</p>
+                    }
+                </div>
+            </div>
+
+        </div>
+        <!-- Accordion card -->
+
+
+    </div>
+
+</div>
+    <!--Accordion wrapper-->
+   

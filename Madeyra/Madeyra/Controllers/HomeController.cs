@@ -24,6 +24,7 @@ namespace Madeyra.Controllers
             HomeViewModel homeView = new HomeViewModel
             {
                 Settings = _context.Settings.FirstOrDefault(),
+                Cards=_context.Cards.ToList(),
                 Products = _context.Products.Include(x => x.ProductMatreals).Include(x => x.ProductImages)
                 .Include(x => x.ProductColors).ToList()
                 

@@ -228,8 +228,10 @@ $(document).on("click", ".add-basket", function (e) {
         .then(response => response.text())
         .then(data => {
             $(".sebet").html(data)
-
+           
         });
+                
+
 });
 //remove basket
 $(document).on("click", ".remove-basket", function (e) {
@@ -244,4 +246,20 @@ $(document).on("click", ".remove-basket", function (e) {
             $(".sebet").html(data)
 
         });
+});
+$(document).on("click", ".remove-basket2", function (e) {
+    e.preventDefault();
+
+
+    var id = $(this).attr("data-id");
+
+
+    fetch('http://localhost:10529/product/RemoveBasket/' + id)
+        .then(response => response.text())
+        .then(data => {
+            $(".sebet").html(data)
+        });
+    location.reload()
+
+   
 });

@@ -10,7 +10,7 @@
             <div id="sebet-text" class="row">
                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 d-flex justify-content-sm-between">
                     <h3>Səbət</h3>
-                    <a asp-action="ClearBasket"  asp-controller="product" class="btn delete-basket" style="background-color: #ff0000;color:white;">Səbəti təmizlə</a>
+                    <a asp-action="ClearBasket"  asp-controller="product" id="deletebasket" class="btn delete-basket" style="background-color: #ff0000;color:white;">Səbəti təmizlə</a>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                     <div class="row">
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="col-xl-1 col-lg-1 col-md-1 col-sm-6 col-6">
                                         <div class="item-delete">
-                                            <a data-id="@item.ProductId" asp-controller="product" asp-action="removebasket" asp-route-id="@item.ProductId" class="remove-basket"><i class="fa-solid fa-trash-can "></i></a>
+                                            <a data-id="@item.ProductId" asp-controller="product" asp-action="removebasket" asp-route-id="@item.ProductId" class="remove-basket2"><i class="fa-solid fa-trash-can "></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                 }
                                 <h6>
 
-                                    @total2.ToString("0") ₼
+                                    @total2.ToString("#.##")₼
                                 </h6>
                             </div>
                             <div class="melumat catdirlma">

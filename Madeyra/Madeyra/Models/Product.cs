@@ -43,6 +43,8 @@ namespace Madeyra.Models
         public List<int> ProductImageIds { get; set; } = new List<int>();
         public Design Design { get; set; }
         public SubCategory SubCategory { get; set; }
-        
+        public List<OrderItem> OrderItems { get; set; }
+
+
     }
 }

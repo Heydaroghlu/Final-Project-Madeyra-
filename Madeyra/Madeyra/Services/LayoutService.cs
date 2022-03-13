@@ -51,16 +51,7 @@ namespace Madeyra.Services
                 if(itemStr!=null)
                 {
                     baskets = JsonConvert.DeserializeObject<List<BasketViewModel>>(itemStr);
-                    foreach (var basket in baskets)
-                    {
-                        Product product = _context.Products.Include(x => x.ProductImages).FirstOrDefault(x => x.Id == basket.ProductId);
-                        if(product!=null)
-                        {
-                            basket.ProductName = product.Name;
-                            basket.Price = product.SalePrice;
-                            basket.Image= product.ProductImages.FirstOrDefault(x => x.IsPoster == true)?.Image;
-                        }
-                    }
+                  
                 }
             }
             else
