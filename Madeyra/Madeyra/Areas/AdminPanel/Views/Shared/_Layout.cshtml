@@ -2,7 +2,11 @@
 @{
     ViewData["Title"] = "AdminPanel";
 }
-
+@using Madeyra.Services
+@inject LayoutService Service
+@{ 
+    List<ProductComment> comments = Service.Comments();
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,11 +29,22 @@
 
     <!-- Custom styles for this template-->
     <link href="~/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/plugins/toaster/toastr.min.css">
+
 
 </head>
 
 <body id="page-top">
-
+    @if (TempData["OrderError"] != null)
+    {
+        <input type="hidden" id="toaster-error" value="@TempData["OrderError"]" />}
+    @if (TempData["MehsulBitib"] != null)
+    {
+        <input type="hidden" id="toaster-error" value="@TempData["MehsulBitib"]" />}
+    @if (TempData["MehsulBitib2"] != null)
+    {
+        <input type="hidden" id="toaster-error" value="@TempData["MehsulBitib2"]" />}
+    
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -75,11 +90,19 @@
                         <a class="collapse-item" asp-action="index" asp-controller="design">Dizaynlar</a>
                         <a class="collapse-item" asp-action="index" asp-controller="product">Məhsullar</a>
                         <a class="collapse-item" asp-action="index" asp-controller="card">Kartlar</a>
-                        <a class="collapse-item" asp-action="index" asp-controller="slider">Slider</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="slide">Slider</a>
                         <a class="collapse-item" asp-action="admins" asp-controller="account">Adminlər</a>
                         <a class="collapse-item" asp-action="index" asp-controller="order">Sifarişlər</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="comment">
+                            Şərhlər
+                            <span style="color:white" class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+                                @comments.Count
+                                <span class="visually-hidden" style="color:white;font-size:0.6rem">Oxunmamış şərh</span>
+                            </span>
+                        </a>
                         <a class="collapse-item" asp-action="index" asp-controller="store">Mağazalar</a>
                         <a class="collapse-item" asp-action="index" asp-controller="video">Videolar</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="compagain">Kampaniyalar</a>
                         <a class="collapse-item" asp-action="index" asp-controller="setting">Tənzimləmələr</a>
 
 
@@ -171,6 +194,45 @@
     <script src="~/admin/js/demo/chart-area-demo.js"></script>
     <script src="~/admin/js/demo/chart-pie-demo.js"></script>
     <script src="~/admin/js/main.js"></script>
+    <script src="~/plugins/toaster/toastr.min.js"></script>
+
+    <script>
+        $(function () {
+            if ($("#toaster-error").length) {
+                toastr["error"]($("#toaster-error").val())
+            }
+
+            if ($("#toaster-success").length) {
+                toastr["success"]($("#toaster-success").val())
+            }
+            if ($("#toaster-success").length) {
+                toastr["removebasket"]($("#toaster-success").val())
+            }
+
+            if ($("#toaster-warning").length) {
+                toastr["warning"]($("#toaster-warning").val())
+            }
+
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+        })
+
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 

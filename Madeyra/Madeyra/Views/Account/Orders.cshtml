@@ -45,7 +45,7 @@
                                                 
                                                 decimal total = (item.SalePrice - (item.SalePrice * item.DiscountPercent) / 100) * item.Count;
 
-                                            <p><img style="width:150px" src="~/uploads/product/@item.Product.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /> <strong>Məhsulun Adı:</strong>@item.ProdName <strong>Cəmi:</strong> @total.ToString("#.##") <strong>Sayı:</strong> @item.Count <strong>Status:</strong>@order.Status</p>
+                                            <p><img style="width:150px" src="~/uploads/product/@item.Product.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /> <strong>Məhsulun Adı:</strong>@item.ProdName <strong>Cəmi:</strong> @total.ToString("#.##") <strong>Sayı:</strong> @item.Count <strong>Status:</strong>@order.Status <strong>Məhsul statusu:</strong>@order.DeliveryStatus</p>
                                             }
                                         </div>
                                     </div>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Madeyra.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,14 @@ namespace Madeyra.Controllers
 {
     public class VideoController : Controller
     {
+        private readonly MContext _context;
+        public VideoController(MContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            return View();
+            return View(_context.Videos.ToList());
         }
     }
 }

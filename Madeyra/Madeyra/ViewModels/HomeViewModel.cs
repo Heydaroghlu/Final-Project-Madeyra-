@@ -11,6 +11,8 @@ namespace Madeyra.ViewModels
         public Setting Settings { get; set; }
         public List<Product> Products { get; set; }
         public List<Card> Cards { get; set; }
+        public List<Order> EndOrders { get; set; }
+        public List<Slider> Sliders { get; set; }
 
     }
 }

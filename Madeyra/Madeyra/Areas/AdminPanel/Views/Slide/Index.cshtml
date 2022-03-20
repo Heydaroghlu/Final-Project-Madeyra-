@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Slaydlar";
+}
+@model List<Slider>
+<div class="container">
+    <h1>Slaydlar</h1>
+    <a asp-action="create" class="btn btn-warning">Yarat</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Slide</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img style="width:150px" ; src="~/uploads/slider/@item.Image" /></td>
+                    <td><a asp-action="update" asp-route-id="@item.Id" class="btn btn-success">Redaktə et</a> </td>
+                    <td><a class="btn btn-danger delete-btn" data-id="@item.Id" data-name="slide" asp-route-id="@item.Id">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

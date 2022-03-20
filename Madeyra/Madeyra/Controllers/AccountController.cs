@@ -2,11 +2,14 @@
 using Madeyra.Services;
 using Madeyra.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,10 +22,12 @@ namespace Madeyra.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IEmailService _emailService;
-        public AccountController(MContext context,IEmailService emailService, RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        private readonly IWebHostEnvironment _env;
+        public AccountController(MContext context,IEmailService emailService,IWebHostEnvironment env,RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
         {
             _roleManager = roleManager;
             _context = context;
+            _env = env;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailService = emailService;
@@ -75,6 +80,7 @@ namespace Madeyra.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Login(MemberLoginViewModel memberLogin)
         {
             if(!ModelState.IsValid)
@@ -101,7 +107,7 @@ namespace Madeyra.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("index", "home");
         }
-        public async Task<IActionResult> CreateRoles()
+     /*   public async Task<IActionResult> CreateRoles()
         {
             IdentityRole role1 = new IdentityRole("SuperAdmin");
             IdentityRole role2 = new IdentityRole("Admin");
@@ -110,8 +116,9 @@ namespace Madeyra.Controllers
             await _roleManager.CreateAsync(role2);
             await _roleManager.CreateAsync(role1);
             return Ok();
-        }
-       
+        }*/
+        [Authorize(Roles ="Member")]
+
         public IActionResult ProfileMenu()
         {
             return View();
@@ -172,7 +179,6 @@ namespace Madeyra.Controllers
             }
             return RedirectToAction("profilemenu", "account");
         }
-        
         public async Task<IActionResult>  Adress()
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -198,11 +204,26 @@ namespace Madeyra.Controllers
             }
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             var url = Url.Action("resetpassword", "account", new { email = user.Email, token }, Request.Scheme);
-            _emailService.Send(user.Email, "Şifrə Dəyişikliyi", "<a href='" + url + "'>Şifrə Dəyişikliyi</a>");
+            var passurl = Url.Action("index", "home");
+            var path = _env.WebRootPath + Path.DirectorySeparatorChar.ToString() + "Other"
+                + Path.DirectorySeparatorChar.ToString() + "htmlpage.html";
+            var builder = new BodyBuilder();
+
+            using(StreamReader streamReader=System.IO.File.OpenText(path))
+            {
+                builder.HtmlBody = streamReader.ReadToEnd();
+            }
+            string message = string.Format(builder.HtmlBody, url, passurl);
+            _emailService.Send(user.Email, "Yeni Şifrə", message);
+
             return RedirectToAction("index","home");
         }
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPassword)
         {
+            if(resetPassword.Email==null)
+            {
+                return RedirectToAction("index", "error");
+            }
             AppUser user = await _userManager.FindByEmailAsync(resetPassword.Email);
             if (user == null || !(await _userManager.VerifyUserTokenAsync(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", resetPassword.Token)))
             {
@@ -213,6 +234,8 @@ namespace Madeyra.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles ="Member")]
+
         public async Task<IActionResult> ChangePassword(ResetPasswordViewModel resetPassword)
         {
             if(!ModelState.IsValid)

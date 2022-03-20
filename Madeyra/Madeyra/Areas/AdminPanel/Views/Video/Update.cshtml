@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Redaktə Et";
+}
+@model Video
+<div class="container">
+    <h1>Yeni Mağaza</h1>
+    <form method="post">
+        <div class="mb-3">
+            <input asp-for="VideoUrl" class="form-control" placeholder="Mağaza Adı">
+            <span class="text-danger" asp-validation-for="VideoUrl"></span>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Yenilə</button>
+    </form>
+</div>
+

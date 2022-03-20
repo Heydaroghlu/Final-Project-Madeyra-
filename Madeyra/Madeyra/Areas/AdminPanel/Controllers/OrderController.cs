@@ -61,14 +61,77 @@ namespace Madeyra.Areas.AdminPanel.Controllers
         }
         public IActionResult Accept(int id)
         {
-            Order order = _context.Orders.FirstOrDefault(x => x.Id == id);
+            Order order = _context.Orders.Include(x=>x.OrderItems).FirstOrDefault(x => x.Id == id);
             if(order==null)
             {
                 return RedirectToAction("index", "error");
             }
+            if (order.OrderItems.Count == 0)
+            {
+                TempData["OrderError"] = "Sifarişin məhsul sayı 0 dır";
+                return RedirectToAction("items", new { id = order.Id });
+
+            }
+            int dovr = 0;
+            foreach (var item in order.OrderItems)
+            {
+                Product product = _context.Products.FirstOrDefault(x => x.Id == item.ProductId);
+                 if (item.Count == 0 )
+                {
+                    dovr++;
+                    if(dovr==order.OrderItems.Count)
+                    {
+                        TempData["OrderError"] = "Sifarişin məhsul sayı 0 dır";
+                        return RedirectToAction("items", new { id = order.Id });
+                    }
+
+                }
+                else if (product.Count >= item.Count)
+                {
+                    product.Count=product.Count-item.Count;
+                    product.SoldOut += item.Count;
+                    _context.SaveChanges();
+                }
+              
+                else if (product.Count == 0)
+                {
+
+                    TempData["MehsulBitib"] = $"{item.ProdName} Bitib";
+
+                    return RedirectToAction("items", new { id = order.Id });
+
+                }
+                else if (product.Count< item.Count)
+                {
+                    TempData["MehsulBitib2"] = $"{item.ProdName} sifarişi sayda Anbarda məhsul yoxdur. Max Sayı: {product.Count}";
+                    return RedirectToAction("items", new { id = order.Id });
+
+                }
+               
+
+
+            }
+           
             order.Status = Enums.OrderStatus.Qəbul;
             _context.SaveChanges();
             return RedirectToAction("index");
+        }
+        public IActionResult OrderItemDelete(int id,int id2)
+        {
+            Order order = _context.Orders.Include(x=>x.OrderItems).FirstOrDefault(x => x.Id == id);
+            if (order == null)
+            {
+                return View("index", "error");
+            }
+            OrderItem item = order.OrderItems.FirstOrDefault(x => x.Id == id2);
+            if (item == null || item.Count==0 )
+            {
+                return RedirectToAction("index", "error");
+            }
+            item.Count--;
+            _context.SaveChanges();
+            return RedirectToAction("items", new { id = order.Id });
+
         }
         public IActionResult Reject(int id)
         {
@@ -89,6 +152,39 @@ namespace Madeyra.Areas.AdminPanel.Controllers
                 return RedirectToAction("index", "error");
             }
             order.Status = Enums.OrderStatus.Gözləmədə;
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult Depo(int id)
+        {
+            Order order = _context.Orders.FirstOrDefault(x => x.Id == id);
+            if (order == null)
+            {
+                return RedirectToAction("index", "error");
+            }
+            order.DeliveryStatus = Enums.OrderDeliveryStatus.Anbarda;
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult Curier(int id)
+        {
+            Order order = _context.Orders.FirstOrDefault(x => x.Id == id);
+            if (order == null)
+            {
+                return RedirectToAction("index", "error");
+            }
+            order.DeliveryStatus = Enums.OrderDeliveryStatus.Kuryerde;
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult Finish(int id)
+        {
+            Order order = _context.Orders.FirstOrDefault(x => x.Id == id);
+            if (order == null)
+            {
+                return RedirectToAction("index", "error");
+            }
+            order.DeliveryStatus = Enums.OrderDeliveryStatus.Catdirildi;
             _context.SaveChanges();
             return RedirectToAction("index");
         }

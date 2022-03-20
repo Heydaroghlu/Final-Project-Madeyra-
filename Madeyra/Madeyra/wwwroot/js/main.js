@@ -40,7 +40,7 @@ function navbarscroll()
 }
 
 
-if(window.location!="file:///C:/Users/heyde/OneDrive/Desktop/Madeyra/index.html")
+if (window.location !="http://localhost:10529/")
 {
     $(document).ready(function()
     {
@@ -263,3 +263,15 @@ $(document).on("click", ".remove-basket2", function (e) {
 
    
 });
+$(function () {
+    $("#search-input").keyup(function () {
+        let search1 = $(this).val();
+        fetch('http://localhost:10529/home/search?search1=' + search1)
+            .then(response => response.text())
+            .then(data => {
+                console.log(data)
+                var road = document.querySelector("#search-neticeler");
+                road.innerHTML = data;
+            })
+    })
+})

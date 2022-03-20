@@ -33,7 +33,10 @@ namespace Madeyra.Controllers
             if(member==null)
             {
                 var ProductSr = HttpContext.Request.Cookies["Basket"];
-                products = JsonConvert.DeserializeObject<List<BasketViewModel>>(ProductSr);
+                if(ProductSr!=null)
+                {
+                    products = JsonConvert.DeserializeObject<List<BasketViewModel>>(ProductSr);
+                }
                 return View(products);
             }
             else
@@ -69,6 +72,17 @@ namespace Madeyra.Controllers
             {
                 member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
             }
+            if (checkOutVM.Name == null || checkOutVM.Phone == null || checkOutVM.Email == null || checkOutVM.Adress == null || checkOutVM.Surname == null)
+            {
+                ModelState.AddModelError("", "Bütün Məlumatlar daxil edilməlidir!");
+                TempData["Sifarisnull"] = "Bütün Məlumatlar tam doldurulmalıdır";
+                return RedirectToAction("Checkout");
+            }
+            else
+            {
+                TempData["Sifaris"] = "Sifarişiniz göndərildi";
+
+            }
             Order order = new Order()
             {
                 Address = checkOutVM.Adress,
@@ -78,9 +92,10 @@ namespace Madeyra.Controllers
                 Email = checkOutVM.Email,
                 Phone = checkOutVM.Phone,
                 CreatedAt = DateTime.UtcNow.AddHours(4),
-                
+                DeliveryStatus=Enums.OrderDeliveryStatus.Anbarda,
                 OrderItems = new List<OrderItem>(),
                 Status = Enums.OrderStatus.Gözləmədə
+                
             };
             List<BasketViewModel> basketItemsVM = new List<BasketViewModel>();
 
@@ -103,6 +118,7 @@ namespace Madeyra.Controllers
                 {
                     basketItemsVM = JsonConvert.DeserializeObject<List<BasketViewModel>>(basketItemsStr);
                 }
+               
 
             }
 
@@ -136,7 +152,7 @@ namespace Madeyra.Controllers
             }
             else
             {
-                //Response.Cookies.Delete("BasketItem");
+                Response.Cookies.Delete("BasketItem");
             }
 
             return RedirectToAction("index", "home");
@@ -153,7 +169,10 @@ namespace Madeyra.Controllers
             if (member == null)
             {
                 var ProductSr = HttpContext.Request.Cookies["Basket"];
-                products = JsonConvert.DeserializeObject<List<CheckOutViewModel>>(ProductSr);
+                if(ProductSr!=null)
+                {
+                    products = JsonConvert.DeserializeObject<List<CheckOutViewModel>>(ProductSr);
+                }
             }
             else
             {
@@ -185,11 +204,17 @@ namespace Madeyra.Controllers
 
                 ProdName = product.Name,
                 SalePrice = product.SalePrice - (product.SalePrice / 100) * product.DiscountPrice,
+                CostPrice=product.CostPrice,
+                DiscountPercent=product.DiscountPrice,
                 Count = count
             };
 
             order.OrderItems.Add(orderItem);
             order.TotalAmount += (orderItem.SalePrice - orderItem.DiscountPercent) * orderItem.Count;
+        }
+        public IActionResult Comment()
+        {
+            return PartialView("_CommentsPartial", _context.ProductComments.ToList());
         }
     }
 }

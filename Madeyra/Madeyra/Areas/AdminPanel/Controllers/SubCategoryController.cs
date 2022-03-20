@@ -1,4 +1,5 @@
 ﻿using Madeyra.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,6 +11,7 @@ using X.PagedList;
 namespace Madeyra.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class SubCategoryController : Controller
     {
         MContext _context;

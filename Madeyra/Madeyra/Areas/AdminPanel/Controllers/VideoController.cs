@@ -1,13 +1,16 @@
 ﻿using Madeyra.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace Madeyra.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class VideoController : Controller
     {
         private readonly MContext _context;
@@ -15,9 +18,9 @@ namespace Madeyra.Areas.AdminPanel.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            return View(_context.Videos.ToList());
+            return View(_context.Videos.ToPagedList(page,5));
         }
         public IActionResult Create()
         {
@@ -33,7 +36,7 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             }
             _context.Videos.Add(video);
             _context.SaveChanges();
-            return View();
+            return RedirectToAction("index");
         }
         public IActionResult Update(int id)
         {
@@ -55,7 +58,7 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             }
             oldvideo.VideoUrl = video.VideoUrl;
             _context.SaveChanges();
-            return View("index");
+            return RedirectToAction("index");
         }
         public IActionResult Delete(int id)
         {
@@ -66,7 +69,8 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             }
             _context.Videos.Remove(oldvideo);
             _context.SaveChanges();
-            return View("index");
+            return RedirectToAction("index");
+
         }
     }
 }

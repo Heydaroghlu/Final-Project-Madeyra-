@@ -345,12 +345,12 @@
   top: 0% !important;
   position: fixed !important;
   width: 100%;
-  z-index: 99999889 !important;
-  overflow: hidden;
+  z-index: 99999 !important;
+ 
 }
 
 .header-bottom {
-  height: 50px;
+  min-height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -773,9 +773,7 @@
   top: 123%;
   right: -30% !important;
 }
-.sebet .sebet-list {
-    margin-top: 0.5rem;
-}
+
 .sebet .sebet-list .container {
   width: 100% !important;
 }
@@ -1662,6 +1660,7 @@
 
 .search-neticeler {
   display: none;
+  min-height:12rem;
 }
 
 .end h1 {

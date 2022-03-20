@@ -64,14 +64,26 @@
         </div>
         <div class="row">
             <div class="mb-3 col-xl-6">
+                <label asp-for="ReclamFile1" class="form-label">Reklam-1</label>
+                <input asp-for="ReclamFile1" class="form-control " id="update-input1">
+                <div id="img-div1"><img style="width:150px" src="~/uploads/setting/@Model.Reclam1" /></div>
+            </div>
+            <div class="mb-3 col-xl-6">
+                <label asp-for="ReclamFile2" class="form-label">Reklam-2</label>
+                <input asp-for="ReclamFile2" class="form-control" id="update-input2">
+                <div id="img-div2"><img style="width:150px" src="~/uploads/setting/@Model.Reclam2" /></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-xl-6">
                 <label asp-for="FooterLogoFile" class="form-label">Footer-Image</label>
-                <input asp-for="FooterLogoFile" class="form-control " id="update-input1">
-                <div id="img-div1"><img style="width:150px" src="~/uploads/setting/@Model.FooterLogo" /></div>
+                <input asp-for="FooterLogoFile" class="form-control " id="update-input3">
+                <div id="img-div3"><img style="width:150px" src="~/uploads/setting/@Model.FooterLogo" /></div>
             </div>
             <div class="mb-3 col-xl-6">
                 <label asp-for="HeaderLogoFile" class="form-label">Header-Image</label>
-                <input asp-for="HeaderLogoFile" class="form-control" id="update-input2">
-                <div id="img-div2"><img style="width:150px" src="~/uploads/setting/@Model.HeaderLogo" /></div>
+                <input asp-for="HeaderLogoFile" class="form-control" id="update-input4">
+                <div id="img-div4"><img style="width:150px" src="~/uploads/setting/@Model.HeaderLogo" /></div>
             </div>
         </div>
 

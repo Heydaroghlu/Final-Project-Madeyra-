@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Kampaniyalar";
+}
+@model List<Campagain>
+<div class="container">
+    <h1>Kampaniyalar</h1>
+    <a asp-action="create" class="btn btn-warning">Yarat</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ad</th>
+                <th scope="col">Şəkil</th>
+                <th scope="col">Tarix</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Title</td>
+                <td><img style="width:150px" ; src="~/uploads/campagain/@item.Image" /></td>
+                <td>@item.StartTime</td>
+                <td>@item.EndTime</td>
+                <td><a asp-action="update" asp-route-id="@item.Id" class="btn btn-success">Redaktə et</a> </td>
+                <td><a class="btn btn-danger delete-btn" data-id="@item.Id" data-name="compagain" asp-route-id="@item.Id">Sil</a></td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -18,16 +18,17 @@ namespace Madeyra.Controllers
         {
             _context = context;
         }
-
+        
         public IActionResult Index()
         {
             HomeViewModel homeView = new HomeViewModel
             {
                 Settings = _context.Settings.FirstOrDefault(),
-                Cards=_context.Cards.ToList(),
+                Cards = _context.Cards.ToList(),
                 Products = _context.Products.Include(x => x.ProductMatreals).Include(x => x.ProductImages)
-                .Include(x => x.ProductColors).ToList()
-                
+                .Include(x => x.ProductColors).ToList(),
+                Sliders = _context.Sliders.ToList(),
+                EndOrders=_context.Orders.Include(x=>x.OrderItems).ThenInclude(x=>x.Product).OrderByDescending(x=>x.Id).Take(5).Where(x=>x.Status==Enums.OrderStatus.Qəbul).ToList()
             };
             return View(homeView);
         }
@@ -35,7 +36,12 @@ namespace Madeyra.Controllers
         {
             return View();
         }
-
+         public IActionResult Search(string search1)
+        {
+            List<Product> Searchs = _context.Products.Include(x => x.ProductMatreals).Include(x => x.ProductImages)
+                .Include(x => x.ProductColors).Where(x => x.Name.Contains(search1)).ToList();
+            return PartialView("_SearchPartial", Searchs);
+        }
 
     }
 }

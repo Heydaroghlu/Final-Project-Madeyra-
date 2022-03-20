@@ -50,6 +50,30 @@ namespace Madeyra.Migrations
                     b.ToTable("BasketItems");
                 });
 
+            modelBuilder.Entity("Madeyra.Models.Campagain", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Campagains");
+                });
+
             modelBuilder.Entity("Madeyra.Models.Card", b =>
                 {
                     b.Property<int>("Id")
@@ -282,6 +306,9 @@ namespace Madeyra.Migrations
                     b.Property<string>("Size")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SoldOut")
+                        .HasColumnType("int");
+
                     b.Property<int>("SubCategoryId")
                         .HasColumnType("int");
 
@@ -318,6 +345,47 @@ namespace Madeyra.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductColor");
+                });
+
+            modelBuilder.Entity("Madeyra.Models.ProductComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("SendTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SurName")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(120)")
+                        .HasMaxLength(120);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductComments");
                 });
 
             modelBuilder.Entity("Madeyra.Models.ProductImage", b =>
@@ -407,6 +475,12 @@ namespace Madeyra.Migrations
                     b.Property<string>("InstagramUrl")
                         .HasColumnType("nvarchar(150)")
                         .HasMaxLength(150);
+
+                    b.Property<string>("Reclam1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Reclam2")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tel")
                         .HasColumnType("nvarchar(50)")
@@ -804,6 +878,19 @@ namespace Madeyra.Migrations
 
                     b.HasOne("Madeyra.Models.Product", "Product")
                         .WithMany("ProductColors")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Madeyra.Models.ProductComment", b =>
+                {
+                    b.HasOne("Madeyra.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("Madeyra.Models.Product", "Product")
+                        .WithMany("ProductComments")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

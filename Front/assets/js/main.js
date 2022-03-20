@@ -35,7 +35,7 @@ function navbarscroll()
 }
 
 
-if(window.location!="file:///C:/Users/heyde/OneDrive/Desktop/Madeyra/index.html")
+if(window.location=="file:///C:/Users/heyde/OneDrive/Desktop/Madeyra/index.html")
 {
     $(document).ready(function()
     {

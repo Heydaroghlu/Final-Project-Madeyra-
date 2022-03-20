@@ -30,62 +30,41 @@
                 {
                     <div class="row">
                         <div class="col-xl-3 col-lg-3 col-md-3">
-                            @if (User.Identity.IsAuthenticated)
-                            {
+                         
                             <form method="post">
                                 <div class="mb-3">
                                     <label asp-for="First().Name" class="form-label">Ad</label>
                                     <input asp-for="First().Name" class="form-control">
+                                    <span asp-validation-for="First().Name"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label asp-for="First().Surname" class="form-label">Soyad</label>
-                                    <input asp-for="First().Surname" class="form-control" >
+                                    <input asp-for="First().Surname" class="form-control">
+                                    <span asp-validation-for="First().Surname"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label asp-for="First().Adress" class="form-label">Ünvan</label>
-                                    <input asp-for="First().Adress" class="form-control" >
+                                    <input asp-for="First().Adress" class="form-control">
+                                    <span asp-validation-for="First().Adress"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label asp-for="First().Phone" class="form-label">Telefon</label>
-                                    <input asp-for="First().Phone" class="form-control" >
+                                    <input asp-for="First().Phone" class="form-control">
+                                    <span asp-validation-for="First().Phone"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label asp-for="First().Email" class="form-label">Email</label>
-                                    <input asp-for="First().Email" class="form-control" >
+                                    <input asp-for="First().Email" class="form-control">
+                                    <span asp-validation-for="First().Email"></span>
                                 </div>
+                                <div asp-validation-summary="ModelOnly"></div>
                                 <div class="row">
                                     <button type="submit" style="width: 7rem;margin-bottom: 1rem;" class="btn btn-warning">Davam et</button>
                                 </div>
                             </form>
-                            }
-                            else
-                            {
-                        <form method="post">
-                            <div class="mb-3">
-                                <label asp-for="First().Name" class="form-label">Ad Soyad</label>
-                                <input asp-for="First().Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="First().Surname" class="form-label">Ad Soyad</label>
-                                <input asp-for="First().Surname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="First().Adress" class="form-label">Ünvan</label>
-                                <input asp-for="First().Adress" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="First().Phone" class="form-label">Telefon</label>
-                                <input asp-for="First().Phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="First().Email" class="form-label">Telefon</label>
-                                <input asp-for="First().Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="row">
-                                <button type="submit" style="width: 7rem;margin-bottom: 1rem;" class="btn btn-warning">Davam et</button>
-                            </div>
-                        </form>
-                            }
+                          
+                          
+
 
                         </div>
                         <div class="col-xl-8 col-lg-8 col-md-8">

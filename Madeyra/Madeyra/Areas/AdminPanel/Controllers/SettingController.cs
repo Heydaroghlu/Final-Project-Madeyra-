@@ -1,5 +1,6 @@
 ﻿using Madeyra.Helpers;
 using Madeyra.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace Madeyra.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class SettingController : Controller
     {
         private readonly MContext _context;
@@ -23,14 +25,14 @@ namespace Madeyra.Areas.AdminPanel.Controllers
         {
             return View(_context.Settings.ToList());
         }
-        public IActionResult Update()
+        public IActionResult Update(int id)
         {
-            return View(_context.Settings.FirstOrDefault());
+            return View(_context.Settings.FirstOrDefault(x=>x.Id==id));
         }
         [HttpPost]
         public IActionResult Update(Setting setting)
         {
-            Setting oldSetting = _context.Settings.FirstOrDefault();
+            Setting oldSetting = _context.Settings.FirstOrDefault(x=>x.Id==setting.Id);
             if(oldSetting==null)
             {
                 return NotFound();
@@ -65,6 +67,36 @@ namespace Madeyra.Areas.AdminPanel.Controllers
                 }
                 FileManager.Delete(_env.WebRootPath, "uploads/setting", oldSetting.FooterLogo);
                 oldSetting.FooterLogo = FileManager.Save(_env.WebRootPath, "uploads/setting", setting.FooterLogoFile); ;
+            }
+            if (setting.ReclamFile1 != null)
+            {
+                if (setting.ReclamFile1.ContentType != "image/jpeg" && setting.ReclamFile1.ContentType != "image/png")
+                {
+                    ModelState.AddModelError("ReclamFile1", "Şəkilin formatı düzgün deyil !");
+                    return View();
+                }
+                if (setting.ReclamFile1.Length > 2097152)
+                {
+                    ModelState.AddModelError("ReclamFile1", "Şəkilin ölçüsü böyükdür (max:2mb)");
+                    return View();
+                }
+                FileManager.Delete(_env.WebRootPath, "uploads/setting", oldSetting.Reclam1);
+                oldSetting.Reclam1 = FileManager.Save(_env.WebRootPath, "uploads/setting", setting.ReclamFile1); ;
+            }
+            if (setting.ReclamFile2 != null)
+            {
+                if (setting.ReclamFile2.ContentType != "image/jpeg" && setting.ReclamFile2.ContentType != "image/png")
+                {
+                    ModelState.AddModelError("ReclamFile2", "Şəkilin formatı düzgün deyil !");
+                    return View();
+                }
+                if (setting.ReclamFile2.Length > 2097152)
+                {
+                    ModelState.AddModelError("ReclamFile2", "Şəkilin ölçüsü böyükdür (max:2mb)");
+                    return View();
+                }
+                FileManager.Delete(_env.WebRootPath, "uploads/setting", oldSetting.Reclam2);
+                oldSetting.Reclam2 = FileManager.Save(_env.WebRootPath, "uploads/setting", setting.ReclamFile2); ;
             }
             oldSetting.FacebookIcon = setting.FacebookIcon;
             oldSetting.FacebookUrl = setting.FacebookUrl;

@@ -1,6 +1,14 @@
 ﻿@model List<Product>
 @{
-    ViewData["Title"] = "assasa";
+    if(Model!=null &&Model.Count>0)
+    {
+        string name = Model.First().SubCategory.Name;
+        ViewData["Title"] = name;
+    }
+            else
+            {
+                ViewData["Title"] = "Nəticə tapılmadı";
+            }
 }
 
 <main>
@@ -39,40 +47,15 @@
                                         <i id="qiymet-icon" class="fa-solid fa-caret-up"></i>
                                     </div>
                                     <div class="qiymet-range">
-                                        <div class="h-screen flex justify-center items-center">
-                                            <div x-data="range()" x-init="mintrigger(); maxtrigger()" class="relative w-full">
-                                                <div>
-                                                    <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="mintrigger" x-model="minprice" class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
 
-                                                    <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger" x-model="maxprice" class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
-
-                                                    <div class="relative z-10 h-2 w-90">
-
-                                                        <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-red-600"></div>
-
-                                                        <div class="absolute z-20 h-1 top-0 bottom-0 rounded-md bg-red-600" x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
-
-                                                        <div class="absolute z-30 w-4 h-4 top-0 left-0 bg-red-600 rounded-full -mt-1" x-bind:style="'left: '+minthumb+'%'"></div>
-
-                                                        <div class="absolute z-30 w-4 h-4 top-0 right-0 bg-red-600 rounded-full -mt-1" x-bind:style="'right: '+maxthumb+'%'"></div>
-
-                                                    </div>
-
+                                        <div style="width:100%" class="single-block">
+                                            <div class="range-slider pt--10">
+                                                <div  class="sb-range-slider"></div>
+                                                <div class="slider-price">
+                                                    <p>
+                                                        <input  type="text" id="amount" readonly="" />
+                                                    </p>
                                                 </div>
-
-                                                <div class="flex items-center justify-between pt-3  space-x-4 text-sm text-gray-700">
-                                                    <div>
-                                                        <input type="text" maxlength="5" x-on:input.debounce="mintrigger" x-model="minprice"
-                                                               wire:model.debounce.300="minPrice"
-                                                               class="w-20 px-3  text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
-                                                    </div>
-                                                    <div>
-                                                        <input type="text" maxlength="5" x-on:input.debounce.300="maxtrigger" x-model="maxprice"
-                                                               wire:model.debounce="maxPrice"
-                                                               class="w-20 px-3  text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
-                                                    </div>
-                                                </div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -83,12 +66,27 @@
                     <div class="col-xl-10 col-lg-9 col-md-12 col-sm-12 col-12">
                         <div class="mehsul-sekil">
                             <img src="https://madeyra.com/image/cache/catalog/catagory%20foto/yataq-1920x400.webp" alt="">
-                            <h5>@Model.First().SubCategory.Category.Name</h5>
+                            @if (Model != null &&Model.Count>0)
+                            {
+                                <h5>@Model.First().SubCategory.Category.Name</h5>
+                            }
                         </div>
                         <div class="siyahi-top">
-                            <a asp-action="index" asp-controller="home"><i class="fa-solid fa-house-chimney"></i></a></i> <i class="fa-solid fa-angle-right"></i> <a ><span>@Model.First().SubCategory.Category.Name</span></a> <i class="fa-solid fa-angle-right"></i> <a href="">
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                @Model.First().SubCategory.Name
+                            }
+                          
+                            
+                            <a asp-action="index" asp-controller="home"><i class="fa-solid fa-house-chimney"></i></a></i> <i class="fa-solid fa-angle-right"></i> <a> <span>@if (Model.Count > 0 && Model != null)
+                            {@Model.First().SubCategory.Category.Name}
+                            else {<span>Nəticə tapılmadı</span>}</span></a> <i class="fa-solid fa-angle-right"></i> <a href="">
                                 <span>
-                                    @Model.First().SubCategory.Name
+                                    @if (Model != null && Model.Count > 0)
+                                    {
+                                        @Model.First().SubCategory.Name
+                                    }
+
                                 </span>
                             </a>
                         </div>
@@ -274,4 +272,33 @@
 
 
    </script>
+<script src="~/plugins/range/plugins.js"></script>
+<script>
+                    $(function () {
+                        $(".sb-range-slider").slider({
+                            range: true,
+                            min: @ViewBag.Min,
+                            max: @ViewBag.Max,
+                            values: [@ViewBag.SelectMin, @ViewBag.SelectMax],
+                            slide: function (event, ui) {
+                                $("#amount").val("₼" + ui.values[0] + " -₼" + ui.values[1]);
+                            },
+                            
+                            change: function (event, ui) {
+                                console.log(ui.values[0] + ' - ' + ui.values[1])
+
+                                let url = new URL(window.location.href);
+                                let params = new URLSearchParams(url.search);
+
+                                params.set("min", ui.values[0]);
+                                params.set("max", ui.values[1]);
+                                url.search = params;
+
+                                window.location = url.href;
+                            }
+                        });
+                        $("#amount").val("₼" + $(".sb-range-slider").slider("values", 0) +
+                            " - ₼" + $(".sb-range-slider").slider("values", 1));
+                    });
+</script>
 }

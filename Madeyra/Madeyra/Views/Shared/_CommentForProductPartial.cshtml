@@ -1,0 +1,24 @@
+﻿@model ProductComment
+
+    <div class="row">
+       
+    </div>
+    <div class="row">
+        <form method="post" id="add-comment" asp-action="comment">
+
+                <div class="mb-3">
+                    <label asp-for="@Model.AppUser.Name" class="form-label">Adınız</label>
+                    <input type="text" asp-for="@Model.AppUser.Name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.AppUser.Surname" class="form-label">Soy Adınız</label>
+                    <input type="text" asp-for="@Model.AppUser.Surname" class="form-control">
+                </div>
+            
+            <div class="form-floating">
+                <textarea asp-for="Text" class="form-control" placeholder="Şərhiniz" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Şərh</label>
+            </div>
+            <button style="margin-top: 1rem;margin-bottom: 0.9rem;background-color: #df2027;color: white;" type="submit" class="btn">Davam Et</button>
+        </form>
+    </div>

@@ -27,7 +27,7 @@
                         <h4>@item.ProductName</h4>
                         <div class="price">
                             <p class="item-count">@item.Count</p>
-                            <p class="item-price">@item.Price.ToString("#.##")₼</p>
+                            <p class="item-price">@((item.Price*(1-(item.Discount/100))).ToString("#.##"))₼</p>
                         </div>
                     </div>
                     <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
@@ -59,11 +59,11 @@
                         @{decimal total = 0; }
                         @foreach (var item in Model)
                         {
-                            total += item.Price * item.Count;
+                            total += (item.Price * (1 - (item.Discount / 100))) * item.Count;
                         }
                         <h6>
 
-                            @total.ToString("0") ₼
+                            @total.ToString("0.00") ₼
                         </h6>
                     </div>
                     <div class="sebet-button">

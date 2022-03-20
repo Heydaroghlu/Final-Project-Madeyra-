@@ -21,16 +21,27 @@ namespace Madeyra.Controllers
             _userManager = userManager;
             _context = context;
         }
-        public IActionResult Index(int id)
+        public IActionResult Index(int id,decimal? min=null,decimal? max=null)
         {
-           
-            return View(_context.Products
-                .Include(x=>x.ProductImages)
-                .Include(x=>x.Design)
-                .Include(x=>x.ProductMatreals).ThenInclude(x=>x.Matreal)
+            var products = _context.Products
+                .Include(x => x.ProductImages)
+                .Include(x => x.Design)
+                .Include(x => x.ProductMatreals).ThenInclude(x => x.Matreal)
                 .Include(x => x.ProductColors).ThenInclude(x => x.Color)
-                .Include(x=>x.SubCategory).ThenInclude(x=>x.Category)
-                .Where(x=>x.SubCategoryId==id).ToList());
+                .Include(x => x.SubCategory).ThenInclude(x => x.Category)
+                .Where(x => x.SubCategoryId == id).AsQueryable();
+            if(products!=null && products.Count()>0)
+            {
+                ViewBag.Min = (int)products.Min(x => x.SalePrice);
+                ViewBag.Max = (int)products.Max(x => x.SalePrice);
+            }
+            if(min!=null && max!=null)
+            {
+                products = products.Where(x => x.SalePrice >= min && x.SalePrice <= max);
+            }
+            ViewBag.SelectMin = min ?? ViewBag.Min;
+            ViewBag.SelectMax = max ?? ViewBag.Max;
+            return View(products.ToList());
         }
         public IActionResult Detail(int id)
         {
@@ -38,22 +49,32 @@ namespace Madeyra.Controllers
                 .Include(x=>x.ProductImages)
                 .Include(x=>x.Design)
                 .Include(x => x.ProductMatreals).ThenInclude(x=>x.Matreal)
+                .Include(x=>x.ProductComments)
                 .FirstOrDefault(x => x.Id == id);
 /*            List<Product> NewProducts=_context.Products.ToList().FirstOrDefault(x=>x.IsNew)
 */            if(product==null)
             {
                 return RedirectToAction("index", "error");
             }
+            AppUser user = null;
+            if(User.Identity.IsAuthenticated)
+            {
+                user = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin==false);
+            }
+             
             ProductDetailViewModel productDetail = new ProductDetailViewModel
             {
                 Product = product,
-                NewProducts = _context.Products
+                News = _context.Products
                 .Include(x => x.ProductImages)
                 .Include(x => x.Design)
                 .Include(x => x.ProductMatreals).ThenInclude(x => x.Matreal)
                 .Include(x => x.ProductColors).ThenInclude(x => x.Color)
                 .Include(x => x.SubCategory).ThenInclude(x => x.Category)
-                .ToList()
+                .ToList(),
+                ProductComment=new ProductComment
+                {AppUser=user },
+                EndOrders = _context.Orders.Include(x => x.OrderItems).ThenInclude(x => x.Product).OrderByDescending(x => x.Id).Take(5).Where(x => x.Status == Enums.OrderStatus.Qəbul).ToList()
 
             };
             return View(productDetail);
@@ -103,7 +124,10 @@ namespace Madeyra.Controllers
             }
             var ProductSr = HttpContext.Request.Cookies["Product"];
             List<WishListViewModel> wishList = new List<WishListViewModel>();
-            wishList = JsonConvert.DeserializeObject<List<WishListViewModel>>(ProductSr);
+            if(ProductSr!=null)
+            {
+                wishList = JsonConvert.DeserializeObject<List<WishListViewModel>>(ProductSr);
+            }
             return View(wishList);
         }   
         public  IActionResult DeleteWish(int id)
@@ -276,7 +300,84 @@ namespace Madeyra.Controllers
                 }
 
             }
+            else
+            {
+                List<BasketViewModel> products = new List<BasketViewModel>();
+                string ProductStr = HttpContext.Request.Cookies["Basket"];
+                products = JsonConvert.DeserializeObject<List<BasketViewModel>>(ProductStr);
+                products.RemoveAll(x => x.Price > 0);
+                ProductStr = JsonConvert.SerializeObject(products);
+                HttpContext.Response.Cookies.Append("Basket", ProductStr);
+            }
+
             return RedirectToAction("basket","order");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Comment(ProductComment comment)
+        {
+            if(comment.Name==null || comment.SurName==null || comment.Text==null)
+            {
+                TempData["Sifarisnull"] = "Şərh məlumatları düzgün deyil";
+                return RedirectToAction("Detail",new { id=comment.ProductId});
+            }
+            Product product = _context.Products.Include(x => x.ProductImages)
+                .Include(x => x.ProductColors)
+                .Include(x => x.ProductMatreals)
+                .FirstOrDefault(x => x.Id == comment.ProductId && !x.IsDeleted);
+            if (product == null)
+            {
+                return View("index", "error");
+            }
+
+            ProductDetailViewModel detailView = new ProductDetailViewModel
+            {
+                Product = product,
+                ProductComment = comment,
+                News = _context.Products.Include(x => x.ProductImages)
+                .Include(x => x.ProductColors)
+                .Include(x => x.ProductMatreals).Where(x => x.SubCategoryId == product.SubCategoryId).ToList()
+/*                EndOrderd = _context.Products.Where(x => x.Id == _context.Orders.Last().OrderItems.First().ProductId).ToList()
+*/            };
+            if(!ModelState.IsValid)
+            {
+                TempData["CommentError"] = "Comment gonderilmedi";
+                return View("detail", detailView);
+            }
+            if (!_context.Products.Any(x => x.Id == comment.ProductId))
+            {
+                TempData["CommentError"] = "Bele bir Mehsul yoxdur";
+                return View("Detail", detailView);
+            }
+            if (!User.Identity.IsAuthenticated)
+            {
+                if (string.IsNullOrWhiteSpace(comment.Name))
+                {
+                    TempData["error"] = "Email is required";
+                    return View("Detail", detailView);
+                }
+
+                if (string.IsNullOrWhiteSpace(comment.SurName))
+                {
+                    TempData["error"] = "FullName is required";
+                    return View("Detail", detailView);
+                }
+            }
+            else
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                comment.AppUserId = user.Id;
+                comment.AppUser = user;
+                comment.Name = user.Name;
+                comment.SurName = user.Surname;
+            }
+            comment.Status = false;
+            comment.SendTime = DateTime.UtcNow.AddHours(4);
+            _context.ProductComments.Add(comment);
+            _context.SaveChanges();
+
+            TempData["Success"] = "Şərhiniz göndərilid";
+
+            return RedirectToAction("detail",new {Id=product.Id });
         }
 
 

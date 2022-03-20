@@ -40,6 +40,13 @@ namespace Madeyra.Models
         public string Email { get; set; }
         [StringLength(maximumLength: 70)]
         public string Faks { get; set; }
+        public string Reclam1 { get; set; }
+        public string Reclam2 { get; set; }
+        [NotMapped]
+        public IFormFile ReclamFile1 { get; set; }
+        [NotMapped]
+        public IFormFile ReclamFile2 { get; set; }
+
         [NotMapped]
         public IFormFile HeaderLogoFile { get; set; }
         [NotMapped]

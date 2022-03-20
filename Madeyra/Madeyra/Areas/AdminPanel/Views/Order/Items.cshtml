@@ -8,9 +8,12 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Ad Soyad</th>
+                <th scope="col">Sifariş Vaxtı</th>
+                <th scope="col">Telefon</th>
+                <th scope="col">Sifariş Statusu</th>
+                <th scope="col">Çatdırılma Statusu</th>
+
             </tr>
         </thead>
         <tbody>
@@ -22,21 +25,45 @@
                 <td>@Model.Status</td>
                 @if (Model.Status == Madeyra.Enums.OrderStatus.Gözləmədə)
                 {
+                    <td>
+                        <button type="submit" class="btn btn-outline-success reject-btn" style="pointer-events:none">Anbarda</button>
+                    </td>
                     <td><a class="btn btn-success" asp-action="Accept" asp-controller="order" asp-route-id="@Model.Id">Qəbul</a></td>
                     <td><a class="btn btn-danger" asp-action="reject" asp-controller="order" asp-route-id="@Model.Id">İmtina</a></td>
 
                 }
                 @if (Model.Status == Madeyra.Enums.OrderStatus.İmtina)
                 {
+                    <td>
+                        <button type="submit" class="btn btn-outline-success reject-btn" style="pointer-events:none">Anbarda</button>
+                    </td>
                     <td><a class="btn btn-warning" asp-action="Waiting" asp-controller="order" asp-route-id="@Model.Id">Gözləmədə</a></td>
                     <td><a class="btn btn-success" asp-action="Accept" asp-controller="order" asp-route-id="@Model.Id">Qəbul</a></td>
 
                 }
                 @if (Model.Status == Madeyra.Enums.OrderStatus.Qəbul)
                 {
-                    <td><a class="btn btn-warning" asp-action="Waiting" asp-controller="order" asp-route-id="@Model.Id">Gözləmədə</a></td>
-                    <td><a class="btn btn-danger" asp-action="reject" asp-controller="order" asp-route-id="@Model.Id">İmtina</a></td>
-
+                    if (Model.DeliveryStatus == Madeyra.Enums.OrderDeliveryStatus.Anbarda)
+                    {
+                        <td>
+                            <button type="submit" class="btn btn-outline-success reject-btn" style="pointer-events:none">Anbarda</button>
+                        </td>
+                        <td><a class="btn btn-warning" asp-action="Curier" asp-controller="order" asp-route-id="@Model.Id">Kuryerde</a></td>
+                        <td><a class="btn btn-success" asp-action="finish" asp-controller="order" asp-route-id="@Model.Id">Çatdırıldı</a></td>
+                    }
+                    if (Model.DeliveryStatus == Madeyra.Enums.OrderDeliveryStatus.Kuryerde)
+                    {
+                        <td>
+                            <button type="submit" class="btn btn-outline-success reject-btn" style="pointer-events:none">Kuryerde</button>
+                        </td>
+                        <td><a class="btn btn-success" asp-action="finish" asp-controller="order" asp-route-id="@Model.Id">Çatdırıldı</a></td>
+                    }
+                    if (Model.DeliveryStatus == Madeyra.Enums.OrderDeliveryStatus.Catdirildi)
+                    {
+                        <td>
+                            <button type="submit" class="btn btn-outline-success reject-btn" style="pointer-events:none">Çatdırıldı</button>
+                        </td>
+                    }
                 }
 
             </tr>
@@ -88,7 +115,7 @@
 
                         decimal total = (item.SalePrice - (item.SalePrice * item.DiscountPercent) / 100) * item.Count;
 
-                        <p><img style="width:150px" src="~/uploads/product/@item.Product.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /> <strong>Məhsulun Adı:</strong>@item.ProdName <strong>Cəmi:</strong> @total.ToString("#.##") <strong>Sayı:</strong> @item.Count <strong>Status:</strong>@Model.Status</p>
+                        <p><img style="width:150px" src="~/uploads/product/@item.Product.ProductImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" /> <strong>Məhsulun Adı:</strong>@item.ProdName <strong>Cəmi:</strong> @total.ToString("#.##") <strong>Sayı:</strong> @item.Count <strong>Status:</strong>@Model.Status @if (Model.Status == Madeyra.Enums.OrderStatus.Gözləmədə) {<a class="btn btn-danger" asp-action="OrderItemDelete" asp-route-id="@Model.Id" asp-route-id2="@item.Id">Sil</a> } </p>
                     }
                 </div>
             </div>

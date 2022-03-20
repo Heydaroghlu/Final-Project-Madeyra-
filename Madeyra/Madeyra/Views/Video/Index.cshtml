@@ -14,8 +14,8 @@
                         <div class="row">
                             @foreach (var item in Model)
                             {
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    @item.VideoUrl
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 pl-4 pr-4">
+                                    @Html.Raw(item.VideoUrl)
                                 </div>
                             }
 

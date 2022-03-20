@@ -1,5 +1,6 @@
 ﻿using Madeyra.Helpers;
 using Madeyra.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using X.PagedList;
 namespace Madeyra.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
+    [Authorize(Roles ="Admin,SuperAdmin")]
     public class ProductController : Controller
     {
         MContext _context;

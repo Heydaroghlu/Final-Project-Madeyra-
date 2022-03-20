@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Katagoriya";
 
-    int count = 0;
+    int count = Model.FirstItemOnPage-1;
 }
 @model IPagedList<Category>
 <div class="container">

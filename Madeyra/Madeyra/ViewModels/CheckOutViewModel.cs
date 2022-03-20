@@ -11,6 +11,7 @@ namespace Madeyra.ViewModels
         public string ProductName { get; set; }
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
+        public decimal CostPrice { get; set; }
         public int Count { get; set; }
         public string Image { get; set; }
         public string Category { get; set; }

@@ -91,3 +91,41 @@ input2.onchange = function (e) {
         }
     })
 }
+let input3 = document.getElementById("update-input3")
+let div3 = document.getElementById("img-div3")
+input3.onchange = function (e) {
+    let files = e.target.files
+    let filesarr = [...files]
+    filesarr.forEach(x => {
+        if (x.type.startsWith("image/")) {
+            let reader = new FileReader()
+            reader.onload = function () {
+                div3.innerHTML = ""
+                let newimg = document.createElement("img")
+                newimg.style.width = "150px"
+                newimg.setAttribute("src", reader.result)
+                div3.appendChild(newimg)
+            }
+            reader.readAsDataURL(x)
+        }
+    })
+}
+let input4 = document.getElementById("update-input4")
+let div4 = document.getElementById("img-div4")
+input4.onchange = function (e) {
+    let files = e.target.files
+    let filesarr = [...files]
+    filesarr.forEach(x => {
+        if (x.type.startsWith("image/")) {
+            let reader = new FileReader()
+            reader.onload = function () {
+                div4.innerHTML = ""
+                let newimg = document.createElement("img")
+                newimg.style.width = "150px"
+                newimg.setAttribute("src", reader.result)
+                div4.appendChild(newimg)
+            }
+            reader.readAsDataURL(x)
+        }
+    })
+}

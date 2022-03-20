@@ -22,7 +22,7 @@
                 <td>@item.Email</td>
                 <td>@item.Tel</td>
                 <td>@item.Adress</td>
-                <td><a asp-action="update" class="btn btn-success">Redaktə et</a> </td>
+                <td><a asp-action="update" asp-route-id="@item.Id" class="btn btn-success">Redaktə et</a> </td>
             </tr>
             }
 

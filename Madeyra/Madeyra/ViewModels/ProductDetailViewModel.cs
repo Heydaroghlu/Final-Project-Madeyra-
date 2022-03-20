@@ -9,6 +9,9 @@ namespace Madeyra.ViewModels
     public class ProductDetailViewModel
     {
         public Product Product { get; set; }
-        public List<Product> NewProducts { get; set; }
+        public List<Product> News { get; set; }
+        public ProductComment ProductComment { get; set; }
+        public AppUser User { get; set; }
+        public List<Order> EndOrders { get; set; }
     }
 }

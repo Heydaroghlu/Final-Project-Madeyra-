@@ -2,7 +2,7 @@
 @using X.PagedList
 @{
     ViewData["Title"] = "SubKatagoriya";
-    int count = 0;
+    int count = Model.FirstItemOnPage-1;
 }
 @model IPagedList<SubCategory>
 <div class="container">

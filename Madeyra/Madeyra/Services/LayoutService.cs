@@ -69,6 +69,15 @@ namespace Madeyra.Services
             }
             return baskets;
         }
+        public List<ProductComment> Comments()
+        {
+            return _context.ProductComments.Where(x=>x.Status==false).ToList();
+        }
+        public List<Product> GetProducts()
+        {
+            return _context.Products.Include(x => x.ProductImages).Take(0).ToList();
+        }
+       
 
     }
 }

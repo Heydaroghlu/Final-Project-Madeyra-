@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Yeni Video";
+}
+@model Video
+<div class="container">
+    <h1>Yeni Video</h1>
+    <form method="post">
+        <div class="mb-3">
+            <input asp-for="VideoUrl" class="form-control" placeholder="Link">
+            <span class="text-danger" asp-validation-for="VideoUrl"></span>
+        </div>
+       
+        <button type="submit" class="btn btn-warning">Yarat</button>
+    </form>
+</div>
+

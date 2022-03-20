@@ -19,6 +19,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\uploads\card\" />
+    <Folder Include="wwwroot\uploads\campagain\" />
+    <Folder Include="wwwroot\uploads\slider\" />
     <Folder Include="wwwroot\uploads\product\" />
     <Folder Include="wwwroot\uploads\setting\" />
   </ItemGroup>

@@ -2,78 +2,38 @@
 @{
     ViewData["Title"] = "Kampaniyalar";
 }
-
+@model List<Campagain>
     <main>
         <section>
             <div class="kampaniyalar">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="kampaniya">
-                                <div class="kampaniya-img">
-                                    <img src="https://madeyra.com/image/cache/catalog/Cover%20-%20Banner/24ayfaizsiz/24%20ay%20fb%20cover%20-%20yeni-908x511.webp" alt="">
-                                    <div class="kampaniya-time">
-                                        <span>02:gun:16 saat</span>
-                                    </div>
-                                </div>
-                                <div class="kampaniya-name">
-                                    <p>24 AY FAIZSSIZ</p>
-                                </div>
-                            </div>
-                        </div>
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="kampaniya">
+                                    <div class="kampaniya-img">
+                                        <img src="~/uploads/campagain/@item.Image" alt="">
+                                        <div class="kampaniya-time">
+                                            <span>
+                                                @if (item.StartTime.Hour < item.EndTime.Hour)
+                                                {
+                                                    @((item.EndTime.Day-item.StartTime.Day).ToString())<span>gün</span> @((item.EndTime.Hour - item.StartTime.Hour)) <span>saat</span> 
+                                                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @((item.EndTime.Day-item.StartTime.Day-1).ToString())<span>gün</span> @((item.EndTime.Hour - item.StartTime.Hour)*(-1)) <span>saat</span>
 
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="kampaniya">
-                                <div class="kampaniya-img">
-                                    <img src="https://madeyra.com/image/cache/catalog/Cover%20-%20Banner/Kampaniya/site_cover-500x260.webp" alt="">
-                                    <div class="kampaniya-time">
-                                        <span>02:gun:16 saat</span>
+                                                                                                                        }
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="kampaniya-name">
+                                        <p>@item.Title</p>
                                     </div>
                                 </div>
-                                <div class="kampaniya-name">
-                                    <p>24 AY FAIZSSIZ</p>
-                                </div>
                             </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="kampaniya kampaniya-bitib">
-                                <div class="kampaniya-img">
-                                    <img src="https://madeyra.com/image/cache/catalog/Banner%20foto/Kampaniya%20cover/SAYT_1_RES%C4%B0ZE-500x260.webp" alt="">
-                                    <div class="kampaniya-time">
-                                        <span>02:gun:16 saat</span>
-                                    </div>
-                                </div>
-                                <div class="kampaniya-name">
-                                    <p>24 AY FAIZSSIZ</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="kampaniya kampaniya-bitib">
-                                <div class="kampaniya-img">
-                                    <img src="https://madeyra.com/image/cache/catalog/Cover%20-%20Banner/Kampaniya/yukje-500x260.webp" alt="">
-                                    <div class="kampaniya-time">
-                                        <span>02:gun:16 saat</span>
-                                    </div>
-                                </div>
-                                <div class="kampaniya-name">
-                                    <p>24 AY FAIZSSIZ</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="kampaniya kampaniya-bitib">
-                                <div class="kampaniya-img">
-                                    <img src="https://madeyra.com/image/cache/catalog/Cover%20-%20Banner/Axsam%20kampaniyasi2/sayt_1_resize%20ax%C5%9Fam-500x260.webp" alt="">
-                                    <div class="kampaniya-time">
-                                        <span>02:gun:16 saat</span>
-                                    </div>
-                                </div>
-                                <div class="kampaniya-name">
-                                    <p>24 AY FAIZSSIZ</p>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>

@@ -27,6 +27,7 @@ namespace Madeyra.Models
       
         public string Size { get; set; }
         public int Count { get; set; }
+        public int SoldOut { get; set; }
         public int SubCategoryId { get; set; }
         public List<ProductColor> ProductColors { get; set; }
         public List<ProductMatreal> ProductMatreals { get; set; }
@@ -44,6 +45,7 @@ namespace Madeyra.Models
         public Design Design { get; set; }
         public SubCategory SubCategory { get; set; }
         public List<OrderItem> OrderItems { get; set; }
+        public List<ProductComment> ProductComments { get; set; }
 
 
     }
