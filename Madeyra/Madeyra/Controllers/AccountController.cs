@@ -88,12 +88,18 @@ namespace Madeyra.Controllers
             {
                 return View();
             }
+            if (memberLogin.Password == null || memberLogin.Email == null)
+            {
+                ModelState.AddModelError("", "Ad və ya Şifrə yanlışdır");
+                return View();
+            }
             AppUser member =  _userManager.Users.FirstOrDefault(x => x.NormalizedEmail == memberLogin.Email.ToUpper() && x.IsAdmin==false);
             if(member==null)
             {
                 ModelState.AddModelError("", "Ad və ya Şifrə yanlışdır");
                 return View();
             }
+            
             var result = await _signInManager.PasswordSignInAsync(member, memberLogin.Password, memberLogin.IsPersistent, false);
             if(!result.Succeeded)
             {
@@ -264,11 +270,16 @@ namespace Madeyra.Controllers
             {
                 return View("ResetPassword",resetPassword);
             }
+            if(resetPassword.Password==null || resetPassword.ConfirmPassword==null)
+            {
+                ModelState.AddModelError("", "Hər iki xana düzgün doldurulmalıdır!");
+                return View("ResetPassword", resetPassword);
+            }
             AppUser user = await _userManager.Users.FirstOrDefaultAsync(x => x.NormalizedEmail == resetPassword.Email.ToUpper());
             if (user == null)
             {
-                ModelState.AddModelError("Email", "Bele bir istifadeci yoxdur!!!");
-                return View();
+                ModelState.AddModelError("Email", "Bele bir istifadeci yoxdur!");
+                return View("ResetPassword", resetPassword);
             }
             var result = await _userManager.ResetPasswordAsync(user,resetPassword.Token, resetPassword.Password);
             if (!result.Succeeded)
