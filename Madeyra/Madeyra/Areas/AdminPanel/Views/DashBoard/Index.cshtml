@@ -115,7 +115,7 @@
                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                      aria-labelledby="messagesDropdown">
                     <h6 class="dropdown-header">
-                        Message Center
+                      Şərhlər
                     </h6>
                     @foreach (var item in Model.ProductComments)
                     {
@@ -127,9 +127,9 @@
                             </div>
                             <div class="font-weight-bold">
                                 <div class="text-truncate">
-                                    @item.Text
+                                    @item.Name @item.SurName · @item.SendTime.ToString("dd:mm")
                                 </div>
-                                <div class="small text-gray-500">@item.Name @item.SurName · @item.SendTime.ToString("dd:mm")</div>
+                                <div class="small text-gray-500">@item.Text</div>
                             </div>
                         </a>
                     }
@@ -194,7 +194,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Earnings (Monthly)
+                                    Qazanc (aylıq)
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">@monthly.ToString("#.##")₼</div>
                             </div>
@@ -212,8 +212,8 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Earnings (Annual)
+                                <div class="text-xs font-weight-bold text-success  mb-1">
+                                   QAZANC (İLLİK)
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">$@yearly.ToString("#.##")</div>
                             </div>
@@ -231,8 +231,8 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                    Tasks
+                                <div class="text-xs font-weight-bold text-info  mb-1">
+                                    SİFARİŞLƏR
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
@@ -262,7 +262,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    <a style="text-decoration:none;color:rebeccapurple" asp-action="index" asp-controller="comment">Pending Requests</a>
+                                    <a style="text-decoration:none;color:rebeccapurple" asp-action="index" asp-controller="comment">Şərhlər</a>
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.ProductComments.Count()</div>
                             </div>
@@ -307,7 +307,7 @@
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
-                url: '@Url.Action("VisualizeProductResult", "Dashboard")',
+                url: '@Url.Action("Jesonforchart", "Dashboard")',
                 success: function (result) {
                     google.charts.load('current', {
                         'packages': ['corechart']
@@ -328,7 +328,6 @@
             });
             data.addRows(dataArray);
             var columnChartOptions = {
-                title: "Revenue Sources",
                 width: 850,
                 height: 400,
                 bar: { groupWidth: "20%" },

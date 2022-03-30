@@ -100,34 +100,7 @@
 
                                 }
                                 <a class="btn"><i class="fa-solid fa-phone-volume"></i>Sizə Zəng edək?</a>
-                            </div>
-                            <div class="mehsul-kredit">
-                                <div class="row">
-                                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
-                                        <form class="payment-calculator" id="calculator">
-                                            <div class="form-range">
-                                                <input class="js-range-slider" type="range" id="financing-term"
-                                                       min="6" max="24" value="6" step="6" data-disable="false"
-                                                       readonly>
-                                            </div>
-                                            <div class="form-results">
-                                                <p id="estimate"></p>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
-                                        <div class="kredit-ayliq">
-                                            <div class="row">
-                                                <span>Aylıq ödəniş</span>
-                                            </div>
-                                            <div class="row">
-                                                <h4 id="ayliq">@((Model.Product.SalePrice*(1-(Model.Product.DiscountPrice/100))).ToString("#.##"))AZN</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
 
                         </div>
                     </div>
@@ -148,18 +121,20 @@
                 </div>
                 <div class="aciqlama-text">
                     <p>
-                        <h6>Rəng</h6>: @foreach (var item in Model.Product.ProductColors)
+                        <h6>Rəng</h6>: 
+                        @for(int i=0;i<Model.Product.ProductColors.Count;i++)
                         {
-                            @item.Color.Name
+                            @Model.Product.ProductColors[i].Color.Name if(i != Model.Product.ProductColors.Count-1) {<span>,</span> }
                         }
                     </p>
                 </div>
                 <div class="aciqlama-text">
                     <p>
                         <h6>Material</h6>:
-                        @foreach (var item in Model.Product.ProductMatreals)
+                        @for (int i = 0; i < Model.Product.ProductMatreals.Count; i++)
                         {
-                            @item.Matreal.Name
+                            @Model.Product.ProductMatreals[i].Matreal.Name if (i != Model.Product.ProductMatreals.Count - 1)
+                            {<span>,</span>}
                         }
                     </p>
                 </div>
@@ -343,7 +318,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-
+                                               
                                                 <div class="kompaniya">
                                                     <img src="https://madeyra.com/catalog/view/theme/madeyra/images/icons/pay-later.png.pagespeed.ce._ncBfaI94O.png"
                                                          alt="">

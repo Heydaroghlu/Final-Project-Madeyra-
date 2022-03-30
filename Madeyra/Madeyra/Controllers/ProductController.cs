@@ -303,11 +303,16 @@ namespace Madeyra.Controllers
             else
             {
                 List<BasketViewModel> products = new List<BasketViewModel>();
-                string ProductStr = HttpContext.Request.Cookies["Basket"];
-                products = JsonConvert.DeserializeObject<List<BasketViewModel>>(ProductStr);
-                products.RemoveAll(x => x.Price > 0);
-                ProductStr = JsonConvert.SerializeObject(products);
-                HttpContext.Response.Cookies.Append("Basket", ProductStr);
+                if(HttpContext.Request.Cookies["Basket"]!=null)
+                {
+                    string ProductStr = HttpContext.Request.Cookies["Basket"];
+                    products = JsonConvert.DeserializeObject<List<BasketViewModel>>(ProductStr);
+
+                    products.RemoveAll(x => x.Price > 0);
+                    ProductStr = JsonConvert.SerializeObject(products);
+                    HttpContext.Response.Cookies.Append("Basket", ProductStr);
+                }
+        
             }
 
             return RedirectToAction("basket","order");

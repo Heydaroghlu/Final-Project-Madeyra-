@@ -34,12 +34,12 @@ namespace Madeyra.Areas.AdminPanel.Controllers
 
             return View(dashboardVM);
         }
-        public JsonResult VisualizeProductResult()
+        public JsonResult Jesonforchart()
         {
-            return Json(ChartProducts());
+            return Json(Chart());
         }
 
-        public List<ChartViewModel> ChartProducts()
+        public List<ChartViewModel> Chart()
         {
             List<ChartViewModel> salesStatistics = new List<ChartViewModel>();
             List<Product> products = _context.Products.OrderByDescending(x => x.SoldOut * (x.DiscountPrice > 0 ? x.SalePrice * (1 - x.DiscountPrice / 100) : x.SalePrice)).ToList();
@@ -48,7 +48,7 @@ namespace Madeyra.Areas.AdminPanel.Controllers
                 ChartViewModel salesStatisticsItem = new ChartViewModel
                 {
                     Name = item.Name,
-                    TotalAmount = (item.SoldOut * (item.DiscountPrice > 0 ? item.SalePrice * (1 - item.DiscountPrice / 100) : item.SalePrice))
+                    TotalAmount = (item.SoldOut * (item.DiscountPrice > 0 ?item.SalePrice * (1 - item.DiscountPrice / 100) -item.CostPrice: item.SalePrice-item.CostPrice))
                 };
                 salesStatistics.Add(salesStatisticsItem);
             }

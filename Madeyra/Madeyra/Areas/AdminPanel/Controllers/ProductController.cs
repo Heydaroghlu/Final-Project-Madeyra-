@@ -58,10 +58,10 @@ namespace Madeyra.Areas.AdminPanel.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            ViewBag.SubCategory = _context.SubCategories.ToList().Where(x => x.IsDeleted == false); ;
-            ViewBag.ColorIds = _context.Colors.ToList().Where(x => x.IsDeleted == false); ;
-            ViewBag.DesignId = _context.Designs.ToList().Where(x => x.IsDeleted == false);
-            ViewBag.MatrealId = _context.Matreals.ToList().Where(x => x.IsDeleted == false);
+            ViewBag.SubCategory = _context.SubCategories.Where(x => x.IsDeleted == false).ToList();
+            ViewBag.ColorIds = _context.Colors.Where(x => x.IsDeleted == false).ToList();
+            ViewBag.DesignId = _context.Designs.Where(x => x.IsDeleted == false).ToList();
+            ViewBag.MatrealId = _context.Matreals.Where(x => x.IsDeleted == false).ToList();
             if (!ModelState.IsValid)
             {
                 return View();
@@ -195,10 +195,10 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             {
                 return RedirectToAction("index", "error");
             }
-            ViewBag.SubCategory = _context.SubCategories.ToList();
-            ViewBag.ColorIds = _context.Colors.ToList();
-            ViewBag.DesignId = _context.Designs.ToList();
-            ViewBag.MatrealId = _context.Matreals.ToList();
+            ViewBag.SubCategory = _context.SubCategories.Where(x => x.IsDeleted == false).ToList();
+            ViewBag.ColorIds = _context.Colors.Where(x=>x.IsDeleted==false).ToList();
+            ViewBag.DesignId = _context.Designs.Where(x => x.IsDeleted == false).ToList();
+            ViewBag.MatrealId = _context.Matreals.Where(x => x.IsDeleted == false).ToList();
             product.MatrealIds = product.ProductMatreals.Select(x => x.MatrealId).ToList();
             product.ColorIds = product.ProductColors.Select(x => x.ColorId).ToList();
 

@@ -6,7 +6,7 @@
     
 }
 @model IPagedList<Product>
-<div class="container">
+<div class="container" style="overflow-x:scroll">
     <h1 style="margin-top:1rem">Məhsullar</h1>
     <a style="margin-bottom:1rem" class="btn btn-warning" asp-action="create">Yeni Mehsul</a>
     <div class="col-lg-12">
@@ -30,17 +30,17 @@
             
         </form>
     </div>
-    <table class="table">
+    <table class="table" >
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Kateqoriya Adı</th>
-                <th scope="col">Şəkli</th>
-                <th scope="col">Adı</th>
-                <th scope="col">Qiyməti</th>
-                <th scope="col">Sayı</th>
-                <th scope="col">Redaktə et</th>
-                <th scope="col">Sil</th>
+                <th >#</th>
+                <th >Kateqoriya Adı</th>
+                <th >Şəkli</th>
+                <th >Adı</th>
+                <th >Qiyməti</th>
+                <th>Sayı</th>
+                <th>Redaktə et</th>
+                <th>Sil</th>
 
 
             </tr>

@@ -38,7 +38,7 @@ namespace Madeyra.Areas.AdminPanel.Controllers
         }
         public IActionResult Create()
         {
-            ViewBag.Category = _context.Categories.ToList();
+            ViewBag.Category = _context.Categories.Where(x => x.IsDeleted == false).ToList();
             return View();
         }
         [HttpPost]
@@ -49,7 +49,7 @@ namespace Madeyra.Areas.AdminPanel.Controllers
             {
                 return View();
             }
-            ViewBag.Category = _context.Categories.ToList();
+            ViewBag.Category = _context.Categories.Where(x=>x.IsDeleted==false).ToList();
             Category existscategory = _context.Categories.FirstOrDefault(x => x.Name.ToUpper() == category.Name.ToUpper());
             if (existscategory != null)
             {

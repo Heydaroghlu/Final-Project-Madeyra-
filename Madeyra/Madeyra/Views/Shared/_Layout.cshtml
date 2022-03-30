@@ -120,7 +120,7 @@
                                                             {
                                                                 if (!sub.IsDeleted)
                                                                 {
-                                                                    <li><a asp-action="index"  asp-controller="product" asp-route-id="@sub.Id" asp-route-min="@ViewBag.SelectMin" asp-route-max="@ViewBag.SelectMax"><i class="fa-solid fa-angle-right"></i>@sub.Name</a></li>
+                                                                    <li><a asp-action="index"  asp-controller="product" asp-route-id="@sub.Id" ><i class="fa-solid fa-angle-right"></i>@sub.Name</a></li>
                                                                 }
                                                             }
                                                         </ul>
@@ -321,9 +321,9 @@
                         <ul id="footer-menu">
                             <li><a asp-action="aboutus" asp-controller="about">Haqqımızda</a></li>
                             <li><a asp-action="service" asp-controller="about">Müştəri xidməti</a></li>
-                            <li><a href="terminler.html">Terminlər</a></li>
-                            <li><a href="zemanet.html">Zəmanət</a></li>
-                            <li><a href="missiya.html">Missiya</a></li>
+                            <li><a asp-action="Termin" asp-controller="about">Terminlər</a></li>
+                            <li><a asp-action="quaranty" asp-controller="about">Zəmanət</a></li>
+                            <li><a asp-action="mission" asp-controller="about">Missiya</a></li>
                         </ul>
                     </div>
                     <div class="col-xl-4 col-md-4">

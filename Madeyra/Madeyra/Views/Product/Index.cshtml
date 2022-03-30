@@ -109,15 +109,18 @@
                                                                  class="card-img-top" alt="...">
                                                         </a>
                                                     </div>
-                                                    <div class="credit-tag">
-                                                        <div class="price">
-                                                            <span>Ayda <br> 64</span>
+                                                    @if (item.IsInterestFree == true)
+                                                    {
+                                                        <div class="credit-tag">
+                                                            <div class="price">
+                                                                <span>Ayda <br> 64</span>
+                                                            </div>
+                                                            <div class="tag">
+                                                                <span>24 Ay Faizsiz</span>
+                                                            </div>
                                                         </div>
-                                                        <div class="tag">
-                                                            <span>24 Ay Faizsiz</span>
-                                                        </div>
-                                                    </div>
-                                                    <i class="fa-solid fa-heart"></i>
+                                                    }
+                                                    <a style="color:black" asp-controller="product" asp-action="AddtoWish" asp-route-id="@item.Id"><i class="fa-solid fa-heart"></i></a>
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
@@ -125,7 +128,7 @@
                                                                 <div class="row">
                                                                     <div class="favorite-price">
                                                                         <div class="price">
-                                                                            <span class="oldprice">@((item.SalePrice).ToString("#.##"))₼</span> <span class="newprice">@((item.SalePrice*(1-(item.DiscountPrice/100))).ToString("#.##"))</span>
+                                                                            <span class="oldprice">@if (item.DiscountPrice > 0) { @((item.SalePrice).ToString("#.##")) <span>₼</span>}</span> <span class="newprice">@((item.SalePrice*(1-(item.DiscountPrice/100))).ToString("#.##"))₼</span>
                                                                         </div>
 
                                                                     </div>

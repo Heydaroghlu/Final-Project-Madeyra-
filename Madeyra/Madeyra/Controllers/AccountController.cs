@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MimeKit;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -99,6 +100,27 @@ namespace Madeyra.Controllers
                 ModelState.AddModelError("", "Ad və ya Şifrə yanlışdır");
                 return View();
             }
+            BasketViewModel basketView = null;
+            List<BasketViewModel> basketlist = new List<BasketViewModel>();
+            string basketStr;
+            if(HttpContext.Request.Cookies["Basket"]!=null)
+            {
+                basketStr = HttpContext.Request.Cookies["Basket"];
+                basketlist = JsonConvert.DeserializeObject<List<BasketViewModel>>(basketStr);
+            }
+            foreach(var item in basketlist)
+            {
+                BasketItem newbasket = new BasketItem
+                {
+                    AppUserId = member.Id,
+                    ProductId = item.ProductId,
+                    Count = 1,
+                    Price = item.Price,
+                    Discount = item.Discount
+                };
+                _context.BasketItems.Add(newbasket);
+            }
+            _context.SaveChanges();
 
             return RedirectToAction("index", "home");
         }
