@@ -10043,11 +10043,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\heyde\\source\\repos\\Madeyra\\Madeyra\\Madeyra.csproj",
+      "projectUniqueName": "C:\\Users\\heyde\\OneDrive\\Desktop\\Madeyra\\Madeyra\\Madeyra\\Madeyra.csproj",
       "projectName": "Madeyra",
-      "projectPath": "C:\\Users\\heyde\\source\\repos\\Madeyra\\Madeyra\\Madeyra.csproj",
+      "projectPath": "C:\\Users\\heyde\\OneDrive\\Desktop\\Madeyra\\Madeyra\\Madeyra\\Madeyra.csproj",
       "packagesPath": "C:\\Users\\heyde\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\heyde\\source\\repos\\Madeyra\\Madeyra\\obj\\",
+      "outputPath": "C:\\Users\\heyde\\OneDrive\\Desktop\\Madeyra\\Madeyra\\Madeyra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\heyde\\AppData\\Roaming\\NuGet\\NuGet.Config",

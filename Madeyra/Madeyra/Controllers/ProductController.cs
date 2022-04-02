@@ -320,11 +320,11 @@ namespace Madeyra.Controllers
         [HttpPost]
         public async Task<IActionResult> Comment(ProductComment comment)
         {
-            if(comment.Name==null || comment.SurName==null || comment.Text==null)
+           /* if(comment.Name==null || comment.SurName==null || comment.Text==null)
             {
                 TempData["Sifarisnull"] = "Şərh məlumatları düzgün deyil";
                 return RedirectToAction("Detail",new { id=comment.ProductId});
-            }
+            }*/
             Product product = _context.Products.Include(x => x.ProductImages)
                 .Include(x => x.ProductColors)
                 .Include(x => x.ProductMatreals)
